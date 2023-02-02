@@ -1,5 +1,5 @@
 # SE-project-Group-5
-Aaron Le - adl409 - Group Leader
+Aaron Le - adl409 - adl409 Group Leader
 Wen Chen - wchen2654
 Nathan Lechner - nml162
 Scott Hoerchler - Rien98 - Slh838
