@@ -1,7 +1,7 @@
 # SE-project-Group-5
 Aaron Le - adl409 - Group Leader
 Wen Chen - wchen2654
-Nathan Lechner - Na7hanL
+Nathan Lechner - nml162
 Scott Hoerchler - Rien98
 
 Languages and Frameworks
