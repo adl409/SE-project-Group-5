@@ -2,7 +2,7 @@
 Aaron Le - adl409 - Group Leader
 Wen Chen - wchen2654
 Nathan Lechner - nml162
-Scott Hoerchler - Rien98
+Scott Hoerchler - Rien98 - Slh838
 
 Languages and Frameworks
 JavaScript Node.js and Python
