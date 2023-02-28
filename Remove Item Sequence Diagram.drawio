@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-28T07:12:55.447Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="sLKH_BAXPD634c7Dc6ZB" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-28T07:13:46.365Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="vgePeSn5uOJTF1_Y4Rzm" version="20.8.23" type="github">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
     <mxGraphModel dx="1247" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -57,7 +57,7 @@
           <mxGeometry x="45" y="390" width="10" height="420" as="geometry" />
         </mxCell>
         <mxCell id="WzLBoGMBvQ0cPkd2S0De-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="WzLBoGMBvQ0cPkd2S0De-1">
-          <mxGeometry x="50" y="490" width="10" height="80" as="geometry" />
+          <mxGeometry x="50" y="500" width="10" height="70" as="geometry" />
         </mxCell>
         <mxCell id="WzLBoGMBvQ0cPkd2S0De-4" value="Promp user for which item to delete" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="WzLBoGMBvQ0cPkd2S0De-2" target="jPpGuaEWy_2qQxv9hoCe-4">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -171,11 +171,12 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="WzLBoGMBvQ0cPkd2S0De-16" value="Amount is more" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="WzLBoGMBvQ0cPkd2S0De-14" target="WzLBoGMBvQ0cPkd2S0De-17">
+        <mxCell id="WzLBoGMBvQ0cPkd2S0De-16" value="Amount is more than &lt;br&gt;amount in cart" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="WzLBoGMBvQ0cPkd2S0De-14" target="WzLBoGMBvQ0cPkd2S0De-17">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="410" y="560" as="sourcePoint" />
             <mxPoint x="330" y="560" as="targetPoint" />
             <Array as="points">
+              <mxPoint x="430" y="560" />
               <mxPoint x="330" y="550" />
               <mxPoint x="410" y="560" />
             </Array>
