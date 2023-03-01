@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-01T22:59:40.238Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="632reoM78Amgb3WsTy0m" version="20.8.23" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-01T23:03:52.632Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="dippiHaf6fLk3Kg7bUXS" version="20.8.23" type="github">
   <diagram name="Page-1" id="aF7w4Li_MaSvbx8YZ_qD">
     <mxGraphModel dx="1366" dy="794" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
       <root>
@@ -70,7 +70,7 @@
         <mxCell id="ACF1aDMEDX5oJnM7UKqQ-35" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="ACF1aDMEDX5oJnM7UKqQ-33" vertex="1">
           <mxGeometry y="52" width="270" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="ACF1aDMEDX5oJnM7UKqQ-36" value="+ viewInventory(): void&#xa;+ addItem(name: string, ISBN): bool&#xa;+ editItem(ISBN: int, flag: int, quanity: int): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ACF1aDMEDX5oJnM7UKqQ-33" vertex="1">
+        <mxCell id="ACF1aDMEDX5oJnM7UKqQ-36" value="+ viewInventory(): void&#xa;+ addItem(book:Book): bool&#xa;+ editItem(ISBN: int, flag: int, quanity: int): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ACF1aDMEDX5oJnM7UKqQ-33" vertex="1">
           <mxGeometry y="60" width="270" height="50" as="geometry" />
         </mxCell>
         <mxCell id="ACF1aDMEDX5oJnM7UKqQ-41" value="Order&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
