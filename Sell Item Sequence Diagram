@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-03T00:41:35.640Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="G5bmYBJNLLJwHKzKEEhf" version="21.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-03T10:18:03.664Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="7XhIZfORjYwJYC5pioyR" version="20.8.23" type="github">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
-    <mxGraphModel dx="989" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1229" dy="553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -68,7 +68,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="-Ontj3H1JqpH_wRZHdf8-2" value="&amp;lt;&amp;lt;creates&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0.08;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1" target="-Ontj3H1JqpH_wRZHdf8-3">
+        <mxCell id="-Ontj3H1JqpH_wRZHdf8-2" value="&amp;lt;&amp;lt;creates&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0.08;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="-Ontj3H1JqpH_wRZHdf8-3" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="410" y="270" as="sourcePoint" />
             <mxPoint x="540" y="270" as="targetPoint" />
@@ -81,7 +81,7 @@
           <mxGeometry x="550" y="250" width="100" height="240" as="geometry" />
         </mxCell>
         <mxCell id="9BeNTBFsMaHWPZCyBRZ3-3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="-Ontj3H1JqpH_wRZHdf8-3" vertex="1">
-          <mxGeometry x="45" y="70" width="10" height="40" as="geometry" />
+          <mxGeometry x="45" y="60" width="10" height="40" as="geometry" />
         </mxCell>
         <mxCell id="9BeNTBFsMaHWPZCyBRZ3-1" value="Book(name,ISBN, seller)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" target="9BeNTBFsMaHWPZCyBRZ3-3" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -100,7 +100,7 @@
         <mxCell id="iqzCoa5MeYYNdR9QJOFa-4" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="9BeNTBFsMaHWPZCyBRZ3-4" vertex="1">
           <mxGeometry x="45" y="360" width="10" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="pzRHDbCwiWv1ANPKNFJX-5" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="9BeNTBFsMaHWPZCyBRZ3-4">
+        <mxCell id="pzRHDbCwiWv1ANPKNFJX-5" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="9BeNTBFsMaHWPZCyBRZ3-4" vertex="1">
           <mxGeometry x="45" y="100" width="10" height="40" as="geometry" />
         </mxCell>
         <mxCell id="9BeNTBFsMaHWPZCyBRZ3-7" value="Returns book object" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="9BeNTBFsMaHWPZCyBRZ3-3" target="9BeNTBFsMaHWPZCyBRZ3-6" edge="1">
@@ -118,7 +118,7 @@
         <mxCell id="iqzCoa5MeYYNdR9QJOFa-3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="9BeNTBFsMaHWPZCyBRZ3-8" vertex="1">
           <mxGeometry x="45" y="340" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="pzRHDbCwiWv1ANPKNFJX-3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="9BeNTBFsMaHWPZCyBRZ3-8">
+        <mxCell id="pzRHDbCwiWv1ANPKNFJX-3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="9BeNTBFsMaHWPZCyBRZ3-8" vertex="1">
           <mxGeometry x="45" y="90" width="10" height="20" as="geometry" />
         </mxCell>
         <mxCell id="iqzCoa5MeYYNdR9QJOFa-2" value="Request to add item into database" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="9BeNTBFsMaHWPZCyBRZ3-6" target="iqzCoa5MeYYNdR9QJOFa-3" edge="1">
@@ -158,7 +158,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="pzRHDbCwiWv1ANPKNFJX-1" value="User request to add item" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="pzRHDbCwiWv1ANPKNFJX-1" value="User request to add item" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="59.81034482758605" y="200" as="sourcePoint" />
             <mxPoint x="400" y="200" as="targetPoint" />
@@ -171,7 +171,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="pzRHDbCwiWv1ANPKNFJX-2" value="Returns list of books that the owner owns" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="pzRHDbCwiWv1ANPKNFJX-5">
+        <mxCell id="pzRHDbCwiWv1ANPKNFJX-2" value="Returns list of books that the owner owns" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="pzRHDbCwiWv1ANPKNFJX-5" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="390" y="170" as="sourcePoint" />
             <mxPoint x="410" y="160" as="targetPoint" />
@@ -185,7 +185,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="pzRHDbCwiWv1ANPKNFJX-4" value="Request for books that the seller owns" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="aM9ryv3xv72pqoxQDRHE-6" target="pzRHDbCwiWv1ANPKNFJX-3">
+        <mxCell id="pzRHDbCwiWv1ANPKNFJX-4" value="Request for books that the seller owns" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="aM9ryv3xv72pqoxQDRHE-6" target="pzRHDbCwiWv1ANPKNFJX-3" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="440" y="120" as="sourcePoint" />
             <mxPoint x="520" y="120" as="targetPoint" />
@@ -194,7 +194,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="pzRHDbCwiWv1ANPKNFJX-6" value="viewInventory(seller_name)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="pzRHDbCwiWv1ANPKNFJX-3" target="pzRHDbCwiWv1ANPKNFJX-5">
+        <mxCell id="pzRHDbCwiWv1ANPKNFJX-6" value="viewInventory(seller_name)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="pzRHDbCwiWv1ANPKNFJX-3" target="pzRHDbCwiWv1ANPKNFJX-5" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="780" y="130" as="sourcePoint" />
             <mxPoint x="860" y="130" as="targetPoint" />
@@ -203,7 +203,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="pzRHDbCwiWv1ANPKNFJX-7" value="Display the list of books" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="aM9ryv3xv72pqoxQDRHE-6" target="-Ontj3H1JqpH_wRZHdf8-1">
+        <mxCell id="pzRHDbCwiWv1ANPKNFJX-7" value="Display the list of books" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="aM9ryv3xv72pqoxQDRHE-6" target="-Ontj3H1JqpH_wRZHdf8-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="265" y="170" as="sourcePoint" />
             <mxPoint x="185" y="170" as="targetPoint" />
