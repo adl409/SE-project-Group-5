@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-03T23:21:37.572Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="mBmguL3K6fmrHwxcRpgi" version="21.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-03T23:28:45.241Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="ucP-kiUnOSYHiHPO4GRp" version="21.0.2" type="github">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
     <mxGraphModel dx="819" dy="477" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -80,7 +80,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="A4sZTyzkC8wXtypya0Hb-2" value="Owner selects which user to select as admin&amp;nbsp;" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="_36j8nGnjNQtXhF7ESue-1" target="aM9ryv3xv72pqoxQDRHE-6">
+        <mxCell id="A4sZTyzkC8wXtypya0Hb-2" value="Owner selects which user/adim to set/unset as admin&amp;nbsp;" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="_36j8nGnjNQtXhF7ESue-1" target="aM9ryv3xv72pqoxQDRHE-6">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="210" y="189.71" as="sourcePoint" />
             <mxPoint x="290" y="189.71" as="targetPoint" />
@@ -89,7 +89,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="A4sZTyzkC8wXtypya0Hb-4" value="Edit the user database to &lt;br&gt;set that user as admin" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="aM9ryv3xv72pqoxQDRHE-6" target="A4sZTyzkC8wXtypya0Hb-3">
+        <mxCell id="A4sZTyzkC8wXtypya0Hb-4" value="Edit the user database to &lt;br&gt;set/unset that user as admin/non-admin" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="aM9ryv3xv72pqoxQDRHE-6" target="A4sZTyzkC8wXtypya0Hb-3">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="480" y="200" as="sourcePoint" />
             <mxPoint x="560" y="200" as="targetPoint" />
@@ -105,6 +105,12 @@
             <Array as="points">
               <mxPoint x="280" y="250" />
             </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A4sZTyzkC8wXtypya0Hb-7" value="Display status" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="A4sZTyzkC8wXtypya0Hb-6" target="_36j8nGnjNQtXhF7ESue-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="270.14" as="sourcePoint" />
+            <mxPoint x="110" y="270.14" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
