@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-04T00:59:41.601Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="FD2UGDmSbdqeAaA3Yhpo" version="21.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-04T01:00:40.658Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="SJlzJrr4kBPMPDd0XHUB" version="21.0.2" type="github">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
     <mxGraphModel dx="1136" dy="652" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -37,7 +37,7 @@
             <mxPoint x="410" y="170" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="51-mn-C-0Qbd7u0tzgTL-10" value="Return list of book objects that the owner owns" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-12" target="51-mn-C-0Qbd7u0tzgTL-15">
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-10" value="Return list of book objects that the seller owns" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-12" target="51-mn-C-0Qbd7u0tzgTL-15">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="430.1900000000002" y="270" as="targetPoint" />
             <Array as="points">
@@ -250,7 +250,7 @@
             <mxPoint x="410" y="660" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="51-mn-C-0Qbd7u0tzgTL-51" value="Return list of book objects that the owner owns" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-53" target="51-mn-C-0Qbd7u0tzgTL-56">
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-51" value="Return list of all book objects" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-53" target="51-mn-C-0Qbd7u0tzgTL-56">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="430.1900000000002" y="760" as="targetPoint" />
             <Array as="points">
@@ -345,6 +345,7 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="90" y="790" as="targetPoint" />
             <Array as="points">
+              <mxPoint x="340" y="780" />
               <mxPoint x="150" y="790" />
               <mxPoint x="370" y="780" />
               <mxPoint x="350" y="770" />
@@ -353,7 +354,7 @@
             <mxPoint x="420" y="790" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="51-mn-C-0Qbd7u0tzgTL-66" value="Seller request to remove one of the books" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" target="51-mn-C-0Qbd7u0tzgTL-56">
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-66" value="Admin request to remove one of the books" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" target="51-mn-C-0Qbd7u0tzgTL-56">
           <mxGeometry x="0.0309" width="80" relative="1" as="geometry">
             <mxPoint x="90" y="820" as="sourcePoint" />
             <mxPoint x="420" y="820" as="targetPoint" />
