@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-04T02:06:04.997Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="iaiU10gm3fsr9SlX8kzD" version="21.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-04T02:10:54.537Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="-VPNwTVJBr5JTNKmu8ku" version="21.0.2" type="github">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
     <mxGraphModel dx="941" dy="541" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -35,7 +35,7 @@
         <mxCell id="l6_xs8o2x7X_6aQejbAo-10" value="Owner" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="30" y="50" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="l6_xs8o2x7X_6aQejbAo-11" value="Owner requests to set a seller" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="l6_xs8o2x7X_6aQejbAo-9" target="l6_xs8o2x7X_6aQejbAo-5" edge="1">
+        <mxCell id="l6_xs8o2x7X_6aQejbAo-11" value="Owner logs in" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="l6_xs8o2x7X_6aQejbAo-9" target="l6_xs8o2x7X_6aQejbAo-5" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="140" y="150" as="sourcePoint" />
             <Array as="points">
