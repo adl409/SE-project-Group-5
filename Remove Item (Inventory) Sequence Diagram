@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-04T00:54:29.124Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="_iw7-Rqri31b190Jt05X" version="21.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-04T00:59:41.601Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57" etag="FD2UGDmSbdqeAaA3Yhpo" version="21.0.2" type="github">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
     <mxGraphModel dx="1136" dy="652" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -214,6 +214,219 @@
               <mxPoint x="230" y="475" />
               <mxPoint x="150" y="480" />
               <mxPoint x="110" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-42" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;" vertex="1" parent="1">
+          <mxGeometry x="80" y="575" width="20" height="425" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-43" value="Admin" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="550" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-44" value=":Main Page" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="220" y="580" width="100" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-45" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-44">
+          <mxGeometry x="45" y="70" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-46" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-44">
+          <mxGeometry x="45" y="370" width="10" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-47" value=":Book" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="970" y="700" width="100" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-48" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-47">
+          <mxGeometry x="45" y="50" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-49" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-47">
+          <mxGeometry x="45" y="200" width="10" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-50" value="Redirect" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-45" target="51-mn-C-0Qbd7u0tzgTL-56">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="670" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="310" y="660" />
+            </Array>
+            <mxPoint x="410" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-51" value="Return list of book objects that the owner owns" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-53" target="51-mn-C-0Qbd7u0tzgTL-56">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430.1900000000002" y="760" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="770" />
+              <mxPoint x="520" y="760" />
+              <mxPoint x="460" y="755" />
+              <mxPoint x="780" y="750" />
+              <mxPoint x="830" y="760" />
+              <mxPoint x="360.19" y="790" />
+              <mxPoint x="380.19" y="780" />
+              <mxPoint x="340.19" y="740" />
+            </Array>
+            <mxPoint x="630.19" y="760" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-52" value=":Inventory Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="810" y="580" width="100" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-53" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-52">
+          <mxGeometry x="45" y="100" width="10" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-54" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-52">
+          <mxGeometry x="45" y="310" width="10" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-55" value=":Seller Page/Seller Object" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="375" y="580" width="100" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-56" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-55">
+          <mxGeometry x="45" y="80" width="10" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-57" value="Admin requests to manage books" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-42" target="51-mn-C-0Qbd7u0tzgTL-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="650" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="160" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-58" value=":Inventory" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="610" y="580" width="100" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-59" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-58">
+          <mxGeometry x="45" y="90" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-60" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="51-mn-C-0Qbd7u0tzgTL-58">
+          <mxGeometry x="45" y="290" width="10" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-61" value="Request for books that &lt;b&gt;ALL&lt;/b&gt; sellers&amp;nbsp;owns" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-56" target="51-mn-C-0Qbd7u0tzgTL-59">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="450" y="680" as="sourcePoint" />
+            <mxPoint x="730" y="670" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="670" />
+              <mxPoint x="510" y="680" />
+              <mxPoint x="550" y="680" />
+              <mxPoint x="590" y="670" />
+              <mxPoint x="620" y="660" />
+              <mxPoint x="655" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-62" value="viewInventory()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-59" target="51-mn-C-0Qbd7u0tzgTL-53">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="555" y="640" as="sourcePoint" />
+            <mxPoint x="690" y="640" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="690" y="680" />
+              <mxPoint x="610" y="640" />
+              <mxPoint x="690" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-63" value="&amp;lt;&amp;lt;creates&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-53">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="720" as="sourcePoint" />
+            <mxPoint x="970" y="720" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="890" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-64" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-48" target="51-mn-C-0Qbd7u0tzgTL-53">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="750" as="sourcePoint" />
+            <mxPoint x="890" y="750" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="940" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-65" value="Display the list of books" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-56" target="51-mn-C-0Qbd7u0tzgTL-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="790" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="150" y="790" />
+              <mxPoint x="370" y="780" />
+              <mxPoint x="350" y="770" />
+              <mxPoint x="175.19" y="760" />
+            </Array>
+            <mxPoint x="420" y="790" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-66" value="Seller request to remove one of the books" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" target="51-mn-C-0Qbd7u0tzgTL-56">
+          <mxGeometry x="0.0309" width="80" relative="1" as="geometry">
+            <mxPoint x="90" y="820" as="sourcePoint" />
+            <mxPoint x="420" y="820" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="820" />
+              <mxPoint x="360" y="810" />
+              <mxPoint x="340" y="800" />
+              <mxPoint x="160" y="790" />
+              <mxPoint x="395.19" y="800" />
+              <mxPoint x="365.19" y="800" />
+              <mxPoint x="335.19" y="770" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-67" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/evericons-16px/16/x-128.png" vertex="1" parent="1">
+          <mxGeometry x="992.5" y="950" width="55" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-68" value="Request to delete the book in database" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-56" target="51-mn-C-0Qbd7u0tzgTL-60">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="520" y="870.28" as="sourcePoint" />
+            <mxPoint x="600" y="870.28" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="610" y="870" />
+              <mxPoint x="490" y="870" />
+              <mxPoint x="470" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-69" value="removeItem(book)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-60" target="51-mn-C-0Qbd7u0tzgTL-54">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="690" y="890" as="sourcePoint" />
+            <mxPoint x="770" y="890" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="840" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-70" value="Find the specified book" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-54" target="51-mn-C-0Qbd7u0tzgTL-49">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="880" y="900" as="sourcePoint" />
+            <mxPoint x="960" y="900" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="890" y="900" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-71" value="Return success" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-54" target="51-mn-C-0Qbd7u0tzgTL-56">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="770" y="930" as="sourcePoint" />
+            <mxPoint x="670" y="930" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="770" y="930" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-72" value="Redirect" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-56" target="51-mn-C-0Qbd7u0tzgTL-46">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="310" y="950.28" as="sourcePoint" />
+            <mxPoint x="390" y="950.28" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="300" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51-mn-C-0Qbd7u0tzgTL-73" value="Display results" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="51-mn-C-0Qbd7u0tzgTL-46" target="51-mn-C-0Qbd7u0tzgTL-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="960.28" as="sourcePoint" />
+            <mxPoint x="130" y="960.28" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="230" y="965" />
+              <mxPoint x="150" y="970" />
+              <mxPoint x="110" y="980" />
             </Array>
           </mxGeometry>
         </mxCell>
