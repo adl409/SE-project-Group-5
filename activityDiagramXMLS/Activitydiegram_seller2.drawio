@@ -1,0 +1,65 @@
+<mxfile host="app.diagrams.net" modified="2023-03-07T00:25:06.543Z" agent="5.0 (X11; Ubuntu)" etag="v8vOuHg3K4Vxg8MCPcVN" version="21.0.2" type="github">
+  <diagram name="Page-1" id="x5ZLKTb9RCKDBkLMLuf5">
+    <mxGraphModel dx="1600" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3000" pageHeight="3000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0F96_dvr6YBqth5a-uS6-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="0F96_dvr6YBqth5a-uS6-10" target="KxyoGD_ga8BzEu4N7mOD-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="KxyoGD_ga8BzEu4N7mOD-1" target="0F96_dvr6YBqth5a-uS6-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="155" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KxyoGD_ga8BzEu4N7mOD-1" value="" style="ellipse;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+          <mxGeometry x="140" y="60" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="KxyoGD_ga8BzEu4N7mOD-8" target="0F96_dvr6YBqth5a-uS6-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="KxyoGD_ga8BzEu4N7mOD-8" target="0F96_dvr6YBqth5a-uS6-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KxyoGD_ga8BzEu4N7mOD-8" value="Change Product&#xa;Info" style="" parent="1" vertex="1">
+          <mxGeometry x="310" y="320" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="AW8IPVEQHNutLo8pWSTY-7" value="" style="ellipse;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+          <mxGeometry x="660" y="430" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="0F96_dvr6YBqth5a-uS6-2" target="0F96_dvr6YBqth5a-uS6-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-2" value="Input New Price" style="fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="310" y="420" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="0F96_dvr6YBqth5a-uS6-4" target="AW8IPVEQHNutLo8pWSTY-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-4" value="&lt;div&gt;Confirm&lt;/div&gt;&lt;div&gt;Change&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="515" y="405" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="0F96_dvr6YBqth5a-uS6-9" target="0F96_dvr6YBqth5a-uS6-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-9" value="View Inventory" style="" parent="1" vertex="1">
+          <mxGeometry x="100" y="190" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-10" value="Access Item Info" style="fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="100" y="320" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.809;entryY=-0.1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="0F96_dvr6YBqth5a-uS6-14" target="0F96_dvr6YBqth5a-uS6-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="528" y="400" />
+              <mxPoint x="399" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0F96_dvr6YBqth5a-uS6-14" value="&lt;div&gt;Compare &lt;br&gt;&lt;/div&gt;&lt;div&gt;Item&lt;/div&gt;&lt;div&gt;Trend&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="480" y="297.5" width="95" height="95" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
