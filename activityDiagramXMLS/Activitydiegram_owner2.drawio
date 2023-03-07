@@ -1,0 +1,51 @@
+<mxfile host="app.diagrams.net" modified="2023-03-07T18:41:00.326Z" agent="5.0 (X11; Ubuntu)" etag="sEM2qh90UuYsqVXEVCJd" version="21.0.2" type="github">
+  <diagram name="Page-1" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
+    <mxGraphModel dx="1600" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HsOrv2_hCp-Si552SApS-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-63" target="HsOrv2_hCp-Si552SApS-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-63" value="" style="ellipse;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+          <mxGeometry x="264.5" y="168" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-80" value="" style="ellipse;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+          <mxGeometry x="800" y="500" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="HsOrv2_hCp-Si552SApS-1" target="HsOrv2_hCp-Si552SApS-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-1" value="&lt;div&gt;View &lt;br&gt;&lt;/div&gt;&lt;div&gt;Seller Application&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="229.25" y="230" width="100.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="HsOrv2_hCp-Si552SApS-3" target="HsOrv2_hCp-Si552SApS-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-3" value="&lt;div&gt;View User&lt;/div&gt;&lt;div&gt;Profile&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="229.25" y="350" width="100.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="HsOrv2_hCp-Si552SApS-5" target="HsOrv2_hCp-Si552SApS-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-5" value="&lt;div&gt;Give &lt;br&gt;&lt;/div&gt;&lt;div&gt;Seller Privileges&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="409.75" y="350" width="100.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="HsOrv2_hCp-Si552SApS-9" target="HsOrv2_hCp-Si552SApS-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-9" value="&lt;div&gt;Confirm &lt;br&gt;&lt;/div&gt;&lt;div&gt;Seller&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=0;strokeColor=#000000;fillColor=#FF8000;" parent="1" vertex="1">
+          <mxGeometry x="600.5" y="330" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="HsOrv2_hCp-Si552SApS-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HsOrv2_hCp-Si552SApS-11" value="&lt;div&gt;Send Seller&lt;br&gt;&lt;/div&gt;&lt;div&gt;Credentials&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="590.75" y="500" width="99.5" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
