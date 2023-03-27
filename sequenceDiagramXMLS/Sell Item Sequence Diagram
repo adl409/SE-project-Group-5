@@ -1,0 +1,139 @@
+<mxfile host="app.diagrams.net" modified="2023-03-09T19:10:51.467Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.63" etag="xfOXQwdX4mJ3K29lxhyg" version="21.0.2" type="github">
+  <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
+    <mxGraphModel dx="1063" dy="610" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OoJDTsw69A2JUIpJQw-l-2" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Seller User Story 1&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="30" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-5" value="Seller" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="30" y="50" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-6" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;" parent="1" vertex="1">
+          <mxGeometry x="50" y="70" width="20" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-7" value=":User Interface" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="175" y="60" width="100" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-8" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="4_CGVw_hbIBOzNbQmGIS-7" vertex="1">
+          <mxGeometry x="45" y="70" width="10" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-11" value="Redirect to Seller Page" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="4_CGVw_hbIBOzNbQmGIS-7" source="4_CGVw_hbIBOzNbQmGIS-8" target="4_CGVw_hbIBOzNbQmGIS-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="65" y="80" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="75" y="90" />
+              <mxPoint x="65" y="120" />
+            </Array>
+            <mxPoint x="70" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="4_CGVw_hbIBOzNbQmGIS-7" vertex="1">
+          <mxGeometry x="45" y="190" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-19" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="4_CGVw_hbIBOzNbQmGIS-7" vertex="1">
+          <mxGeometry x="45" y="260" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-25" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="4_CGVw_hbIBOzNbQmGIS-7" vertex="1">
+          <mxGeometry x="45" y="350" width="10" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-9" value="Seller request to manage books" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-6" target="4_CGVw_hbIBOzNbQmGIS-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="-350" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="120" y="130" />
+              <mxPoint x="60" y="140" />
+              <mxPoint x="100" y="-350" />
+            </Array>
+            <mxPoint x="220" y="-350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-12" value=":Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="440" y="60" width="100" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-14" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="4_CGVw_hbIBOzNbQmGIS-12" vertex="1">
+          <mxGeometry x="45" y="160" width="10" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-22" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="4_CGVw_hbIBOzNbQmGIS-12" vertex="1">
+          <mxGeometry x="45" y="320" width="10" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-15" value="Request for lists of books that seller owns" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-8" target="4_CGVw_hbIBOzNbQmGIS-14" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="310" y="220" as="sourcePoint" />
+            <mxPoint x="390" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="340" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-16" value="Return list of books that seller owns" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-14" target="4_CGVw_hbIBOzNbQmGIS-17" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="250" as="sourcePoint" />
+            <mxPoint x="320" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="270" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-18" value="Display list of books to seller" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-17" target="4_CGVw_hbIBOzNbQmGIS-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="290" as="sourcePoint" />
+            <mxPoint x="100" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="90" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-20" value="Seller request to add item" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-6" target="4_CGVw_hbIBOzNbQmGIS-19" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="100" y="320" as="sourcePoint" />
+            <mxPoint x="180" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="60" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-21" value="Provide book information" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-6" target="4_CGVw_hbIBOzNbQmGIS-19" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="60" y="320" as="sourcePoint" />
+            <mxPoint x="220" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="345" />
+              <mxPoint x="200" y="350" />
+              <mxPoint x="170" y="350" />
+              <mxPoint x="60" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-23" value="Add a book into the database" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-19" target="4_CGVw_hbIBOzNbQmGIS-22" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="310" y="380" as="sourcePoint" />
+            <mxPoint x="390" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="310" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-24" value="Return success" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-22" target="4_CGVw_hbIBOzNbQmGIS-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="410" as="sourcePoint" />
+            <mxPoint x="320" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="270" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4_CGVw_hbIBOzNbQmGIS-26" value="Display success" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="4_CGVw_hbIBOzNbQmGIS-25" target="4_CGVw_hbIBOzNbQmGIS-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="440" as="sourcePoint" />
+            <mxPoint x="95" y="440" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="90" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

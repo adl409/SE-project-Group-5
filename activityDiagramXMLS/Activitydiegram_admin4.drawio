@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net" modified="2023-03-07T18:59:16.839Z" agent="5.0 (X11; Ubuntu)" etag="E4hDZ5E9G_NAWloXL5AO" version="21.0.2" type="github">
+  <diagram name="Page-1" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
+    <mxGraphModel dx="1600" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-63" target="TiHZ_bhoqt1_sWs0BBmt-66" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-63" value="" style="ellipse;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+          <mxGeometry x="264.5" y="168" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-66" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="279.5" y="368" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-66" target="TiHZ_bhoqt1_sWs0BBmt-68" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-66" value="&lt;div&gt;Login as &lt;br&gt;&lt;/div&gt;&lt;div&gt;Admin&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="222" y="250" width="115" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-68" target="TiHZ_bhoqt1_sWs0BBmt-69" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-68" value="Find Bad content" style="rounded=0;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="222" y="368" width="115" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-69" value="&lt;div&gt;View Seller&lt;/div&gt;&lt;div&gt;of Content&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="222" y="486" width="115" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-71" target="TiHZ_bhoqt1_sWs0BBmt-73" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-71" value="Find Bad content" style="rounded=0;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="480" y="486" width="115" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-73" target="TiHZ_bhoqt1_sWs0BBmt-75" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-73" value="&lt;div&gt;Mark Content &lt;br&gt;&lt;/div&gt;&lt;div&gt;Not Valid&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="480" y="368" width="115" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF0000;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-75" target="TiHZ_bhoqt1_sWs0BBmt-76" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-75" value="&lt;div&gt;Remove &lt;br&gt;&lt;/div&gt;&lt;div&gt;Not Valid Content&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="620" y="368" width="115" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-76" value="&lt;div&gt;Send &lt;br&gt;&lt;/div&gt;&lt;div&gt;Warning &lt;br&gt;&lt;/div&gt;&lt;div&gt;to Seller&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFF00;strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="638.75" y="227" width="77.5" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-77" value="&lt;div&gt;Increase Warning &lt;br&gt;&lt;/div&gt;&lt;div&gt;Level by 1&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="775" y="238" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-79" target="TiHZ_bhoqt1_sWs0BBmt-80" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-79" value="&lt;div&gt;Mark Content &lt;br&gt;&lt;/div&gt;&lt;div&gt;ID as not valid&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);" parent="1" vertex="1">
+          <mxGeometry x="775" y="368" width="115" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-80" value="" style="ellipse;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+          <mxGeometry x="1010" y="372" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-81" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-69" target="TiHZ_bhoqt1_sWs0BBmt-71" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-82" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8000;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-76" target="TiHZ_bhoqt1_sWs0BBmt-77" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;strokeColor=#CCCC00;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-76" target="TiHZ_bhoqt1_sWs0BBmt-69" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="268" />
+              <mxPoint x="410" y="496" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TiHZ_bhoqt1_sWs0BBmt-84" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="TiHZ_bhoqt1_sWs0BBmt-75" target="TiHZ_bhoqt1_sWs0BBmt-79" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
