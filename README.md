@@ -17,7 +17,7 @@ Scott Hoerchler - Rien98 - slh838
 
 
 Languages and Frameworks:
-JavaScript Node.js and Python
+Html, CSS, and JavaScript/Node.js
 
 Database:
 MariaDB
