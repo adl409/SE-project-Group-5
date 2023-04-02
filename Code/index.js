@@ -14,6 +14,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 // localhost:8080
 app.get('/', function(req,res){
 
-    res.render('pages/index');
+    res.render('pages/main'); // Page you want to render in
 
 });
