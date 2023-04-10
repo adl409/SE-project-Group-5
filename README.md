@@ -20,7 +20,7 @@ Languages and Frameworks:
 Html, CSS, and JavaScript/Node.js
 
 Database:
-MariaDB
+MySQL
 
 ## Objective of Project
 
