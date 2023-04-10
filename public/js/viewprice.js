@@ -21,14 +21,8 @@ async function ViewPrice(item_ID)
         con.query(query, function(err, result)
         {
             if (err) reject(err);
-            if(result.length == 0)
-            {
-                resolve(false)
-            }
-            else
-            {
-                resolve(true)
-            }
+            
+                resolve(result.price)
             con.end()
         })
         

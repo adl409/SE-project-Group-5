@@ -1,4 +1,3 @@
-
 var mysql = require('mysql')
 
 var con = mysql.createConnection
@@ -13,11 +12,11 @@ con.connect(function(err) {
     if (err) throw err;
 });
 
-async function BlockedUser(user_ID)
+async function RemoveListing(item_id, isbn)
 {
     return new Promise((resolve, reject) => {
 
-        var query = mysql.format("UPDATE users SET blocked_flag = 1 WHERE user_id = ?", [user_ID]);
+        var query = mysql.format("DELETE FROM inventory WHERE item_id = ? AND isbn = ?", [item_id, isbn]);
         con.query(query, function(err, result) {
             if (err) reject(err);
             if(result.length == 0)
@@ -27,6 +26,7 @@ async function BlockedUser(user_ID)
             else
             {
                 resolve(true);
+                console.log('item removed successfully')
             }
             con.end()
         });
