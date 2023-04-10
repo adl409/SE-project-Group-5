@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+  <link rel="stylesheet" type="text/css" href="cart.css">
+  <script src="cart.js"></script>
+</head>
+<body>
+  <a href="index.html">Home</a>
+  <button id="logout-button">Logout</button>
+  <style>
+		#logout-button {
+			float: right;
+			margin-right: 20px;
+		}
+	</style>
+  <h1>Shopping cart</h1>
+
+  <div id="product-container">
+    <img id="product-image" src="">
+    <div id="product-info">
+      <p>Product Name: <span id="product-name"></span></p>
+      <p>Product ID: <span id="product-id"></span></p>
+      <p>Product Price: <span id="product-price"></span></p>
+    </div>
+  </div>
+
+  <button id="checkout-button">Checkout</button>
+
+  <script>
+    // Define an example product
+    const product = {
+      id: 1,
+      name: "Example Product",
+      price: "$9.99",
+      image: "example-product.jpg"
+    };
+
+    // Store the product information in local storage
+    localStorage.setItem("product", JSON.stringify(product));
+
+    // Retrieve the product information from local storage
+    const storedProduct = JSON.parse(localStorage.getItem("product"));
+
+    // Display the product information on the page
+    document.getElementById("product-image").src = storedProduct.image;
+    document.getElementById("product-name").innerText = storedProduct.name;
+    document.getElementById("product-id").innerText = storedProduct.id;
+    document.getElementById("product-price").innerText = storedProduct.price;
+
+    // Add a click event listener to the checkout button
+    const checkoutButton = document.getElementById("checkout-button");
+    checkoutButton.addEventListener("click", function() {
+      window.location.href = "/checkout";
+    });
+    
+    // Add a click event listener to the logout button
+    const logoutButton = document.getElementById('logout-button');
+    logoutButton.addEventListener('click', function() {
+      window.location.href = '/logout';
+    });
+  </script>
+</body>
+</html>

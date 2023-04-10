@@ -1,0 +1,108 @@
+/* Set the font family and size for the page */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Style the header */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+  }
+  
+  /* Style the products container */
+  #products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2em auto;
+    max-width: 800px;
+  }
+  
+  /* Style the product card */
+  .product-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 1em;
+    overflow: hidden;
+    width: 300px;
+  }
+  
+  /* Style the product card image */
+  .product-card img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+  }
+  
+  /* Style the product card details */
+  .product-card .details {
+    padding: 1em;
+  }
+  
+  /* Style the product card name */
+  .product-card .name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  /* Style the product card price */
+  .product-card .price {
+    font-size: 1.1em;
+    margin-top: 0.5em;
+  }
+  
+  /* Style the cart container */
+  #cart {
+    margin: 2em auto;
+    max-width: 800px;
+  }
+  
+  /* Style the cart items */
+  .cart-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    overflow: hidden;
+    padding: 1em;
+  }
+  
+  /* Style the cart item name */
+  .cart-item .name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  /* Style the cart item price */
+  .cart-item .price {
+    font-size: 1.1em;
+    margin-top: 0.5em;
+  }
+  
+  /* Style the cart total */
+  #cart-total {
+    margin-top: 1em;
+    text-align: right;
+  }
+  
+  /* Style the checkout button */
+  button.checkout {
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Style the checkout button on hover */
+  button.checkout:hover {
+    background-color: #555;
+  }
+  
