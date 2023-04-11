@@ -1,28 +1,28 @@
 
 var mysql = require('mysql')
 
-var con = mysql.createConnection
-({
-    host:"localhost",
-    user:"root",
-    password:"",
-    database:"testing"
-})
 
-con.connect(function(err) {
-    if (err) throw err;
-});
-
-
-async function ViewStock(item_ID)
+async function ViewStock(item_id)
 {
     return new Promise((resolve, reject) =>
     {
-        var query = mysql.format("SELECT quantity FROM inventory WHERE item_id = ?", [item_ID]);
+        var con = mysql.createConnection
+        ({
+            host:"localhost",
+            user:"root",
+            password:"",
+            database:"se_group5"
+        })
+
+        con.connect(function(err) {
+            if (err) throw err;
+        });
+
+        var query = mysql.format("SELECT quantity FROM inventory WHERE item_id = ?", [item_id]);
         con.query(query, function(err, result)
         {
             if (err) reject(err);
-                resolve(result.quantity)
+                resolve(item_id)
             con.end();
         })
         
