@@ -96,17 +96,27 @@ const Buyer = class{
             });
     }
 
+    /*
     // checkout
-    checkout(){
+    async checkout(){
         let cartID = await this.getCartID();
         
         // check for stock
         
-        let query = mysql.format(`SELECT quantity FROM Cart_Items WHERE cart_id = ?`,
+        let query = mysql.format(`SELECT quantity, item_id FROM Cart_Items WHERE cart_id = ?`,
             [cartID]);
         let items = await con.promise(query);
         
         // update quantities
+
+        for(let i = 0; i < items.length; i++){
+            if(items[i].quantity > INVENTORY QUANT){
+                this.removeItemFromCart(items[i].item_id);
+            }
+            else{
+                // UPDATE INVENTORY QUANT
+            }
+        }
 
         // set purchased flag
         let query = mysql.format(`UPDATE Cart SET purchased_flag = 1 WHERE 
@@ -120,7 +130,7 @@ const Buyer = class{
         // create new cart
         this.createCart();
     }
-    
+    */
 
     // helper function to obtain data about books
     async bookInfoFromListing(itemID){
@@ -138,6 +148,22 @@ const Buyer = class{
     }
 
     // view items
+    // outputs list of listings where listings are in format [ISBN, Title, Category, Author, Quantity, Price, Seller Username]
+    async viewListings(){
+        let query = mysql.format(`SELECT * FROM Inventory`);
+        let rawListings = await con.promise(query);
+        let listings = [];
+        let book = "";
+        for(let i = 0; i < rawListings.length; i++){
+            let query = mysql.format(`SELECT username FROM Users WHERE user_id = ?`,
+            [rawListings[i].user_id]);
+            let seller = await con.promise(query);
+            book = await this.bookInfoFromListing(rawListings[i].item_id)
+            listings.push([book.isbn, book.title, book.category, book.author, rawListings[i].quantity, rawListings[i].price, seller[0].username]);
+        }
+        return listings;
+    }
+
     async viewCart(){
         let cartID = await this.getCartID();
         
@@ -161,11 +187,11 @@ async function main(){
     
     user = new Buyer(con, await login(con, 'Nathan', 'pass'));
     
-    console.log(await user.getCartID());
+    //console.log(await user.getCartID());
 
     //console.log(await user.viewCart())
 
-    //console.log(await user.bookInfoFromListing('3'));
+    console.log(await user.viewListings());
 
     //user.addItemToCart('1', '4');
     //user.addItemToCart('2', '4');
