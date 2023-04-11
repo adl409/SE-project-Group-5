@@ -1,13 +1,16 @@
+const express = require('express');
+const app = express();
 // Define an array to store the products
 const products = [
-  { id: 1, name: 'Product 1', price: 10 },
-  { id: 2, name: 'Product 2', price: 20 },
-  { id: 3, name: 'Product 3', price: 30 }
+  { id: 1, name: 'Product 1', price: 10, seller: 'Seller 1' },
+  { id: 2, name: 'Product 2', price: 20, seller: 'Seller 2' },
+  { id: 3, name: 'Product 3', price: 30, seller: 'Seller 3' }
 ];
 
 // Define an array to store the selected products
 const selectedProducts = [];
 
+//function 1
 // Define a route to display the products
 app.get('/products', async function(req, res) {
   try {
@@ -33,15 +36,12 @@ app.get('/products', async function(req, res) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
-// Define a route to add a product to the selected products array
-app.post('/cart/add', async function(req, res) {
+app.get('/products/:id', async function(req, res) {
   try {
-    const productId = req.body.productId;
+    const productId = parseInt(req.params.id);
     const product = products.find(p => p.id === productId);
     if (product) {
-      selectedProducts.push(product);
-      res.json({ message: 'Product added to cart successfully' });
+      res.json({ price: product.price });
     } else {
       res.json({ error: 'Product not found' });
     }
@@ -50,7 +50,9 @@ app.post('/cart/add', async function(req, res) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+//end function 1
 
+//function 2
 // Define a route to view the selected products
 app.get('/cart', async function(req, res) {
   try {
@@ -60,19 +62,51 @@ app.get('/cart', async function(req, res) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
-// Define a route to checkout the selected products
-app.post('/cart/checkout', async function(req, res) {
+// Define a route to get the total price of all selected products
+app.get('/cart/total', async function(req, res) {
   try {
-    selectedProducts.length = 0;
-    res.json({ message: 'Checkout successful' });
+    const totalPrice = selectedProducts.reduce((total, product) => {
+      return total + product.price;
+    }, 0);
+    res.json({ totalPrice });
   } catch (err) {
     console.log("Error:", err);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-// Start the server
+// Define a route to remove a product from the selected products array
+app.delete('/cart/remove/:id', async function(req, res) {
+  try {
+    const productId = parseInt(req.params.id);
+    const productIndex = selectedProducts.findIndex(p => p.id === productId);
+    if (productIndex !== -1) {
+      selectedProducts.splice(productIndex, 1);
+      res.json({ message: 'Product removed from cart successfully' });
+    } else {
+      res.json({ error: 'Product not found in cart' });
+    }
+  } catch (err) {
+    console.log("Error:", err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+//end funtion 2
+
+//function 3
+app.get('/cart/seller/:seller', function(req, res) {
+  try {
+    const seller = req.params.seller;
+    const sellerProducts = selectedProducts.filter(p => p.seller === seller);
+    res.json(sellerProducts);
+  } catch (err) {
+    console.log('Error getting seller products:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+//end function 3
+
+// Start the server and listen on port 3000
 app.listen(3000, () => {
   console.log('Server started on port 3000');
 });

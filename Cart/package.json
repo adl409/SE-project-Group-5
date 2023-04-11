@@ -1,0 +1,18 @@
+{
+  "name": "cart-app",
+  "version": "1.0.0",
+  "description": "An e-commerce cart application",
+  "main": "cart.js",
+  "scripts": {
+    "start": "node cart.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "supertest": "^6.1.6"
+  }
+}
