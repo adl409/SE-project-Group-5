@@ -15,7 +15,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: 'Code/node_modules'
+        working-directory: 'Code'
     
     strategy:
       matrix:
