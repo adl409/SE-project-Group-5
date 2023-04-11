@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div id="header"> 
+            <h1>E-Commerce Store</h1>
+        </div>
+        <section id = "login">
+            <div id="formContent">
+                <h2>Login</h2>
+                <section id="error"></section>
+                <form method="post" action="/login_init">
+                    <input name="username" required="required" type="text" placeholder="Username"><br />
+                    <input name="password" required="required" type="password" placeholder="Password"><br />
+                    <a href="create_account">Create a new account</a><br />
+                    <input id="login-button" name="submit" type="submit" value="Login">
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
