@@ -79,17 +79,13 @@ input[type=button]
     display: inline;
     border: none; */
 
-    background-color: #56baed;
-    border: none;
-    color: white;
+    border: 2px solid black;
     padding: 15px 80px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     text-transform: uppercase;
     font-size: 13px;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
     margin: 5px 20px 40px 20px;
@@ -100,25 +96,12 @@ input[type=button]
     transition: all 0.3s ease-in-out;
 }
 
-input[type=button]:hover{
-    background-color: #39ace7;
-}
-
-input[type=button]:active{
-    -moz-transform: scale(0.95);
-    -webkit-transform: scale(0.95);
-    -o-transform: scale(0.95);
-    -ms-transform: scale(0.95);
-    transform: scale(0.95);
-}
-
 #headerButtons
 {
-    display: flex;
     position: absolute;
     justify-content: space-evenly;
     align-items: center;
-    left: 20%;
+    right: 100px;
     width: 70%;
     height: auto;
 }
@@ -126,8 +109,14 @@ input[type=button]:active{
 .buttons
 {
     display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+#adminButton
+{
+    display: flex;
+    width: 60%;
+    margin-left: auto;
+    margin-right: 0px;
 }
 
 #table
@@ -137,8 +126,60 @@ input[type=button]:active{
     justify-content: center;
 }
 
-#add
+#view, #save, #add
 {
     display: flex;
     justify-content: center;
+}
+
+#logout-admin
+{
+    display: flex;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+#logout-buyer
+{
+    margin-left: auto;
+    margin-right: 0px;
+
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+}
+
+select
+{
+    width: 150px;
+    padding: 10px;
 }

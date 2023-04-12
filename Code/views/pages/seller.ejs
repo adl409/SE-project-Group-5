@@ -1,12 +1,47 @@
 <!DOCTYPE html>
     <head>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/buyer.css">
     </head>
 
     <body>
         <div id="header"> 
-            <h1>E-Commerce Store</h1>
+            <h1>E-Commerce Store - <%= title %></h1>
+            <form id="logout-admin" class="buttons" method="post" action="/logout">
+                <input type="button" value="Log out">
+            </form>
         </div>
-        <h1>Welcome to the Seller's Page</h1>
+        <div id="content">
+            <h1>Welcome Seller</h1>
+            <h2>Here are your listed books</h2>
+            <div id="table">
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Seller</th>
+                        <th>Items in stock</th>
+                        <th>Price</th>
+                        <th>Add</th>
+                    </tr>
+                    <tr>
+                        <% books.forEach(function(book){
+                            %>
+                                <tr>
+                                    <form method="post" action="/addToCart">
+                                        <td><%= book[0] %></td>
+                                        <td><%= book[1] %></td>
+                                        <td><%= book[2] %></td>
+                                        <td><%= book[3] %></td>
+                                        <td id="view"><input type="submit" value="View All Books"></td>
+        
+                                        <input type="hidden" name="item_id" value="<%= book[4] %>">
+        
+                                    </form>
+                                </tr>
+                            <%
+                            })
+                            %>
+                </table>
+            </div>
+        </div>
     </body>
 </html>

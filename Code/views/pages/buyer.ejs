@@ -7,11 +7,8 @@
         <div id="header"> 
             <h1>E-Commerce Store</h1>
             <div id="headerButtons">
-                <form class="buttons" method="post" action="/compare">
-                    <input id="compare" type="button" value="Compare">
-                </form>
                 <form class="buttons" method="post" action="/logout">
-                    <input id="logout" type="button" value="Log out">
+                    <input id="logout-buyer" type="submit" value="Log out">
                 </form>
             </div>
             <a id="cart" href="cart"><img src="img/cart.png" height="75px"></a>
@@ -28,17 +25,20 @@
                         <th>Title Of Book</th>
                         <th>Author</th>
                         <th>Category</th>
-                        <th>Add</th>
+                        <th>View</th>
                     </tr>
                     <% books.forEach(function(book){
                     %>
                         <tr>
-                            <form method="post" action="addToCart">
+                            <form method="post" action="/viewAllBooks">
                                 <td><%= book.isbn %></td>
                                 <td><%= book.title %></td>
                                 <td><%= book.author %></td>
                                 <td><%= book.category %></td>
-                                <td id="add"><input type="submit" value="Add to Cart"></td>
+                                <td id="view"><input type="submit" value="View All Books"></td>
+
+                                <input type="hidden" name="isbn" value="<%= book.isbn %>">
+
                             </form>
                         </tr>
                     <%

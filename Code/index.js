@@ -9,7 +9,12 @@ var UnSetAdmin = require('./Function_requirements/unSetAdmin');
 var SetAdmin = require('./Function_requirements/setAdmin');
 
 // Classes
-var Seller = require("./Classes/seller");
+var Seller = require('./Classes/seller');
+var Buyer = require('./Classes/buyer');
+
+
+// Global
+var GLOBAL = {};
 
 var con = mysql.createConnection({
     host:"localhost",
@@ -56,22 +61,36 @@ app.post('/login_init', async function(req,res) {
         if (result) {
             console.log("User authenticated");
             var query = mysql.format("SELECT * FROM users WHERE username = ?", [username]);
-            con.query(query, function (err, result) {
+            con.query(query,  async function (err, result) {
                 if (err) throw err;
                 
                 if (err) throw err;
                 if(result[0].type_flag == 0)
                 {
-                    con.query("SELECT * FROM Books", function(err, results) {
-                        if (err) throw err;
-                        res.render('pages/buyer', {name: result[0].username, books: results});
-                    });
+                    GLOBAL.user = new Buyer(con, result[0].user_id);
+                    // con.query("SELECT * FROM Books", function(err, results) {
+                    //     if (err) throw err;
+                    // });
+                    var books = await GLOBAL.user.viewBooks();
+                    res.render('pages/buyer', {name: result[0].username, books: books});
                 }
                 else if (result[0].type_flag == 1)
                 {
-                    con.query("SELECT * FROM Books", function(err, results) { // Needs who's selling the books
-                        if (err) throw err;
-                        res.render('pages/seller', {name: result[0].username, books:results});
+                    GLOBAL.user = new Seller.Seller(con, result[0].user_id);
+                    var query = mysql.format("SELECT * FROM Inventory WHERE user_id = ?", [result[0].user_id]);
+                    con.query(query, function(err, inventory) {
+                        // var book = [];
+                        // for(var i = 0; i < inventory.length; i++)
+                        // {
+                        //     console.log("Book");
+                        //     var query2 = mysql.format("SELECT * FROM Books WHERE isbn = ?", [inventory[i].isbn]);
+                        //     con.query(query2, function(err, results) {
+                        //         if (err) throw err;
+                        //         book.push(results[0]);
+                        //         console.log(book);
+                        //     });
+                        // };
+                        res.render('pages/seller', {title:'Seller Page' , books:book, inventory:inventory});
                     });
                 }
                 else if (result[0].type_flag == 2)
@@ -150,8 +169,24 @@ app.post('/changeUser', async function(req, res) {
     }
 });
 
+app.post('/viewAllBooks', async function(req, res) {
+
+    var isbn = req.body.isbn;
+
+    var books = await GLOBAL.user.viewListings(isbn);
+
+    res.render('pages/compare', {title: "Compare Page", books: books});
+});
+
 app.get('/cart', function(req,res){
 
     res.render('pages/cart'); // Page you want to render in
 
 });
+
+app.post('/logout', function(req,res) {
+
+    GLOBAL.user = null;
+
+    res.render('pages/login');
+})

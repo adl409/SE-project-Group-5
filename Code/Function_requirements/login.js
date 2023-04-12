@@ -25,7 +25,14 @@ async function Login(username, password)
             }
             else
             {
-                resolve(true);
+                if(result[0].blocked_flag)
+                {
+                    resolve(false);
+                }
+                else
+                {
+                    resolve(true);
+                }
             }
         });
 
