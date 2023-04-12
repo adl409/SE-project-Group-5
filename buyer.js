@@ -167,8 +167,8 @@ const Buyer = class{
 
     // view items
     // outputs list of listings where each is in format [ISBN, Title, Category, Author, Quantity, Price, Seller]
-    async viewListings(){
-        let query = mysql.format(`SELECT * FROM Inventory`);
+    async viewListings(isbn){
+        let query = mysql.format(`SELECT * FROM Inventory WHERE isbn = ?`, [isbn]);
         let rawListings = await con.promise(query);
         let listings = [];
         let book = "";
@@ -182,22 +182,35 @@ const Buyer = class{
         return listings;
     }
 
+    // returns cart contents as a list of lists of format [isbn, title, category, author, price, quantity]
     async viewCart(){
         let cartID = await this.getCartID();
         
-        let query = mysql.format(`SELECT item_id FROM Cart_Items WHERE cart_id = ?`,
+        let query = mysql.format(`SELECT item_id, quantity FROM Cart_Items WHERE cart_id = ?`,
             [cartID]);
         let items = await con.promise(query);
 
         let books = [];
+        let book = [];
+        let price = [];
 
         for(let i = 0; i < items.length; i++){
-            books.push(await this.bookInfoFromListing(items[i].item_id));
+            query = mysql.format(`SELECT price FROM Inventory WHERE item_id = ?`,
+            [items[i].item_id]);
+            price = await con.promise(query);
+            book = await this.bookInfoFromListing(items[i].item_id)
+            books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity]);
         }
 
         return books;
     }
     
+    async viewBooks(){
+        let query = mysql.format(`SELECT * FROM Books`);
+        let books = await con.promise(query);
+        return books;
+    }
+
 }
 
 
@@ -209,7 +222,7 @@ async function main(){
 
     //console.log(await user.viewCart())
 
-    console.log(await user.viewListings());
+    console.log(await user.viewCart());
 
     //user.addItemToCart('1', '4');
     //user.addItemToCart('2', '4');
