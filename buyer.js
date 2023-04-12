@@ -99,6 +99,9 @@ const Buyer = class{
     
     // checkout
     async checkout(){
+
+        let rejects = [];
+
         let cartID = await this.getCartID();
         
         // check for stock
@@ -113,7 +116,7 @@ const Buyer = class{
         let inventory = [];
         // update quantities
         for(let j = 0; j < items.length; j++){
-            let query = mysql.format(`SELECT quantity FROM Inventory WHERE item_id = ?`,
+            let query = mysql.format(`SELECT isbn, quantity FROM Inventory WHERE item_id = ?`,
             [items[j].item_id]);
             temp = await con.promise(query);
             inventory.push(temp[0].quantity);
@@ -122,6 +125,7 @@ const Buyer = class{
         
         for(let i = 0; i < items.length; i++){
             if(items[i].quantity >  inventory[i]){
+                rejects.push(inventory[i].isbn)
                 this.removeItemFromCart(items[i].item_id);
             }
             else{
@@ -147,6 +151,7 @@ const Buyer = class{
         // create new cart
         this.createCart();
         
+        return rejects;
     }
     
 
