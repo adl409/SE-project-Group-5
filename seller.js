@@ -17,9 +17,13 @@ con.promise = (sql, params) => {
         else{resolve(result);}
         
     });
-       });
+    });
 };
 module.exports = con;
+
+// TODO
+// add seller authorization check
+
 
 const Seller = class{
 
@@ -50,6 +54,8 @@ const Seller = class{
             if (err) throw err;
             console.log("Listing Created");
             });
+
+        return true;
     }
 
     async updatePricing(isbn, price){
@@ -58,8 +64,9 @@ const Seller = class{
         isbn = ?,`,
         [price, this.userID, isbn]);
         con.query(query, function (err, result) {
-            if (err) throw err;
+            if (err) return false;
             console.log("Pricing Updated");
+            return true;
         });
     }
 
@@ -72,6 +79,8 @@ const Seller = class{
             if (err) throw err;
             console.log("Quantity Updated");
         });
+        
+        return true;
     }
 
     // remove from cart
@@ -83,8 +92,9 @@ const Seller = class{
         [isbn, this.userID]);
 
         con.query(query, function (err, result) {
-            if (err) throw err;
+            if (err) return false;
             console.log("Listing Removed");
+            return true;
             });
     }
 
@@ -105,14 +115,14 @@ const Seller = class{
     // view listings
     async getListings(){
 
-        let query = mysql.format(`SELECT item_id FROM Inventory WHERE user_id = ?`,
+        let query = mysql.format(`SELECT * FROM Inventory WHERE user_id = ?`,
             [this.userID]);
         let items = await con.promise(query);
 
         let books = [];
 
         for(let i = 0; i < items.length; i++){
-            books.push(await this.bookInfoFromListing(items[i].item_id));
+            books.push([await this.bookInfoFromListing(items[i].item_id), items[i].quantity, items[i].price]);
         }
 
         return books;
@@ -125,20 +135,6 @@ async function login(con, username, password){
     results = await con.promise(query, username, password);
     let type = results[0].type_flag;
     
-    
-    //if(type == 0){
-    //    let user = new Buyer(con, results[0].user_id);
-//
-    //    console.log("HERE");
-    //}
-    //else if(type == 1){
-    //    let user = new Seller(con, results[0].user_id);
-    //    console.log(user.getUserID);
-    //}
-    //else{
-    //    user = "ASDF";
-    //}
-
     let user = "FAILURE";
 
     if(type == 0){
@@ -156,7 +152,7 @@ async function main(){
 
     let user = await login(con, "Nathan", "pass");
 
-    console.log(await user.viewListings());
+    console.log(await user.getListings());
 
     //console.log(await user.bookInfoFromListing('3'));
 
@@ -164,6 +160,7 @@ async function main(){
     //user.addItemToCart('2', '4');
     //user.addItemToCart('3', '4');
     //user.removeItemFromCart('4');
+
 }
 
 main();

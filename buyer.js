@@ -96,7 +96,7 @@ const Buyer = class{
             });
     }
 
-    /*
+    
     // checkout
     async checkout(){
         let cartID = await this.getCartID();
@@ -107,19 +107,36 @@ const Buyer = class{
             [cartID]);
         let items = await con.promise(query);
         
-        // update quantities
 
+        let temp;
+
+        let inventory = [];
+        // update quantities
+        for(let j = 0; j < items.length; j++){
+            let query = mysql.format(`SELECT quantity FROM Inventory WHERE item_id = ?`,
+            [items[j].item_id]);
+            temp = await con.promise(query);
+            inventory.push(temp[0].quantity);
+        }
+        
+        
         for(let i = 0; i < items.length; i++){
-            if(items[i].quantity > INVENTORY QUANT){
+            if(items[i].quantity >  inventory[i]){
                 this.removeItemFromCart(items[i].item_id);
             }
             else{
-                // UPDATE INVENTORY QUANT
+                let query = mysql.format(`UPDATE Inventory SET Quantity = ? WHERE 
+                item_id = ?`,
+                [inventory[i]-items[i].quantity, items[i].item_id]);
+                con.query(query, function (err, result) {
+                    if (err) throw err;
+                    console.log("Inventory updated");
+                    });
             }
         }
 
         // set purchased flag
-        let query = mysql.format(`UPDATE Cart SET purchased_flag = 1 WHERE 
+        query = mysql.format(`UPDATE Carts SET purchased_flag = 1 WHERE 
         cart_id = ?`,
         [cartID]);
         con.query(query, function (err, result) {
@@ -129,8 +146,9 @@ const Buyer = class{
         
         // create new cart
         this.createCart();
+        
     }
-    */
+    
 
     // helper function to obtain data about books
     async bookInfoFromListing(itemID){
@@ -148,7 +166,7 @@ const Buyer = class{
     }
 
     // view items
-    // outputs list of listings where listings are in format [ISBN, Title, Category, Author, Quantity, Price, Seller Username]
+    // outputs list of listings where each is in format [ISBN, Title, Category, Author, Quantity, Price, Seller]
     async viewListings(){
         let query = mysql.format(`SELECT * FROM Inventory`);
         let rawListings = await con.promise(query);
@@ -185,7 +203,7 @@ const Buyer = class{
 
 async function main(){
     
-    user = new Buyer(con, await login(con, 'Nathan', 'pass'));
+    user = new Buyer(con, await login(con, 'Bob', 'asdf'));
     
     //console.log(await user.getCartID());
 
