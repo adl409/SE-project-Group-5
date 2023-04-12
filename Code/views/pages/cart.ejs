@@ -9,6 +9,58 @@
         </div>
         <div id="content">
             <h1>My Cart</h1>
+            <div id="table">
+            <%
+                if (books.length > 0 ){
+            %>
+                <table>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Title Of Book</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Seller</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                    <% 
+                    total = 0;
+                    books.forEach(function(book){
+                    %>
+                        <tr>
+                                <td><%= book[0] %></td>
+                                <td><%= book[1] %></td>
+                                <td><%= book[3] %></td>
+                                <td><%= book[2] %></td>
+                                <td><%= book[5] %></td>
+                                <td><%= book[4] %></td>
+                                <td><%= book[4] * book[5] %></td>
+                        </tr>
+                    <%
+                    total = total + (book[4] * book[5])
+                    })
+                    %>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><%= total %></td>
+                    </tr>
+                </table>
+            <%
+            }
+            else
+            {
+            %>
+            <h3>There's no items in your Cart</h3>    
+            <%
+            }
+            %>
+            </div>
         </div>
     </body>
 </html>

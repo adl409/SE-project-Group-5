@@ -5,14 +5,15 @@
 
     <body>
         <div id="header"> 
-            <h1>E-Commerce Store - <%= title %></h1>
-            <form id="logout-buyer" class="buttons" method="post" action="/logout">
-                <input type="button" value="Log out">
+            <h1>E-Commerce Store</h1>
+            <form id="buyerButton" method="post" action="/logout">
+                <input id="logout-buyer" type="submit" value="Log out">
             </form>
             <a id="cart" href="cart"><img src="img/cart.png" height="75px"></a>
         </div>
         <div id="content">
-            <h2>Here are all the books that are selling</h2>
+            <h2><%= title %></h2>
+            <h3>Here are all the books that are selling</h3>
             <div id="table">
                 <table>
                     <tr>
@@ -43,7 +44,7 @@
                                 </select></td>
                                 <td id="add"><input type="submit" value="Add to Cart"></td>
 
-                                <input type="hidden" name="isbn" value="<%= book.isbn %>">
+                                <input type="hidden" name="item_id" value="<%= book[4] %>">
 
                             </form>
                         </tr>

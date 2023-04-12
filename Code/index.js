@@ -178,9 +178,13 @@ app.post('/viewAllBooks', async function(req, res) {
     res.render('pages/compare', {title: "Compare Page", books: books});
 });
 
-app.get('/cart', function(req,res){
+app.get('/cart', async function(req,res){
 
-    res.render('pages/cart'); // Page you want to render in
+    var books = await GLOBAL.user.viewCart();
+
+    console.log(books);
+
+    res.render('pages/cart', {books: books}); // Page you want to render in
 
 });
 
@@ -189,4 +193,11 @@ app.post('/logout', function(req,res) {
     GLOBAL.user = null;
 
     res.render('pages/login');
-})
+});
+
+app.post('/addToCart', function(req, res) {
+
+    var isbn = req.body.isbn;
+    var quantity = req.body.quantity
+
+});

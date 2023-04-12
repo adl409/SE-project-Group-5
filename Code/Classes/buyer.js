@@ -43,7 +43,7 @@ const Buyer = class{
 
     async getCartID(){
         let query = mysql.format(`SELECT * FROM Carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
-        results = await con.promise(query, this.userID);
+        let results = await con.promise(query, this.userID);
         if(results.length == 0){
             this.createCart();
             let query = mysql.format(`SELECT * FROM Carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
@@ -174,14 +174,20 @@ const Buyer = class{
     async viewCart(){
         let cartID = await this.getCartID();
         
-        let query = mysql.format(`SELECT item_id FROM Cart_Items WHERE cart_id = ?`,
+        let query = mysql.format(`SELECT item_id, quantity FROM Cart_Items WHERE cart_id = ?`,
             [cartID]);
         let items = await con.promise(query);
 
         let books = [];
+        let book = [];
+        let price = [];
 
         for(let i = 0; i < items.length; i++){
-            books.push(await this.bookInfoFromListing(items[i].item_id));
+            query = mysql.format(`SELECT price FROM Inventory WHERE item_id = ?`,
+            [items[i].item_id]);
+            price = await con.promise(query);
+            book = await this.bookInfoFromListing(items[i].item_id)
+            books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity]);
         }
 
         return books;
