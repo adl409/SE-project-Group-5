@@ -5,13 +5,12 @@ var mysql = require('mysql');
 var session = require('express-session');
 var Login = require('./Function_requirements/login');
 var createAccount = require('./Function_requirements/create_account');
-var UnSetAdmin = require('./Function_requirements/unSetAdmin');
-var SetAdmin = require('./Function_requirements/setAdmin');
 
 // Classes
 var Seller = require('./Classes/seller');
 var Buyer = require('./Classes/buyer');
-
+var Admin = require('./Classes/admin');
+var Owner = require('./Classes/owner');
 
 // Global
 var GLOBAL = {};
@@ -40,13 +39,19 @@ app.use(bodyParser.urlencoded({extended:true}));
 // localhost:8080
 app.get('/', function(req,res){
 
-    res.render('pages/login'); // Page you want to render in
+    res.render('pages/login', {message: null, warning: null}); // Page you want to render in
+
+});
+
+app.get('/login', function(req,res) {
+
+    res.render('pages/login', {message: null, warning: null})
 
 });
 
 app.get('/create_account', function(req,res){
 
-    res.render('pages/create_account'); // Page you want to render in
+    res.render('pages/create_account', {warning: null}); // Page you want to render in
 
 });
 
@@ -74,40 +79,31 @@ app.post('/login_init', async function(req,res) {
                 }
                 else if (result[0].type_flag == 1)
                 {
-                    GLOBAL.user = new Seller.Seller(con, result[0].user_id);
-                    var query = mysql.format("SELECT * FROM Inventory WHERE user_id = ?", [result[0].user_id]);
-                    con.query(query, function(err, inventory) {
-                        // var book = [];
-                        // for(var i = 0; i < inventory.length; i++)
-                        // {
-                        //     console.log("Book");
-                        //     var query2 = mysql.format("SELECT * FROM Books WHERE isbn = ?", [inventory[i].isbn]);
-                        //     con.query(query2, function(err, results) {
-                        //         if (err) throw err;
-                        //         book.push(results[0]);
-                        //         console.log(book);
-                        //     });
-                        // };
-                        res.render('pages/seller', {title:'Seller Page' , books:book, inventory:inventory});
-                    });
+                    GLOBAL.user = new Seller(con, result[0].user_id);
+
+                    var results = await GLOBAL.user.getListings();
+                    res.render('pages/seller', {title:'Seller Page' , books: results});
                 }
                 else if (result[0].type_flag == 2)
                 {
+                    GLOBAL.user = new Admin(con, result[0].user_id);
                     con.query("SELECT * FROM Users", function(err, results) {
                         if (err) throw err;
-                        res.render('pages/admin', {title:'Admin Page', owner: 0, action:'list', users: results, user: result});
+                        res.render('pages/admin', {title:'Admin Page', owner: 0, users: results});
                     });
                 }
                 else if (result[0].type_flag == 3)
                 {
+                    GLOBAL.user = new Owner(con, result[0].user_id);
                     con.query("SELECT * FROM Users", function(err, results) {
                         if (err) throw err;
-                        res.render('pages/admin', {title:'Owner Page', owner: 1, action:'list', users: results, user: result});
+                        res.render('pages/admin', {title:'Owner Page', owner: 1, users: results});
                     });
                 }
             });
         } else {
             console.log("Authentication failed");
+            res.render('pages/login', {warning: "Invalid credentials", message: null});
         }
     }
     catch (err) 
@@ -124,11 +120,17 @@ app.post('/create_account_init', async function(req,res) {
         var password = req.body.password;
         var email = req.body.email;
 
-        console.log(username, password, email);
+        var results = await createAccount.createAccount(username, password, email);
 
-        await createAccount.createAccount(username, password, email);
+        if(results)
+        {
+            res.render('pages/login', {message: "Account created successfully", warning: null});
+        }
+        else
+        {
+            res.render('pages/create_account', {warning: "Username already exists!"});
+        }
 
-        res.render('pages/login');
     }
     catch (err) 
     {
@@ -139,33 +141,99 @@ app.post('/create_account_init', async function(req,res) {
 app.post('/changeUser', async function(req, res) {
 
     try{
-        const admin = req.body.admin;
+        const seller = req.body.seller;
         const username = req.body.username;
         const user_id = req.body.id;
+        const block = req.body.block;
+        const owner = parseInt(req.body.owner);
 
         let result;
-        if (admin)
+
+        if(owner)
         {
-            result = await SetAdmin.SetAdmin(user_id);
+            console.log('HI')
+            const admin = req.body.admin;
+
+            if (admin)
+            {
+                result = await GLOBAL.user.SetAdmin(user_id);
+                if(result){
+                    console.log(username + " is now Admin");
+                }
+                else{
+                    console.log("User cannot be admin");
+                }
+            }
+            else
+            {
+                result = await GLOBAL.user.UnSetAdmin(user_id);
+                if(result)
+                {
+                    console.log(username + " is no longer an admin");
+                }
+                else{
+                    console.log("Cannot unset user");
+                }
+            }
+        }
+
+        if (block)
+        {
+            result = await GLOBAL.user.BlockedUser(user_id);
             if(result){
-                console.log(username + " is now Admin");
+                console.log(username + " is now blocked");
             }
             else{
-                console.log("User cannot be admin");
+                console.log("User cannot be blocked");
             }
         }
         else
         {
-            result = await UnSetAdmin.UnSetAdmin(user_id);
+            result = await GLOBAL.user.unblock(user_id);
             if(result)
             {
-                console.log(username + " is no longer an admin");
+                console.log(username + " is no longer blocked");
+            }
+            else{
+                console.log("Cannot unblock user");
+            }
+        }
+
+        if(seller)
+        {
+            result = await GLOBAL.user.SetSeller(user_id);
+            if(result){
+                console.log(username + " is now seller");
+            }
+            else{
+                console.log("User cannot be seller");
+            }
+        }
+        else
+        {
+            result = await GLOBAL.user.UnSetSeller(user_id);
+            if(result)
+            {
+                console.log(username + " is no longer a seller");
             }
             else{
                 console.log("Cannot unset user");
             }
         }
-    }
+        con.query("SELECT * FROM Users", function(err, results) {
+            if (err) throw err;
+            if(owner)
+            {
+                res.render('pages/admin', {title:'Owner Page', owner: 1, users: results});
+            }
+            else
+            {
+                res.render('pages/admin', {title:'Admin Page', owner: 0, users: results});
+            }
+        });
+        
+    } 
+
     catch (err)
     {
         console.log("Error: ", err);
@@ -193,7 +261,7 @@ app.post('/logout', function(req,res) {
 
     GLOBAL.user = null;
 
-    res.render('pages/login');
+    res.render('pages/login', {message: null, warning: null});
 });
 
 app.post('/addToCart', async function(req, res) {
@@ -227,7 +295,7 @@ app.get('/buyer', async function(req, res) {
     var name =  await GLOBAL.user.getUsername();
     res.render('pages/buyer', {name: name, books: books});
 
-})
+});
 
 app.post('/checkout', async function(req, res) {
 
@@ -237,4 +305,44 @@ app.post('/checkout', async function(req, res) {
     var name =  await GLOBAL.user.getUsername();
     res.render('pages/buyer', {name: name, books: books});
 
-})
+});
+
+
+//Fixme
+// app.post('/createListing', async function(req,res){
+
+//     var isbn = req.body.isbn;
+
+//     await GLOBAL.user.createListing();
+    
+//     res.render('pages/seller', {});
+// });
+
+app.post('/updateListing', async function(req,res){
+
+    var action = req.body.action;
+    var isbn = req.body.isbn;
+
+    if(action == "delete")
+    {
+        await GLOBAL.user.removeListing(isbn);
+    }
+    else if (action == "update")
+    {
+        var amount = parseInt(req.body.amount);
+        await GLOBAL.user.updatePricing(isbn, amount);
+    }
+    else if (action == "add")
+    {
+        var amount = parseInt(req.body.amount);
+        var quantity = parseInt(req.body.quantity);
+
+        var num = amount + quantity;
+
+        await GLOBAL.user.updateQuantity(isbn, num);
+    }
+    
+    var result = await GLOBAL.user.getListings();
+    res.render('pages/seller', {title:'Seller Page' , books: result});
+
+});

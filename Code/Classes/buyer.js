@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "SELab"
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "SELab"
 });
 
 con.promise = (sql, params) => {
@@ -12,12 +12,12 @@ con.promise = (sql, params) => {
       
         con.query(sql,params, (err, result) => {
         
-        if(err) reject(err);
-        
-        else{resolve(result);}
-        
+            if(err) reject(err);
+            
+            else{resolve(result);}
+            
+        });
     });
-       });
 };
 module.exports = con;
 
@@ -61,12 +61,12 @@ const Buyer = class{
     // create cart
     createCart(){
         let query = mysql.format(`INSERT INTO Carts SET
-            user_id = ?,
-            purchased_flag = ?`,
-            [this.userID, '0']);
+        user_id = ?,
+        purchased_flag = ?`,
+        [this.userID, '0']);
         this.con.query(query, function (err, result) {
-        if (err) throw err;
-        console.log("1 record inserted");
+            if (err) throw err;
+            console.log("1 record inserted");
         });
     }
     
@@ -85,12 +85,12 @@ const Buyer = class{
         con.query(query, function (err, result) {
             if (err) throw err;
             console.log("Item added to cart");
-            });
+        });
     }
 
     // remove from cart
     async removeItemFromCart(itemID){
-         let cartID = await this.getCartID();
+        let cartID = await this.getCartID();
         
         let query = mysql.format(`DELETE FROM Cart_Items WHERE 
         item_id = ? AND cart_id = ?`,
@@ -99,7 +99,7 @@ const Buyer = class{
         con.query(query, function (err, result) {
             if (err) throw err;
             console.log("Item removed from cart");
-            });
+        });
     }
 
     async checkout(){
@@ -138,7 +138,7 @@ const Buyer = class{
                 con.query(query, function (err, result) {
                     if (err) throw err;
                     console.log("Inventory updated");
-                    });
+                });
             }
         }
 
@@ -183,7 +183,7 @@ const Buyer = class{
             let query = mysql.format(`SELECT username FROM Users WHERE user_id = ?`,
             [rawListings[i].user_id]);
             let seller = await con.promise(query);
-            book = await this.bookInfoFromListing(rawListings[i].item_id)
+            book = await this.bookInfoFromListing(rawListings[i].item_id);
             listings.push([book.title, seller[0].username, rawListings[i].quantity, rawListings[i].price, rawListings[i].item_id]);
             // listings.push([book.isbn, book.title, book.category, book.author, rawListings[i].quantity, rawListings[i].price, seller[0].username]);
         }
@@ -218,6 +218,6 @@ const Buyer = class{
         return books;
     }
     
-}
+};
 
-module.exports = Buyer
+module.exports = Buyer;

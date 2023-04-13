@@ -97,7 +97,7 @@ input[type=button]
     transition: all 0.3s ease-in-out;
 }
 
-#adminButton, #buyerButton
+#adminButton, #buyerButton, #sellerButton
 {
     display: flex;
     width: 60%;
@@ -118,7 +118,7 @@ input[type=button]
     justify-content: center;
 }
 
-#logout-admin, #logout-buyer
+#logout-admin, #logout-buyer, #logout-seller
 {
     display: flex;
     background-color: white;
@@ -153,6 +153,19 @@ select
 
 #back
 {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 15px 80px;
+    border: 3px solid black;
+    color: black;
+    position: absolute;
+    top: 10%;
+    right: 6%;
+}
+
+#addListing
+{
+    background-color: white;
     text-decoration: none;
     border-radius: 5px;
     padding: 15px 80px;

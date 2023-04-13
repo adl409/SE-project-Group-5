@@ -9,7 +9,21 @@
         </div>
         <section id = "login">
             <div id="formContent">
-                <h2>Login</h2>
+                <h1>Login</h1>
+                <% if (message != null)
+                {
+                    %>
+                    <h2 class="message"><%= message%></h2>
+                    <%
+                }
+                %>
+                <% if (warning != null)
+                {
+                    %>
+                    <h2 class="warning"><%= warning%></h2>
+                    <%
+                }
+                %>
                 <section id="error"></section>
                 <form method="post" action="/login_init">
                     <input name="username" required="required" type="text" placeholder="Username"><br />
