@@ -68,9 +68,7 @@ app.post('/login_init', async function(req,res) {
                 if(result[0].type_flag == 0)
                 {
                     GLOBAL.user = new Buyer(con, result[0].user_id);
-                    // con.query("SELECT * FROM Books", function(err, results) {
-                    //     if (err) throw err;
-                    // });
+
                     var books = await GLOBAL.user.viewBooks();
                     res.render('pages/buyer', {name: result[0].username, books: books});
                 }
@@ -124,8 +122,13 @@ app.post('/create_account_init', async function(req,res) {
     {
         var username = req.body.username;
         var password = req.body.password;
+        var email = req.body.email;
 
-        createAccount.createAccount(username, password);
+        console.log(username, password, email);
+
+        await createAccount.createAccount(username, password, email);
+
+        res.render('pages/login');
     }
     catch (err) 
     {
@@ -182,8 +185,6 @@ app.get('/cart', async function(req,res){
 
     var books = await GLOBAL.user.viewCart();
 
-    console.log(books);
-
     res.render('pages/cart', {books: books}); // Page you want to render in
 
 });
@@ -195,9 +196,45 @@ app.post('/logout', function(req,res) {
     res.render('pages/login');
 });
 
-app.post('/addToCart', function(req, res) {
+app.post('/addToCart', async function(req, res) {
 
-    var isbn = req.body.isbn;
-    var quantity = req.body.quantity
+    var quantity = req.body.quantity;
+    var item_id = req.body.item_id;
+
+    GLOBAL.user.addItemToCart(item_id, quantity);
+
+    var books = await GLOBAL.user.viewBooks();
+    var name =  await GLOBAL.user.getUsername();
+    res.render('pages/buyer', {name: name, books: books});
 
 });
+
+app.post('/deleteFromCart', async function(req, res) {
+
+    var item_id = req.body.item_id;
+
+    GLOBAL.user.removeItemFromCart(item_id);
+
+    var books = await GLOBAL.user.viewBooks();
+    var name =  await GLOBAL.user.getUsername();
+    res.render('pages/buyer', {name: name, books: books});
+
+});
+
+app.get('/buyer', async function(req, res) {
+
+    var books = await GLOBAL.user.viewBooks();
+    var name =  await GLOBAL.user.getUsername();
+    res.render('pages/buyer', {name: name, books: books});
+
+})
+
+app.post('/checkout', async function(req, res) {
+
+    GLOBAL.user.checkout();
+
+    var books = await GLOBAL.user.viewBooks();
+    var name =  await GLOBAL.user.getUsername();
+    res.render('pages/buyer', {name: name, books: books});
+
+})

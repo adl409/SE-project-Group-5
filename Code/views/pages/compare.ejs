@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <head>
-        <link rel="stylesheet" href="css/buyer.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
@@ -14,6 +14,7 @@
         <div id="content">
             <h2><%= title %></h2>
             <h3>Here are all the books that are selling</h3>
+            <a id="back" href="buyer">Go back</a>
             <div id="table">
                 <table>
                     <tr>
@@ -42,7 +43,7 @@
                                     }
                                     %>
                                 </select></td>
-                                <td id="add"><input type="submit" value="Add to Cart"></td>
+                                <td class="buttons"><input type="submit" value="Add to Cart"></td>
 
                                 <input type="hidden" name="item_id" value="<%= book[4] %>">
 

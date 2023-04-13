@@ -12,7 +12,7 @@ con.promise = (sql, params) => {
       
         con.query(sql,params, (err, result) => {
         
-        if(err){reject(new Error());}
+        if(err) reject(err);
         
         else{resolve(result);}
         
@@ -39,6 +39,12 @@ const Buyer = class{
 
     get getUserID() {
         return this.userID;
+    }
+
+    async getUsername(){
+        let query = mysql.format('SELECT * FROM Users WHERE user_id = ?', [this.userID]);
+        let results = await con.promise(query, this.userID);
+        return results[0].username;
     }
 
     async getCartID(){
@@ -84,10 +90,10 @@ const Buyer = class{
 
     // remove from cart
     async removeItemFromCart(itemID){
-        let cartID = await this.getCartID();
+         let cartID = await this.getCartID();
         
         let query = mysql.format(`DELETE FROM Cart_Items WHERE 
-        cart_item_id = ? AND cart_id = ?`,
+        item_id = ? AND cart_id = ?`,
         [itemID, cartID]);
 
         con.query(query, function (err, result) {
@@ -96,9 +102,9 @@ const Buyer = class{
             });
     }
 
-    /*
-    // checkout
     async checkout(){
+        let rejects = [];
+
         let cartID = await this.getCartID();
         
         // check for stock
@@ -107,19 +113,37 @@ const Buyer = class{
             [cartID]);
         let items = await con.promise(query);
         
-        // update quantities
 
+        let temp;
+
+        let inventory = [];
+        // update quantities
+        for(let j = 0; j < items.length; j++){
+            let query = mysql.format(`SELECT isbn, quantity FROM Inventory WHERE item_id = ?`,
+            [items[j].item_id]);
+            temp = await con.promise(query);
+            inventory.push(temp[0].quantity);
+        }
+        
+        
         for(let i = 0; i < items.length; i++){
-            if(items[i].quantity > INVENTORY QUANT){
+            if(items[i].quantity >  inventory[i]){
+                rejects.push(inventory[i].isbn)
                 this.removeItemFromCart(items[i].item_id);
             }
             else{
-                // UPDATE INVENTORY QUANT
+                let query = mysql.format(`UPDATE Inventory SET Quantity = ? WHERE 
+                item_id = ?`,
+                [inventory[i]-items[i].quantity, items[i].item_id]);
+                con.query(query, function (err, result) {
+                    if (err) throw err;
+                    console.log("Inventory updated");
+                    });
             }
         }
 
         // set purchased flag
-        let query = mysql.format(`UPDATE Cart SET purchased_flag = 1 WHERE 
+        query = mysql.format(`UPDATE Carts SET purchased_flag = 1 WHERE 
         cart_id = ?`,
         [cartID]);
         con.query(query, function (err, result) {
@@ -129,8 +153,9 @@ const Buyer = class{
         
         // create new cart
         this.createCart();
+        
+        return rejects;
     }
-    */
 
     // helper function to obtain data about books
     async bookInfoFromListing(itemID){
@@ -187,7 +212,7 @@ const Buyer = class{
             [items[i].item_id]);
             price = await con.promise(query);
             book = await this.bookInfoFromListing(items[i].item_id)
-            books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity]);
+            books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity, items[i].item_id]);
         }
 
         return books;

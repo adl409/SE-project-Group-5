@@ -6,11 +6,17 @@
     <body>
         <div id="header"> 
             <h1>E-Commerce Store</h1>
+            <form id="buyerButton" method="post" action="/logout">
+                <input id="logout-buyer" type="submit" value="Log out">
+            </form>
+            <a id="cart" href="cart"><img src="img/cart.png" height="75px"></a>
         </div>
         <div id="content">
             <h1>My Cart</h1>
+            <a id="back" href="buyer">Go back</a>
             <div id="table">
             <%
+                total = 0;
                 if (books.length > 0 ){
             %>
                 <table>
@@ -19,37 +25,32 @@
                         <th>Title Of Book</th>
                         <th>Author</th>
                         <th>Category</th>
-                        <th>Seller</th>
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Total</th>
+                        <th>Remove</th>
                     </tr>
                     <% 
-                    total = 0;
                     books.forEach(function(book){
                     %>
                         <tr>
+                            <form method="post" action="/deleteFromCart">
                                 <td><%= book[0] %></td>
                                 <td><%= book[1] %></td>
                                 <td><%= book[3] %></td>
                                 <td><%= book[2] %></td>
                                 <td><%= book[5] %></td>
-                                <td><%= book[4] %></td>
-                                <td><%= book[4] * book[5] %></td>
+                                <td>$<%= book[4] %></td>
+                                <td>$<%= book[4] * book[5] %></td>
+                                <td class="buttons"><input type="submit" value="Delete from Cart"></td>
+
+                                <input type="hidden" name="item_id" value=<%= book[6] %>>
+                            </form>    
                         </tr>
-                    <%
+                    <%  
                     total = total + (book[4] * book[5])
                     })
                     %>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><%= total %></td>
-                    </tr>
                 </table>
             <%
             }
@@ -61,6 +62,15 @@
             }
             %>
             </div>
+            <% if (books.length > 0){
+            %>
+                <h2>Total: $<%= total %></h2>
+                <form method="post" action="/checkout">
+                    <input id="checkout" type="submit" value="Checkout">
+                </form>
+            <%
+            }
+            %>
         </div>
     </body>
 </html>
