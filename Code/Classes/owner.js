@@ -32,15 +32,16 @@ const Owner = class{
         return this.userID
     }
 
-    async SetAdmin(userid)
+    async SetAdmin(user_id)
     {
         return new Promise((resolve, reject) => {
-
-            var query = mysql.format("UPDATE users SET type_flag = 2 WHERE user_id = ?", [userid]);
+        
+            var query = mysql.format("UPDATE users SET type_flag = 2 WHERE user_id = ?", [user_id]);
+            console.log(query);
             con.query(query, function(err, result) {
                 if (err) reject(err);
 
-                if (result.affectedRows == 0)
+                if(result.affectedRows == 0)
                 {
                     resolve(false);
                 }
@@ -49,25 +50,7 @@ const Owner = class{
                     resolve(true);
                 }
             });
-        });
-    }
-    async UnSetAdmin(user_id)
-    {
-        return new Promise((resolve, reject) => {
 
-            var query = mysql.format("UPDATE users SET type_flag = 0 WHERE user_id = ?", [user_id]);
-            con.query(query, function(err, result) {
-                if (err) reject(err);
-
-                if (result.affectedRows == 0)
-                {
-                    resolve(false);
-                }
-                else
-                {
-                    resolve(true);
-                }
-            });
         });
     }
 
@@ -131,7 +114,7 @@ const Owner = class{
         });
     }
 
-    async UnSetSeller(user_id)
+    async SetBuyer(user_id)
     {
         return new Promise((resolve, reject) => {
 
@@ -147,7 +130,6 @@ const Owner = class{
                     resolve(true);
                 }
             });
-            
         });
     }
 };

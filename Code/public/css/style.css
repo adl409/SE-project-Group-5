@@ -175,3 +175,26 @@ select
     top: 10%;
     right: 6%;
 }
+
+.message
+{
+    position: absolute;
+    right: 10%;
+    top: 5%;
+    opacity: 1;
+    
+    animation-name: opacityOff;
+    animation-duration: 100ms;
+    animation-delay: 17.7s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes opacityOff {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

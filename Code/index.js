@@ -89,7 +89,7 @@ app.post('/login_init', async function(req,res) {
                     GLOBAL.user = new Admin(con, result[0].user_id);
                     con.query("SELECT * FROM Users", function(err, results) {
                         if (err) throw err;
-                        res.render('pages/admin', {title:'Admin Page', owner: 0, users: results});
+                        res.render('pages/admin', {message: null, title:'Admin Page', owner: 0, users: results});
                     });
                 }
                 else if (result[0].type_flag == 3)
@@ -97,7 +97,7 @@ app.post('/login_init', async function(req,res) {
                     GLOBAL.user = new Owner(con, result[0].user_id);
                     con.query("SELECT * FROM Users", function(err, results) {
                         if (err) throw err;
-                        res.render('pages/admin', {title:'Owner Page', owner: 1, users: results});
+                        res.render('pages/admin', {message: null, title:'Owner Page', owner: 1, users: results});
                     });
                 }
             });
@@ -143,18 +143,19 @@ app.post('/changeUser', async function(req, res) {
     try{
         const seller = req.body.seller;
         const username = req.body.username;
-        const user_id = req.body.id;
+        const user_id = parseInt(req.body.id);
         const block = req.body.block;
         const owner = parseInt(req.body.owner);
 
         let result;
 
+        console.log(seller);
+
         if(owner)
         {
-            console.log('HI')
             const admin = req.body.admin;
 
-            if (admin)
+            if(admin)
             {
                 result = await GLOBAL.user.SetAdmin(user_id);
                 if(result){
@@ -164,12 +165,46 @@ app.post('/changeUser', async function(req, res) {
                     console.log("User cannot be admin");
                 }
             }
+            else if(seller)
+            {
+                result = await GLOBAL.user.SetSeller(user_id);
+                if(result){
+                    console.log(username + " is now seller");
+                }
+                else{
+                    console.log("User cannot be seller");
+                }
+            }
             else
             {
-                result = await GLOBAL.user.UnSetAdmin(user_id);
+                result = await GLOBAL.user.SetBuyer(user_id);
                 if(result)
                 {
-                    console.log(username + " is no longer an admin");
+                    console.log(username + " is now buyer");
+                }
+                else{
+                    console.log("Cannot unset user");
+                }
+            }
+        }
+        else
+        {
+            if(seller)
+            {
+                result = await GLOBAL.user.SetSeller(user_id);
+                if(result){
+                    console.log(username + " is now seller");
+                }
+                else{
+                    console.log("User cannot be seller");
+                }
+            }
+            else
+            {
+                result = await GLOBAL.user.SetBuyer(user_id);
+                if(result)
+                {
+                    console.log(username + " is now buyer");
                 }
                 else{
                     console.log("Cannot unset user");
@@ -199,36 +234,15 @@ app.post('/changeUser', async function(req, res) {
             }
         }
 
-        if(seller)
-        {
-            result = await GLOBAL.user.SetSeller(user_id);
-            if(result){
-                console.log(username + " is now seller");
-            }
-            else{
-                console.log("User cannot be seller");
-            }
-        }
-        else
-        {
-            result = await GLOBAL.user.UnSetSeller(user_id);
-            if(result)
-            {
-                console.log(username + " is no longer a seller");
-            }
-            else{
-                console.log("Cannot unset user");
-            }
-        }
         con.query("SELECT * FROM Users", function(err, results) {
             if (err) throw err;
             if(owner)
             {
-                res.render('pages/admin', {title:'Owner Page', owner: 1, users: results});
+                res.render('pages/admin', {message: "Saved successfully", title:'Owner Page', owner: 1, users: results});
             }
             else
             {
-                res.render('pages/admin', {title:'Admin Page', owner: 0, users: results});
+                res.render('pages/admin', {message: "Saved successfully", title:'Admin Page', owner: 0, users: results});
             }
         });
         

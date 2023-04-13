@@ -49,7 +49,6 @@ const Admin = class{
                 }
             
             });
-            con.end();
         });
     }
 
@@ -80,6 +79,7 @@ const Admin = class{
             var query = mysql.format("UPDATE users SET type_flag = 1 WHERE user_id = ?", [user_id]);
 
             con.query(query, function(err, result) {
+                console.log(result);
                 if (err) reject(err);
 
                 if(result.affectedRows == 0)
@@ -95,12 +95,13 @@ const Admin = class{
         });
     }
 
-    async UnSetSeller(user_id)
+    async SetBuyer(user_id)
     {
         return new Promise((resolve, reject) => {
 
             var query = mysql.format("UPDATE users SET type_flag = 0 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
+                console.log(result);
                 if (err) reject(err);
                 if(result.affectedRows == 0)
                 {
