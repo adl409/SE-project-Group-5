@@ -7,6 +7,8 @@ var con = mysql.createConnection({
   database: "SELab"
 });
 
+// ADD Balance to sellers
+
 con.promise = (sql, params) => {
     return new Promise((resolve, reject) => {
       
@@ -127,6 +129,38 @@ const Seller = class{
 
         return books;
     }
+
+    async getTransactions(){
+        // get finished carts or cart items?
+        let query = mysql.format(`SELECT cart_id FROM Carts WHERE purchased_flag = 1`);
+        let purchasedCarts = await con.promise(query);
+        let purchasedItems = []
+        let tempBook = "";
+        let tempCart = "";
+        query = mysql.format(`SELECT item_id, price FROM Inventory WHERE user_id = ?`,
+        [this.userID]);
+
+        let mylistings = await con.promise(query);
+
+        for(let i = 0; i < purchasedCarts.length; i++){
+            query = mysql.format(`SELECT * FROM Cart_Items WHERE cart_id = ? `,
+            [purchasedCarts[i].cart_id]);
+            // temp is all cart items from one cart
+            tempCart = await con.promise(query);
+            // getting info about books
+            
+            for(let j = 0; j < tempCart.length; j++){
+                tempBook = await this.bookInfoFromListing(tempCart[i].item_id);
+                for(let k = 0; k < mylistings.length; k++){
+                    if(tempCart[i].item_id == mylistings[k].item_id){
+                        purchasedItems.push([tempBook.isbn, tempBook.title, tempBook.category, tempBook.author , tempCart[i].quantity, mylistings[k].price]);
+                    }
+                }    
+            }
+                
+        }
+        return purchasedItems;
+    }
     
 }
 
@@ -148,11 +182,15 @@ async function login(con, username, password){
     return user;
 }
 
+
+
+exports = Seller;
+
 async function main(){
 
     let user = await login(con, "Nathan", "pass");
 
-    console.log(await user.getListings());
+    console.log(await user.getTransactions());
 
     //console.log(await user.bookInfoFromListing('3'));
 
