@@ -75,7 +75,7 @@ app.post('/login_init', async function(req,res) {
                     GLOBAL.user = new Buyer(con, result[0].user_id);
 
                     var books = await GLOBAL.user.viewBooks();
-                    res.render('pages/buyer', {name: result[0].username, books: books});
+                    res.render('pages/buyer', {message: null, name: result[0].username, books: books});
                 }
                 else if (result[0].type_flag == 1)
                 {
@@ -275,7 +275,7 @@ app.post('/logout', function(req,res) {
 
     GLOBAL.user = null;
 
-    res.render('pages/login', {message: null, warning: null});
+    res.render('pages/login', {message: "Log out successfully!", warning: null});
 });
 
 app.post('/addToCart', async function(req, res) {
@@ -287,19 +287,19 @@ app.post('/addToCart', async function(req, res) {
 
     var books = await GLOBAL.user.viewBooks();
     var name =  await GLOBAL.user.getUsername();
-    res.render('pages/buyer', {name: name, books: books});
+    res.render('pages/buyer', {message: "Added item to Cart", name: name, books: books});
 
 });
 
 app.post('/deleteFromCart', async function(req, res) {
 
-    var item_id = req.body.item_id;
+    var item_id = req.body.cart_item_id;
 
     GLOBAL.user.removeItemFromCart(item_id);
 
     var books = await GLOBAL.user.viewBooks();
     var name =  await GLOBAL.user.getUsername();
-    res.render('pages/buyer', {name: name, books: books});
+    res.render('pages/buyer', {message: "Deleted item from Cart", name: name, books: books});
 
 });
 
@@ -307,7 +307,7 @@ app.get('/buyer', async function(req, res) {
 
     var books = await GLOBAL.user.viewBooks();
     var name =  await GLOBAL.user.getUsername();
-    res.render('pages/buyer', {name: name, books: books});
+    res.render('pages/buyer', {message: null, name: name, books: books});
 
 });
 
@@ -317,7 +317,7 @@ app.post('/checkout', async function(req, res) {
 
     var books = await GLOBAL.user.viewBooks();
     var name =  await GLOBAL.user.getUsername();
-    res.render('pages/buyer', {name: name, books: books});
+    res.render('pages/buyer', {message: "Checkout successful", name: name, books: books});
 
 });
 

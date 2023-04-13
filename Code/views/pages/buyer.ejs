@@ -16,6 +16,14 @@
 
 
             <h3>Browse Books:</h3>
+            <%
+            if (message != null)
+            {
+            %>
+                <h3 class = "message"><%= message %></h3>
+            <%
+            }
+            %>
             <div id="table">
                 <table>
                     <tr>

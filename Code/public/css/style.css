@@ -159,7 +159,7 @@ select
     border: 3px solid black;
     color: black;
     position: absolute;
-    top: 10%;
+    top: 5%;
     right: 6%;
 }
 
@@ -182,15 +182,12 @@ select
     right: 10%;
     top: 5%;
     opacity: 1;
-    
-    animation-name: opacityOff;
-    animation-duration: 100ms;
-    animation-delay: 17.7s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
+     
+    animation: opacityOn 5s normal forwards;
+    animation-delay: 3s;
 }
 
-@keyframes opacityOff {
+@keyframes opacityOn {
     0% {
         opacity: 1;
     }

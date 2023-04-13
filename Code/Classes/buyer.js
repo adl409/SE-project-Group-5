@@ -93,7 +93,7 @@ const Buyer = class{
         let cartID = await this.getCartID();
         
         let query = mysql.format(`DELETE FROM Cart_Items WHERE 
-        item_id = ? AND cart_id = ?`,
+        cart_item_id = ? AND cart_id = ?`,
         [itemID, cartID]);
 
         con.query(query, function (err, result) {
@@ -199,7 +199,7 @@ const Buyer = class{
     async viewCart(){
         let cartID = await this.getCartID();
         
-        let query = mysql.format(`SELECT item_id, quantity FROM Cart_Items WHERE cart_id = ?`,
+        let query = mysql.format(`SELECT item_id, quantity, cart_item_id FROM Cart_Items WHERE cart_id = ?`,
             [cartID]);
         let items = await con.promise(query);
 
@@ -212,7 +212,7 @@ const Buyer = class{
             [items[i].item_id]);
             price = await con.promise(query);
             book = await this.bookInfoFromListing(items[i].item_id)
-            books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity, items[i].item_id]);
+            books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity, items[i].cart_item_id]);
         }
 
         return books;

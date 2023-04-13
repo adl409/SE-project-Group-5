@@ -112,7 +112,6 @@ const Admin = class{
                     resolve(true);
                 }
             });
-            
         });
     }
 };
