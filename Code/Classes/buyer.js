@@ -114,34 +114,29 @@ const Buyer = class{
             [cartID]);
         let items = await con.promise(query);
         
-
-        // let temp;
-
-        // let inventory = [];
-        // // update quantities
-        // for(let j = 0; j < items.length; j++){
-        //     let query = mysql.format(`SELECT isbn, quantity FROM Inventory WHERE item_id = ?`,
-        //     [items[j].item_id]);
-        //     temp = await con.promise(query);
-        //     inventory.push(temp[0].quantity);
-        // }
-        
-        
+        // update quantities
         for(let i = 0; i < items.length; i++){
-            if(items[i].quantity >  inventory[i]){
+            let query = mysql.format(`SELECT isbn, quantity FROM Inventory WHERE item_id = ?`,
+            [items[i].item_id]);
+            let temp = await con.promise(query);
+
+            console.log(items[i].quantity);
+            console.log(temp[0].quantity);
+
+            if(items[i].quantity >  temp[0].quantity){
                 rejects.push(inventory[i].isbn)
                 this.removeItemFromCart(items[i].item_id);
             }
-            else{
+            else
+            {
                 let query = mysql.format(`UPDATE Inventory SET Quantity = ? WHERE 
                 item_id = ?`,
-                [inventory[i]-items[i].quantity, items[i].item_id]);
-                con.query(query, function (err, result) {
-                    if (err) throw err;
-                    console.log("Inventory updated");
-                });
+                [temp[0].quantity-items[i].quantity, items[i].item_id]);
+                con.query(query, function(err, result) {
+                    if(err) throw err;
+                })
             }
-        }
+        }   
 
         // set purchased flag
         query = mysql.format(`UPDATE Carts SET purchased_flag = 1 WHERE 
@@ -157,6 +152,7 @@ const Buyer = class{
         
         return rejects;
     }
+
 
     // helper function to obtain data about books
     async bookInfoFromListing(itemID){
