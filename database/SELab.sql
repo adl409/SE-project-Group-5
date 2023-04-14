@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 28, 2023 at 04:57 AM
+-- Host: 127.0.0.1
+-- Generation Time: Apr 14, 2023 at 09:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,29 +18,44 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `SELab`
+-- Database: `selab`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Books`
+-- Table structure for table `books`
 --
 
-CREATE TABLE `Books` (
+CREATE TABLE `books` (
   `isbn` int(11) NOT NULL,
   `title` varchar(75) NOT NULL,
   `category` varchar(75) NOT NULL,
   `author` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`isbn`, `title`, `category`, `author`) VALUES
+(316015849, 'Twilight', 'Romance', 'Stephenie Meyer'),
+(375826688, 'Eragon', 'Fantasy', 'Christopher Paolini'),
+(439023521, 'The Hunger Games', 'Young Adult', 'Suzanne Collings'),
+(439708184, 'Harry Potter and the Sorcerer\'s Stone', 'Children\'s', 'J.K. Rowling'),
+(618260307, 'The Hobbit', 'Fantasy', 'J.R.R. Tolkien'),
+(756966035, 'The Lightning Thief', 'Children\'s', 'Rick Riordan'),
+(901720313, 'Watership Down', 'Fantasy', 'Richard Adams'),
+(1420961357, 'Heidi', 'Children\'s', 'Johanna Spyri'),
+(1540041840, 'The Bridges of Madison County', 'Romance', 'Robert James Walker');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Carts`
+-- Table structure for table `carts`
 --
 
-CREATE TABLE `Carts` (
+CREATE TABLE `carts` (
   `cart_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `purchased_flag` int(11) NOT NULL
@@ -49,10 +64,24 @@ CREATE TABLE `Carts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Inventory`
+-- Table structure for table `cart_items`
 --
 
-CREATE TABLE `Inventory` (
+CREATE TABLE `cart_items` (
+  `cart_item_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `cart_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `static_price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inventory`
+--
+
+CREATE TABLE `inventory` (
   `item_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `price` float NOT NULL,
@@ -63,43 +92,57 @@ CREATE TABLE `Inventory` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `Users` (
+CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `type_flag` int(11) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `blocked_flag` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `type_flag`, `password`, `email`, `blocked_flag`) VALUES
+(1, 'Bob', 3, 'asdf', 'asdf@asdf', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Books`
+-- Indexes for table `books`
 --
-ALTER TABLE `Books`
+ALTER TABLE `books`
   ADD PRIMARY KEY (`isbn`);
 
 --
--- Indexes for table `Carts`
+-- Indexes for table `carts`
 --
-ALTER TABLE `Carts`
+ALTER TABLE `carts`
   ADD PRIMARY KEY (`cart_id`);
 
 --
--- Indexes for table `Inventory`
+-- Indexes for table `cart_items`
 --
-ALTER TABLE `Inventory`
+ALTER TABLE `cart_items`
+  ADD PRIMARY KEY (`cart_item_id`);
+
+--
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
   ADD PRIMARY KEY (`item_id`);
 
 --
--- Indexes for table `Users`
+-- Indexes for table `users`
 --
-ALTER TABLE `Users`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -107,22 +150,28 @@ ALTER TABLE `Users`
 --
 
 --
--- AUTO_INCREMENT for table `Carts`
+-- AUTO_INCREMENT for table `carts`
 --
-ALTER TABLE `Carts`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `carts`
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `Inventory`
+-- AUTO_INCREMENT for table `cart_items`
 --
-ALTER TABLE `Inventory`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cart_items`
+  MODIFY `cart_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT for table `Users`
+-- AUTO_INCREMENT for table `inventory`
 --
-ALTER TABLE `Users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `inventory`
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
