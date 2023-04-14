@@ -387,10 +387,21 @@ app.post('/createBook', async function(req, res) {
 
     if(isbn)
     {
-        await GLOBAL.user.createListing(isbn, 0, price);
 
-        var result = await GLOBAL.user.getListings();
-        res.render('pages/seller', {message: "Book successfully added", title:'Seller Page' , books: result});
+        var flag = await GLOBAL.user.bookExists(isbn);
+
+        if(flag)
+        {
+            await GLOBAL.user.createListing(isbn, 0, price);
+
+            var result = await GLOBAL.user.getListings();
+            res.render('pages/seller', {message: "Book successfully added", title:'Seller Page' , books: result});
+        }
+        else
+        {
+            res.render('pages/add_listing', {warning: "You are already selling this book"});
+        }
+        
     }
     else
     {

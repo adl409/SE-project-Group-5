@@ -119,6 +119,25 @@ const Seller = class{
         WHERE Carts.purchased_flag = 1 AND Inventory.user_id = ?`, [this.userID]);
         return await con.promise(query);
     }
+
+    async bookExists(isbn)
+    {
+        return new Promise((resolve, reject) => {
+            var query = mysql.format(`SELECT * FROM Inventory WHERE user_id = ? AND isbn = ?`, [this.userID, isbn]);
+            con.query(query, function(err, result) {
+                if(err) reject(err);
+                if(!result.length)
+                {
+                    resolve(true);
+                }
+                else
+                {
+                    resolve(false);
+                }
+            })
+        });
+    }
+
 }    
 
 module.exports = Seller;
