@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="css/login.css">
+    </head>
+
+    <body>
+        <div id="header"> 
+            <h1>E-Commerce Store</h1>
+        </div>
+        <section id="addListing">
+            <div id="formContent">
+                <h1>Create a new listing</h1>
+                <% if (warning != null)
+                {
+                    %>
+                    <h2 class="warning"><%= warning %></h2>
+                    <%
+                }
+                    %>
+                <form method="post" action="/createBook">
+
+                    <select name = "isbn">
+                        <option value="0">Select a book to add</option>
+                        <option value="316015849">Twilight</option>
+                        <option value="375826688">Eragon</option>
+                        <option value="439023521">The Hunger Games</option>
+                        <option value="439708184">Harry Potter and the Sorcerer's Stone</option>
+                        <option value="618260307">The Hobbit</option>
+                        <option value="756966035">The Lightning Thief</option>
+                        <option value="901720313">Watership Down</option>
+                        <option value="1420961357">Heidi</option>
+                        <option value="1540041840">The Bridges of Madision County</option>
+                    </select>
+                    <input type="text" name="price" placeholder="Price" required="required"> <br />
+                    <a href="seller">Go back</a><br />
+                    <input type="submit" name="submit" value="Add Book">
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

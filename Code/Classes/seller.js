@@ -109,6 +109,16 @@ const Seller = class{
         return await con.promise(query);
     }
     
+    async getTransactions()
+    {
+        var query = mysql.format(`SELECT Inventory.isbn, Books.title, Books.category, Books.author, Cart_Items.static_price, Cart_Items.quantity 
+        FROM Cart_Items 
+        INNER JOIN Inventory ON Inventory.item_id = Cart_Items.item_id
+        INNER JOIN Carts ON Cart_Items.cart_id = Carts.cart_id
+        INNER JOIN Books ON Books.isbn = Inventory.isbn
+        WHERE Carts.purchased_flag = 1 AND Inventory.user_id = ?`, [this.userID]);
+        return await con.promise(query);
+    }
 }    
 
 module.exports = Seller;

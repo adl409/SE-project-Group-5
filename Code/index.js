@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var session = require('express-session');
 var Login = require('./Function_requirements/login');
 var createAccount = require('./Function_requirements/create_account');
-
+var nocache = require('nocache');
 // Classes
 var Seller = require('./Classes/seller');
 var Buyer = require('./Classes/buyer');
@@ -30,6 +30,8 @@ con.connect(function(err) {
 var app = express();
 
 app.use(express.static('public'));
+app.use(nocache());
+
 app.set('view engine', 'ejs');
 
 app.listen(8080);
@@ -75,14 +77,14 @@ app.post('/login_init', async function(req,res) {
                     GLOBAL.user = new Buyer(con, result[0].user_id);
 
                     var books = await GLOBAL.user.viewBooks();
-                    res.render('pages/buyer', {message: null, name: result[0].username, books: books});
+                    res.render('pages/buyer', {popup: null, message: null, name: result[0].username, books: books});
                 }
                 else if (result[0].type_flag == 1)
                 {
                     GLOBAL.user = new Seller(con, result[0].user_id);
 
                     var results = await GLOBAL.user.getListings();
-                    res.render('pages/seller', {title:'Seller Page' , books: results});
+                    res.render('pages/seller', {message: null, title:'Seller Page' , books: results});
                 }
                 else if (result[0].type_flag == 2)
                 {
@@ -148,8 +150,6 @@ app.post('/changeUser', async function(req, res) {
         const owner = parseInt(req.body.owner);
 
         let result;
-
-        console.log(seller);
 
         if(owner)
         {
@@ -282,12 +282,13 @@ app.post('/addToCart', async function(req, res) {
 
     var quantity = req.body.quantity;
     var item_id = req.body.item_id;
+    var price = parseInt(req.body.price);
 
-    GLOBAL.user.addItemToCart(item_id, quantity);
+    await GLOBAL.user.addItemToCart(item_id, quantity, price);
 
     var books = await GLOBAL.user.viewBooks();
     var name =  await GLOBAL.user.getUsername();
-    res.render('pages/buyer', {message: "Added item to Cart", name: name, books: books});
+    res.render('pages/buyer', {popup: null, message: "Added item to Cart", name: name, books: books});
 
 });
 
@@ -299,7 +300,7 @@ app.post('/deleteFromCart', async function(req, res) {
 
     var books = await GLOBAL.user.viewBooks();
     var name =  await GLOBAL.user.getUsername();
-    res.render('pages/buyer', {message: "Deleted item from Cart", name: name, books: books});
+    res.render('pages/buyer', {popup: null, message: "Deleted item from Cart", name: name, books: books});
 
 });
 
@@ -307,30 +308,33 @@ app.get('/buyer', async function(req, res) {
 
     var books = await GLOBAL.user.viewBooks();
     var name =  await GLOBAL.user.getUsername();
-    res.render('pages/buyer', {message: null, name: name, books: books});
+    res.render('pages/buyer', {popup: null, message: null, name: name, books: books});
 
 });
 
 app.post('/checkout', async function(req, res) {
 
-    GLOBAL.user.checkout();
+    var rejects = await GLOBAL.user.checkout();
 
     var books = await GLOBAL.user.viewBooks();
     var name =  await GLOBAL.user.getUsername();
-    res.render('pages/buyer', {message: "Checkout successful", name: name, books: books});
+
+    if(!rejects.length)
+    {
+        res.render('pages/buyer', {popup: null, message: "Checkout successful", name: name, books: books});
+    }
+    else
+    {
+        res.render('pages/buyer', {popup: "There are " + rejects.length + " book(s) that are out of stock. These books are removed from your cart. The others are checked out.", 
+        message: "Checkout successful", name: name, books: books, rejects: rejects});
+    }
 
 });
 
-
-//Fixme
-// app.post('/createListing', async function(req,res){
-
-//     var isbn = req.body.isbn;
-
-//     await GLOBAL.user.createListing();
+app.post('/createListing', async function(req,res){
     
-//     res.render('pages/seller', {});
-// });
+    res.render('pages/add_listing', {warning: null});
+});
 
 app.post('/updateListing', async function(req,res){
 
@@ -357,6 +361,49 @@ app.post('/updateListing', async function(req,res){
     }
     
     var result = await GLOBAL.user.getListings();
-    res.render('pages/seller', {title:'Seller Page' , books: result});
+    res.render('pages/seller', {message: "Updated Successfully", title:'Seller Page' , books: result});
 
+});
+
+app.get('/seller', async function(req,res) {
+
+    var result = await GLOBAL.user.getListings();
+    res.render('pages/seller', {message: null, title:'Seller Page' , books: result});
+});
+
+app.post('/createBook', async function(req, res) {
+
+    
+    var isbn = parseInt(req.body.isbn);
+    var price = parseInt(req.body.price);
+
+    if(isbn)
+    {
+        await GLOBAL.user.createListing(isbn, 0, price);
+
+        var result = await GLOBAL.user.getListings();
+        res.render('pages/seller', {message: "Book successfully added", title:'Seller Page' , books: result});
+    }
+    else
+    {
+        res.render('pages/add_listing', {warning: "Please select a book"});
+    }
+
+});
+
+app.post('/linkSeller', async function(req, res) {
+
+    var userId = parseInt(req.body.userId);
+    GLOBAL.user = new Seller(con, userId);
+
+    var result = await GLOBAL.user.getListings();
+    res.render('pages/seller', {message: null, title:'Seller Page' , books: result});
+
+});
+
+app.get('/transactions', async function(req, res) {
+
+    var results = await GLOBAL.user.getTransactions();
+
+    res.render('pages/transaction', {title: "Transactions", results: results});
 });

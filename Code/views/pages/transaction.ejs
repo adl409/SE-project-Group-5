@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div id="header"> 
+            <h1>E-Commerce Store - <%= title %></h1>
+            <form id="sellerButton" method="post" action="/logout">
+                <input id="logout-seller" type="submit" value="Log out">
+            </form>
+        </div>
+        <div id="content">
+            <h1>Welcome Seller</h1>
+            <h2>Here are your transactions</h2>
+            <a id="back" href="seller">Go back</a>
+            <div id="table">
+                <%
+                total = 0;
+                if (results.length > 0 ){
+                %>
+                <table>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Author</th>
+                        <th>Price</th>
+                        <th>Quanity</th>
+                        <th>Profit</th>
+                    </tr>
+                    <tr>
+                        <% 
+                            results.forEach(function(result){
+                            %>
+                                <tr>
+                                    <td><%= result.isbn %></td>
+                                    <td><%= result.title %></td>
+                                    <td><%= result.category %></td>
+                                    <td><%= result.author %></td>
+                                    <td>$<%= result.static_price %></td>
+                                    <td><%= result.quantity %></td>
+                                    <td>$<%= result.quantity * result.static_price %></td>
+                                </tr>
+                            <%
+                                total = total + (result.quantity * result.static_price);
+                            })
+                            %>
+                </table>
+                <%
+                }
+                else
+                {
+                %>
+                <h3>You have no transactions</h3>    
+                <%
+                }
+                %>
+            </div>
+            <% if (results.length > 0){
+                %>
+                    <h2>Total profit: $<%= total %></h2>
+                <%
+                }
+                %>
+        </div>
+    </body>
+</html>
+
+                   
+                            
+                            
+           

@@ -19,6 +19,7 @@ body
     margin-top: -8px;
     position: sticky;
     box-shadow: 0px 5px 10px rgb(192, 192, 192);
+    align-items: center;
 }
 
 
@@ -179,12 +180,32 @@ select
 .message
 {
     position: absolute;
-    right: 10%;
-    top: 5%;
+    right: 40%;
+    top: 10%;
     opacity: 1;
      
     animation: opacityOn 5s normal forwards;
     animation-delay: 3s;
+}
+
+.popup
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    color: black;
+    padding: 50px 80px;
+    border-radius: 40px;
+    left: 15%;
+    right: 15%;
+    top: 250px;
+    border: 3px solid black;
+    pointer-events: none;
+
+    animation: opacityOn 2s normal forwards;
+    animation-delay: 1s;
 }
 
 @keyframes opacityOn {
@@ -194,4 +215,14 @@ select
     100% {
         opacity: 0;
     }
+}
+
+#transaction
+{
+    margin-left: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 15px 80px;
+    border: 3px solid black;
+    color: black;
 }

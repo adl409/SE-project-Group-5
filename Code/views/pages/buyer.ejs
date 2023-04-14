@@ -12,15 +12,21 @@
             <a id="cart" href="cart"><img src="img/cart.png" height="75px"></a>
         </div>
         <div id="content">
-            <h2>Welcome <%= name %></h2>
-
-
-            <h3>Browse Books:</h3>
+            <h1>Welcome <%= name %></h1>
+            <h2>Browse Books:</h2>
             <%
             if (message != null)
             {
             %>
                 <h3 class = "message"><%= message %></h3>
+            <%
+            }
+            %>
+            <%
+            if (popup != null)
+            {
+            %>
+                <div class = "popup"><h3><%= popup %></h3></div>
             <%
             }
             %>

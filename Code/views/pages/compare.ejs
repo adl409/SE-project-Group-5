@@ -26,30 +26,35 @@
                         <th>Add</th>
                     </tr>
                     <% books.forEach(function(book){
-                    %>
-                        <tr>
-                            <form method="post" action="/addToCart">
-                                <td><%= book[0] %></td>
-                                <td><%= book[1] %></td>
-                                <td><%= book[2] %></td>
-                                <td>$<%= book[3] %></td>
-                                <td><select name="quantity">
-                                    <%
-                                    for(i = 1; i <= book[2]; i++)
-                                    {
-                                    %>
-                                        <option value=<%= i %>><%= i %></option>
-                                    <%
-                                    }
-                                    %>
-                                </select></td>
-                                <td class="buttons"><input type="submit" value="Add to Cart"></td>
-
-                                <input type="hidden" name="item_id" value="<%= book[4] %>">
-
-                            </form>
-                        </tr>
+                        if(book[2] > 0)
+                        {
+                            %>
+                            <tr>
+                                <form method="post" action="/addToCart">
+                                    <td><%= book[0] %></td>
+                                    <td><%= book[1] %></td>
+                                    <td><%= book[2] %></td>
+                                    <td>$<%= book[3] %></td>
+                                    <td><select name="quantity">
+                                        <%
+                                        for(i = 1; i <= book[2]; i++)
+                                        {
+                                        %>
+                                            <option value=<%= i %>><%= i %></option>
+                                        <%
+                                        }
+                                        %>
+                                    </select></td>
+                                    <td class="buttons"><input type="submit" value="Add to Cart"></td>
+    
+                                    <input type="hidden" name="item_id" value="<%= book[4] %>">
+                                    <input type="hidden" name="price" value="<%= book[3] %>"> 
+    
+                                </form>
+                         
+                            </tr>
                     <%
+                        }  
                     })
                     %>
                 </table>

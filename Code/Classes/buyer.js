@@ -74,13 +74,14 @@ const Buyer = class{
     // add to cart
     // need to check for stocks
 
-    async addItemToCart(itemID, quantity){
+    async addItemToCart(itemID, quantity, price){
         let cartID = await this.getCartID();
         let query = mysql.format(`INSERT INTO Cart_Items SET 
         quantity = ?,
         cart_id = ?,
-        item_id = ?`,
-        [quantity, cartID, itemID]);
+        item_id = ?,
+        static_price = ?`,
+        [quantity, cartID, itemID, price]);
 
         con.query(query, function (err, result) {
             if (err) throw err;
@@ -114,16 +115,16 @@ const Buyer = class{
         let items = await con.promise(query);
         
 
-        let temp;
+        // let temp;
 
-        let inventory = [];
-        // update quantities
-        for(let j = 0; j < items.length; j++){
-            let query = mysql.format(`SELECT isbn, quantity FROM Inventory WHERE item_id = ?`,
-            [items[j].item_id]);
-            temp = await con.promise(query);
-            inventory.push(temp[0].quantity);
-        }
+        // let inventory = [];
+        // // update quantities
+        // for(let j = 0; j < items.length; j++){
+        //     let query = mysql.format(`SELECT isbn, quantity FROM Inventory WHERE item_id = ?`,
+        //     [items[j].item_id]);
+        //     temp = await con.promise(query);
+        //     inventory.push(temp[0].quantity);
+        // }
         
         
         for(let i = 0; i < items.length; i++){
@@ -217,7 +218,7 @@ const Buyer = class{
 
         return books;
     }
-    
+
 };
 
 module.exports = Buyer;

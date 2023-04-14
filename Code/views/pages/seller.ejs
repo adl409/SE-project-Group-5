@@ -6,6 +6,7 @@
     <body>
         <div id="header"> 
             <h1>E-Commerce Store - <%= title %></h1>
+            <a id="transaction" href="transactions">Transactions</a>
             <form id="sellerButton" method="post" action="/logout">
                 <input id="logout-seller" type="submit" value="Log out">
             </form>
@@ -13,6 +14,14 @@
         <div id="content">
             <h1>Welcome Seller</h1>
             <h2>Here are your listed books</h2>
+            <%
+            if (message != null)
+            {
+            %>
+                <h3 class = "message"><%= message %></h3>
+            <%
+            }
+            %>
             <form method="post" action="/createListing">
                 <input id="addListing" type="submit" value="Add Listing">
             <!-- Add a isbn here -->
