@@ -20,7 +20,7 @@ async function createAccount(username, password, email, blocked_flag, seller_aut
         if(flag == true)
         {
             var query = mysql.format(`INSERT INTO users SET
-            username = ?,type_flag = ?,password = ?,email = ?,blocked_flag = ?,seller_auth_flag = ?`,[username, 0, password, email, 0, 0]);
+            username = ?,type_flag = ?,password = ?,email = ?,blocked_flag = ?`,[username, 0, password, email, 0, 0]);
 
             con.query(query, function(err, result) {
                 if (err) reject(err);

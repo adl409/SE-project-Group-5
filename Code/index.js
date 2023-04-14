@@ -124,6 +124,14 @@ app.post('/create_account_init', async function(req,res) {
 
         var results = await createAccount.createAccount(username, password, email);
 
+        var query = mysql.format(`SELECT * FROM users WHERE username = ? AND password = ?`,[username, password])
+        con.query(query, function(err,result)
+        {
+            if(err) throw(err);
+            GLOBAL.user = new Buyer(con, result[0].user_id);
+            GLOBAL.user.createCart();
+        })
+
         if(results)
         {
             res.render('pages/login', {message: "Account created successfully", warning: null});
