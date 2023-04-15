@@ -2,7 +2,6 @@ var express = require('express');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-var session = require('express-session');
 var Login = require('./Function_requirements/login');
 var createAccount = require('./Function_requirements/create_account');
 var nocache = require('nocache');
