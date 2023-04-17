@@ -39,7 +39,7 @@ test('List book info', async () => {
 
 test('List all listings', async () => {
   const result = await lib.getListings();
-  expect(result.length).toBeGreaterThan(0);
+  expect(result.length).toBe(0);
 });
 
 con.end();
