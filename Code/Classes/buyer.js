@@ -12,6 +12,15 @@ con.connect();
 con.promise = (sql, params) => {
     return new Promise((resolve, reject) => {
 
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         con.query(sql,params, (err, result) => {
         
             if(err) reject(err);
@@ -19,6 +28,8 @@ con.promise = (sql, params) => {
             else{resolve(result);}
             
         });
+
+        con.end();
 
     });
 };
@@ -156,6 +167,31 @@ const Buyer = class{
 
     async checkout(){
 
+        con.promise = (sql, params) => {
+            return new Promise((resolve, reject) => {
+        
+                var con = mysql.createConnection({
+                    host:"127.0.0.1",
+                    user:"root",
+                    password:"root",
+                    database:"SELab"
+                });
+        
+                con.connect();
+        
+                con.query(sql,params, (err, result) => {
+                
+                    if(err) reject(err);
+                    
+                    else{resolve(result);}
+                    
+                });
+        
+                con.end();
+        
+            });
+        };
+        
         let rejects = [];
 
         let cartID = await this.getCartID();
@@ -181,7 +217,7 @@ const Buyer = class{
             }
             else
             {
-                con = mysql.createConnection({
+                var con = mysql.createConnection({
                     host:"127.0.0.1",
                     user:"root",
                     password:"root",
