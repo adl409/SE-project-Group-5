@@ -125,7 +125,7 @@ const Buyer = class{
             [quantity, cartID, itemID, price]);
 
             con.query(query, function (err, result) {
-                if (err) throw err;
+                if (err) reject(err);
                 console.log("Item added to cart");
                 resolve(true);
             });
@@ -137,28 +137,30 @@ const Buyer = class{
 
     // remove from cart
     async removeItemFromCart(itemID){
+        return new Promise(async (resolve, reject) => {
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
+            con.connect();
+
+            let cartID = await this.getCartID();
+            
+            let query = mysql.format(`DELETE FROM SELab.cart_items WHERE 
+            cart_item_id = ? AND cart_id = ?`,
+            [itemID, cartID]);
+
+            con.query(query, function (err, result) {
+                if (err) reject(err);
+                console.log("Item removed from cart");
+                resolve(true);
+            });
+
+            con.end();
         });
-
-        con.connect();
-
-        let cartID = await this.getCartID();
-        
-        let query = mysql.format(`DELETE FROM SELab.cart_items WHERE 
-        cart_item_id = ? AND cart_id = ?`,
-        [itemID, cartID]);
-
-        con.query(query, function (err, result) {
-            if (err) throw err;
-            console.log("Item removed from cart");
-        });
-
-        con.end();
 
     }
 
