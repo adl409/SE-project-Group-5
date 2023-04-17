@@ -83,77 +83,84 @@ const Seller = class{
     }
 
     async updatePricing(isbn, price){
+        return new Promise((resolve, reject) => {
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
+            con.connect();
+
+            let query = mysql.format(`UPDATE inventory SET price = ? WHERE 
+            user_id = ? AND
+            isbn = ?`,
+            [price, this.userID, isbn]);
+            con.query(query, function (err, result) {
+                if (err) throw err;
+                console.log("Pricing Updated");
+                resolve(true);
+            });
+
+            con.end();
         });
-
-        con.connect();
-
-        let query = mysql.format(`UPDATE inventory SET price = ? WHERE 
-        user_id = ? AND
-        isbn = ?`,
-        [price, this.userID, isbn]);
-        con.query(query, function (err, result) {
-            if (err) throw err;
-            console.log("Pricing Updated");
-        });
-
-        con.end();
 
     }
 
     async updateQuantity(isbn, quantity){
+        return new Promise((resolve, reject) => {
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
+
+            con.connect();
+
+            let query = mysql.format(`UPDATE inventory SET quantity = ? WHERE 
+            user_id = ? AND
+            isbn = ?`,
+            [quantity, this.userID, isbn]);
+            con.query(query, function (err, result) {
+                if (err) throw err;
+                console.log("Quantity Updated");
+                resolve(true);
+            });
+
+            con.end();
         });
-
-        con.connect();
-
-        let query = mysql.format(`UPDATE inventory SET quantity = ? WHERE 
-        user_id = ? AND
-        isbn = ?`,
-        [quantity, this.userID, isbn]);
-        con.query(query, function (err, result) {
-            if (err) throw err;
-            console.log("Quantity Updated");
-        });
-
-        con.end();
 
     }
 
     // remove from cart
     async removeListing(isbn){
-
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.connect();
-
-        // FIXME
-        
-        let query = mysql.format(`DELETE FROM SELab.inventory WHERE 
-        isbn = ? AND user_id = ?`,
-        [isbn, this.userID]);
-
-        con.query(query, function (err, result) {
-            if (err) throw err;
-            console.log("Listing Removed");
+        return new Promise((resolve, reject) => {
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
             });
 
-        con.end();
+            con.connect();
+
+            // FIXME
+            
+            let query = mysql.format(`DELETE FROM SELab.inventory WHERE 
+            isbn = ? AND user_id = ?`,
+            [isbn, this.userID]);
+
+            con.query(query, function (err, result) {
+                if (err) throw err;
+                console.log("Listing Removed");
+                resolve(true);
+                });
+
+            con.end();
+        });
         
     }
 
