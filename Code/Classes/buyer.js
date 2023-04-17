@@ -167,8 +167,6 @@ const Buyer = class{
 
     async checkout(){
 
-        return new Promise(async (resolve, reject) => {
-
             let rejects = [];
 
             let cartID = await this.getCartID();
@@ -207,7 +205,7 @@ const Buyer = class{
                     item_id = ?`,
                     [temp[0].quantity-items[i].quantity, items[i].item_id]);
                     con.query(query, function(err, result) {
-                        if(err) reject(err);
+                        if(err) throw err;
                     })
                 }
             }   
@@ -218,7 +216,7 @@ const Buyer = class{
             cart_id = ?`,
             [cartID]);
             con.query(query, function (err, result) {
-                if (err) reject(err);
+                if (err) throw err;
                 console.log("Cart Purchased");
             });
             
@@ -227,8 +225,8 @@ const Buyer = class{
 
             con.end();
 
-            resolve(rejects);
-        });
+            return rejects;
+
     }
 
 
