@@ -1,21 +1,21 @@
-// var mysql = require('mysql');
-// const Seller = require('../Classes/seller'); 
+var mysql = require('mysql');
+const Seller = require('../Classes/seller'); 
 
-// var con = mysql.createConnection({
-//     host: "127.0.0.1",
-//     user: "root",
-//     password: "root",
-//     database: "SELab"
-//   });
+var con = mysql.createConnection({
+    host: "127.0.0.1",
+    user: "root",
+    password: "root",
+    database: "SELab"
+  });
 
-// con.connect();
+con.connect();
 
-// var lib = new Buyer(con, 1)
+var lib = new Seller(con, 1)
 
-// test('Create Listing', async () => {
-//     const result = await lib.createListing(375826688, 6, 20);
-//     expect(result).toBe(true);
-//   });
+test('Create Listing', async () => {
+    const result = await lib.createListing(375826688, 6, 20);
+    expect(result).toBe(true);
+  });
 
 // test('Update Pricing', async () => {
 //   const result = await lib.updatePricing(375826688, 12);
