@@ -41,3 +41,5 @@ test('BlockedUser should return false for undefined user ID', async () => {
     const result = await user.BlockedUser(undefined);
     expect(result).toBe(false);
   });
+
+con.end();
