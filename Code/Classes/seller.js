@@ -39,6 +39,16 @@ const Seller = class{
     // create listing
 
     async createListing(isbn, quantity, price){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         // FIXME
         let query = mysql.format(`INSERT INTO inventory SET 
         quantity = ?,
@@ -51,9 +61,22 @@ const Seller = class{
             if (err) throw err;
             console.log("Listing Created");
             });
+
+        con.end();
+            
     }
 
     async updatePricing(isbn, price){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let query = mysql.format(`UPDATE inventory SET price = ? WHERE 
         user_id = ? AND
         isbn = ?`,
@@ -62,9 +85,22 @@ const Seller = class{
             if (err) throw err;
             console.log("Pricing Updated");
         });
+
+        con.end();
+
     }
 
     async updateQuantity(isbn, quantity){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let query = mysql.format(`UPDATE inventory SET quantity = ? WHERE 
         user_id = ? AND
         isbn = ?`,
@@ -73,10 +109,23 @@ const Seller = class{
             if (err) throw err;
             console.log("Quantity Updated");
         });
+
+        con.end();
+
     }
 
     // remove from cart
     async removeListing(isbn){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         // FIXME
         
         let query = mysql.format(`DELETE FROM SELab.inventory WHERE 
@@ -87,9 +136,22 @@ const Seller = class{
             if (err) throw err;
             console.log("Listing Removed");
             });
+
+        con.end();
+        
     }
 
     async bookInfoFromListing(itemID){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let query = mysql.format(`SELECT isbn FROM SELab.inventory WHERE item_id = ?`,
             [itemID]);
         let isbn = await con.promise(query);
@@ -100,12 +162,27 @@ const Seller = class{
             [isbn]);
         let bookInfo = await con.promise(query);
     
+        con.end();
+
         return bookInfo[0];
     }
 
     // view listings
     async getListings(){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         var query = mysql.format("SELECT * FROM SELab.inventory INNER JOIN Books ON inventory.isbn = Books.isbn WHERE inventory.user_id = ?", [this.userID]);
+        
+        con.end();
+        
         return await con.promise(query);
     }
     
@@ -117,6 +194,9 @@ const Seller = class{
         INNER JOIN carts ON cart_items.cart_id = carts.cart_id
         INNER JOIN Books ON Books.isbn = inventory.isbn
         WHERE carts.purchased_flag = 1 AND inventory.user_id = ?`, [this.userID]);
+
+        con.end();
+
         return await con.promise(query);
     }
 

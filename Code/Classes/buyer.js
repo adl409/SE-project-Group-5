@@ -42,12 +42,35 @@ const Buyer = class{
     }
 
     async getUsername(){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let query = mysql.format('SELECT * FROM SELab.users WHERE user_id = ?', [this.userID]);
         let results = await con.promise(query, this.userID);
+
+        con.end();
+
         return results[0].username;
     }
 
     async getCartID(){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
         let results = await con.promise(query, this.userID);
         if(results.length == 0){
@@ -55,11 +78,24 @@ const Buyer = class{
             let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
             results = await con.promise(query, this.userID);
         }
+
+        con.end();
+
         return results[0].cart_id;
     }
 
     // create cart
     createCart(){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let query = mysql.format(`INSERT INTO carts SET
         user_id = ?,
         purchased_flag = ?`,
@@ -68,6 +104,9 @@ const Buyer = class{
             if (err) throw err;
             console.log("1 record inserted");
         });
+
+        con.end();
+
     }
     
 
@@ -75,6 +114,16 @@ const Buyer = class{
     // need to check for stocks
 
     async addItemToCart(itemID, quantity, price){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+        
         let cartID = await this.getCartID();
         let query = mysql.format(`INSERT INTO cart_items SET 
         quantity = ?,
@@ -87,10 +136,23 @@ const Buyer = class{
             if (err) throw err;
             console.log("Item added to cart");
         });
+
+        con.end();
+
     }
 
     // remove from cart
     async removeItemFromCart(itemID){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let cartID = await this.getCartID();
         
         let query = mysql.format(`DELETE FROM SELab.cart_items WHERE 
@@ -101,9 +163,22 @@ const Buyer = class{
             if (err) throw err;
             console.log("Item removed from cart");
         });
+
+        con.end();
+
     }
 
     async checkout(){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let rejects = [];
 
         let cartID = await this.getCartID();
@@ -150,12 +225,25 @@ const Buyer = class{
         // create new cart
         this.createCart();
         
+
+        con.end();
+
         return rejects;
     }
 
 
     // helper function to obtain data about books
     async bookInfoFromListing(itemID){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let query = mysql.format(`SELECT isbn FROM SELab.inventory WHERE item_id = ?`,
             [itemID]);
         let isbn = await con.promise(query);
@@ -166,12 +254,24 @@ const Buyer = class{
             [isbn]);
         let bookInfo = await con.promise(query);
     
+        con.end();
+
         return bookInfo[0];
     }
 
     // view items
     // outputs list of listings where listings are in format [ISBN, Title, Category, Author, Quantity, Price, Seller Username]
     async viewListings(isbn){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let query = mysql.format(`SELECT * FROM SELab.inventory WHERE isbn = ?`, [isbn]);
         let rawListings = await con.promise(query);
         let listings = [];
@@ -184,16 +284,42 @@ const Buyer = class{
             listings.push([book.title, seller[0].username, rawListings[i].quantity, rawListings[i].price, rawListings[i].item_id]);
             // listings.push([book.isbn, book.title, book.category, book.author, rawListings[i].quantity, rawListings[i].price, seller[0].username]);
         }
+
+        con.end();
+
         return listings;
     }
 
     async viewBooks(){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         var query = mysql.format("SELECT * FROM SELab.Books");
         var books = await con.promise(query);
+
+        con.end();
+
         return books;
     }
 
     async viewCart(){
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
+
         let cartID = await this.getCartID();
         
         let query = mysql.format(`SELECT item_id, quantity, cart_item_id FROM SELab.cart_items WHERE cart_id = ?`,
@@ -211,6 +337,8 @@ const Buyer = class{
             book = await this.bookInfoFromListing(items[i].item_id)
             books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity, items[i].cart_item_id]);
         }
+
+        con.end();
 
         return books;
     }

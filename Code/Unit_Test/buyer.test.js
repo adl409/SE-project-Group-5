@@ -7,6 +7,8 @@ var con = mysql.createConnection({
     password: "root",
     database: "SELab"
   });
+  
+con.connect();
 
 var lib = new Buyer(con, 1)
 
