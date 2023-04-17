@@ -78,28 +78,28 @@ const Buyer = class{
 
     // create cart
     createCart(){
+        return new Promise((resolve, reject) => {
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
+            con.connect();
+
+            let query = mysql.format(`INSERT INTO SELab.carts SET
+            user_id = ?,
+            purchased_flag = ?`,
+            [this.userID, '0']);
+            con.query(query, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+                resolve(true);
+            });
+
+            con.end();
         });
-
-        con.connect();
-
-        let query = mysql.format(`INSERT INTO SELab.carts SET
-        user_id = ?,
-        purchased_flag = ?`,
-        [this.userID, '0']);
-        con.query(query, function (err, result) {
-            if (err) throw err;
-            console.log("1 record inserted");
-            return true;
-        });
-
-        con.end();
- 
     }
     
 
