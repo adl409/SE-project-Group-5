@@ -30,7 +30,7 @@ test('User can create account cause user doesn\'t exist', async() =>{
 })
 
 test('User cannot create account cause user exist', async() =>{
-    const username = await createAccount.createAccount('bob6', 'pass','bob5@gmail.com', 1, 0)
+    const username = await createAccount.createAccount('user3', 'pass','user3@gmail.com', 1, 0)
     expect(username).toBe(false);
 })
 
