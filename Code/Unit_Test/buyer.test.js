@@ -42,10 +42,10 @@ test('Add second item to cart', async () => {
     expect(result).toBe(true);
      });
 
-//  test('Checkout', async () => {
-//     const result = await lib.checkout();
-//     expect(result).toEqual([]);
-//      });
+ test('Checkout', async () => {
+    const result = await lib.checkout();
+    expect(result).toEqual([]);
+     });
 
 // test('Adding item to cart after checkout', async () => {
 //    const result = await lib.addItemToCart(1, 3, 20);
