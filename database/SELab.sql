@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2023 at 06:12 AM
+-- Generation Time: Apr 17, 2023 at 08:03 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -88,6 +88,13 @@ CREATE TABLE `inventory` (
   `quantity` int(11) NOT NULL,
   `isbn` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`item_id`, `user_id`, `price`, `quantity`, `isbn`) VALUES
+(1, 4, 10, 20, 316015849);
 
 -- --------------------------------------------------------
 
