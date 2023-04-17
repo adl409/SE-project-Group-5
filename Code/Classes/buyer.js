@@ -192,6 +192,12 @@ const Buyer = class{
             }
             else
             {
+                con = mysql.createConnection({
+                    host:"127.0.0.1",
+                    user:"root",
+                    password:"root",
+                    database:"SELab"
+                });
 
                 con.connect();
 
