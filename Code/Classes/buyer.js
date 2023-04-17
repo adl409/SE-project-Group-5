@@ -166,15 +166,6 @@ const Buyer = class{
 
     async checkout(){
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.connect();
-
         let rejects = [];
 
         let cartID = await this.getCartID();
@@ -220,9 +211,6 @@ const Buyer = class{
         
         // create new cart
         this.createCart();
-        
-
-        con.end();
 
         return rejects;
     }
