@@ -9,6 +9,15 @@ var con = mysql.createConnection({
 
 con.promise = (sql, params) => {
     return new Promise((resolve, reject) => {
+
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
       
         con.query(sql,params, (err, result) => {
         
@@ -17,6 +26,9 @@ con.promise = (sql, params) => {
         else{resolve(result);}
         
     });
+
+        con.end();
+
        });
 };
 module.exports = con;
