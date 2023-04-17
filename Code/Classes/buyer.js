@@ -169,6 +169,12 @@ const Buyer = class{
 
         return new Promise(async (resolve, reject) => {
 
+            let rejects = [];
+
+            let cartID = await this.getCartID();
+            
+            // check for stock
+            
             var con = mysql.createConnection({
                 host:"127.0.0.1",
                 user:"root",
@@ -178,12 +184,6 @@ const Buyer = class{
 
             con.connect();
 
-            let rejects = [];
-
-            let cartID = await this.getCartID();
-            
-            // check for stock
-            
             let query = mysql.format(`SELECT quantity, item_id FROM SELab.cart_items WHERE cart_id = ?`,
                 [cartID]);
             let items = await con.promise(query);
