@@ -7,6 +7,8 @@ var con = mysql.createConnection({
     database:"SELab"
 });
 
+con.connect();
+
 con.promise = (sql, params) => {
     return new Promise((resolve, reject) => {
 
@@ -28,7 +30,7 @@ con.promise = (sql, params) => {
         });
 
         con.end();
-        
+
     });
 };
 module.exports = con;
