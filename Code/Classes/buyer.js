@@ -288,19 +288,8 @@ const Buyer = class{
 
     async viewBooks(){
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.connect();
-
         var query = mysql.format("SELECT * FROM SELab.Books");
         var books = await con.promise(query);
-
-        con.end();
 
         return books;
     }
