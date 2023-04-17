@@ -202,7 +202,7 @@ const Seller = class{
 
         con.connect();
 
-        var query = mysql.format("SELECT * FROM SELab.inventory INNER JOIN Books ON inventory.isbn = Books.isbn WHERE inventory.user_id = ?", [this.userID]);
+        var query = mysql.format("SELECT * FROM SELab.inventory INNER JOIN SELab.books ON inventory.isbn = books.isbn WHERE inventory.user_id = ?", [this.userID]);
         
         con.end();
         

@@ -34,7 +34,7 @@ test('Remove Listing', async () => {
 
 test('List book info', async () => {
   const result = await lib.bookInfoFromListing(1);
-  expect(result.author).toEqual("Rick Riordan");
+  expect(result.author).toEqual("Stephenie Meyer");
 });
 
 test('List all listings', async () => {
