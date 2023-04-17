@@ -95,6 +95,7 @@ const Buyer = class{
         con.query(query, function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");
+            return true;
         });
 
         con.end();
