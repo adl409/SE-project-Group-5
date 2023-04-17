@@ -9,7 +9,7 @@ var con = mysql.createConnection({
 
 con.connect();
 
-function promise(sql, params) {
+async function promise(sql, params) {
     return new Promise((resolve, reject) => {
 
         var con = mysql.createConnection({
