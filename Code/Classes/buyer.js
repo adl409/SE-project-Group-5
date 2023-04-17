@@ -9,7 +9,7 @@ var con = mysql.createConnection({
 
 con.connect();
 
-function promise = (sql, params) => {
+function promise(sql, params) {
     return new Promise((resolve, reject) => {
 
         var con = mysql.createConnection({
@@ -38,7 +38,7 @@ module.exports = con;
 
 // async function login(con, username, password){
 //     let query = mysql.format(`SELECT * FROM SELab.users WHERE username = ? AND password = ?`, [username, password]);
-//     results = await con.promise(query, username, password);
+//     results = await promise(query, username, password);
 
 //     return results[0].user_id;
 // }
@@ -59,7 +59,7 @@ const Buyer = class{
     async getUsername(){
 
         let query = mysql.format('SELECT * FROM SELab.users WHERE user_id = ?', [this.userID]);
-        let results = await con.promise(query, this.userID);
+        let results = await promise(query, this.userID);
 
         return results[0].username;
     }
@@ -67,11 +67,11 @@ const Buyer = class{
     async getCartID(){
 
         let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
-        let results = await con.promise(query, this.userID);
+        let results = await promise(query, this.userID);
         if(results.length == 0){
             this.createCart();
             let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
-            results = await con.promise(query, this.userID);
+            results = await promise(query, this.userID);
         }
         return results[0].cart_id;
     }
@@ -175,13 +175,13 @@ const Buyer = class{
         
         let query = mysql.format(`SELECT quantity, item_id FROM SELab.cart_items WHERE cart_id = ?`,
             [cartID]);
-        let items = await con.promise(query);
+        let items = await promise(query);
         
         // update quantities
         for(let i = 0; i < items.length; i++){
             let query = mysql.format(`SELECT isbn, quantity FROM SELab.inventory WHERE item_id = ?`,
             [items[i].item_id]);
-            let temp = await con.promise(query);
+            let temp = await promise(query);
 
             console.log(items[i].quantity);
             console.log(temp[0].quantity);
@@ -242,13 +242,13 @@ const Buyer = class{
 
         let query = mysql.format(`SELECT isbn FROM SELab.inventory WHERE item_id = ?`,
             [itemID]);
-        let isbn = await con.promise(query);
+        let isbn = await promise(query);
         isbn = isbn[0].isbn;
 
 
         query = mysql.format(`SELECT * FROM SELab.Books WHERE isbn  = ?`,
             [isbn]);
-        let bookInfo = await con.promise(query);
+        let bookInfo = await promise(query);
     
         con.end();
 
@@ -269,13 +269,13 @@ const Buyer = class{
         con.connect();
 
         let query = mysql.format(`SELECT * FROM SELab.inventory WHERE isbn = ?`, [isbn]);
-        let rawListings = await con.promise(query);
+        let rawListings = await promise(query);
         let listings = [];
         let book = "";
         for(let i = 0; i < rawListings.length; i++){
             let query = mysql.format(`SELECT username FROM SELab.users WHERE user_id = ?`,
             [rawListings[i].user_id]);
-            let seller = await con.promise(query);
+            let seller = await promise(query);
             book = await this.bookInfoFromListing(rawListings[i].item_id);
             listings.push([book.title, seller[0].username, rawListings[i].quantity, rawListings[i].price, rawListings[i].item_id]);
             // listings.push([book.isbn, book.title, book.category, book.author, rawListings[i].quantity, rawListings[i].price, seller[0].username]);
@@ -289,7 +289,7 @@ const Buyer = class{
     async viewBooks(){
 
         var query = mysql.format("SELECT * FROM SELab.books");
-        var books = await con.promise(query);
+        var books = await promise(query);
 
         return books;
     }
@@ -300,7 +300,7 @@ const Buyer = class{
         
         let query = mysql.format(`SELECT item_id, quantity, cart_item_id FROM SELab.cart_items WHERE cart_id = ?`,
             [cartID]);
-        let items = await con.promise(query);
+        let items = await promise(query);
 
         let books = [];
         let book = [];
@@ -309,7 +309,7 @@ const Buyer = class{
         for(let i = 0; i < items.length; i++){
             query = mysql.format(`SELECT price FROM SELab.inventory WHERE item_id = ?`,
             [items[i].item_id]);
-            price = await con.promise(query);
+            price = await promise(query);
             book = await this.bookInfoFromListing(items[i].item_id)
             books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity, items[i].cart_item_id]);
         }
