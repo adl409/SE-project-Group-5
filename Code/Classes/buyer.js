@@ -200,7 +200,7 @@ const Buyer = class{
             }
             else
             {
-                let query = mysql.format(`UPDATE inventory SET Quantity = ? WHERE 
+                let query = mysql.format(`UPDATE SELab.inventory SET Quantity = ? WHERE 
                 item_id = ?`,
                 [temp[0].quantity-items[i].quantity, items[i].item_id]);
                 con.query(query, function(err, result) {
@@ -210,7 +210,7 @@ const Buyer = class{
         }   
 
         // set purchased flag
-        query = mysql.format(`UPDATE carts SET purchased_flag = 1 WHERE 
+        query = mysql.format(`UPDATE SELab.carts SET purchased_flag = 1 WHERE 
         cart_id = ?`,
         [cartID]);
         con.query(query, function (err, result) {
