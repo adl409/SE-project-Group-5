@@ -167,52 +167,21 @@ const Buyer = class{
 
     async checkout(){
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.promise = (sql, params) => {
-            return new Promise((resolve, reject) => {
-
-                var con = mysql.createConnection({
-                    host:"127.0.0.1",
-                    user:"root",
-                    password:"root",
-                    database:"SELab"
-                });
-
-                con.connect();
-
-                con.query(sql,params, (err, result) => {
-                
-                    if(err) reject(err);
-                    
-                    else{resolve(result);}
-                    
-                });
-
-                con.end();
-
-            });
-        };
         let rejects = [];
 
         let cartID = await this.getCartID();
         
         // check for stock
-
+        
         let query = mysql.format(`SELECT quantity, item_id FROM SELab.cart_items WHERE cart_id = ?`,
             [cartID]);
-        let items = await con.promise(query, cartID);
+        let items = await con.promise(query);
         
         // update quantities
         for(let i = 0; i < items.length; i++){
             let query = mysql.format(`SELECT isbn, quantity FROM SELab.inventory WHERE item_id = ?`,
             [items[i].item_id]);
-            let temp = await con.promise(query, items[i].item_id);
+            let temp = await con.promise(query);
 
             console.log(items[i].quantity);
             console.log(temp[0].quantity);
@@ -223,25 +192,15 @@ const Buyer = class{
             }
             else
             {
-                var con = mysql.createConnection({
-                    host:"127.0.0.1",
-                    user:"root",
-                    password:"root",
-                    database:"SELab"
-                });
-
-                con.connect();
-
                 let query = mysql.format(`UPDATE SELab.inventory SET Quantity = ? WHERE 
                 item_id = ?`,
                 [temp[0].quantity-items[i].quantity, items[i].item_id]);
                 con.query(query, function(err, result) {
                     if(err) throw err;
                 })
-                con.end();
             }
         }   
-        
+
         // set purchased flag
         query = mysql.format(`UPDATE SELab.carts SET purchased_flag = 1 WHERE 
         cart_id = ?`,
@@ -252,10 +211,9 @@ const Buyer = class{
         });
         
         // create new cart
-        await this.createCart();
+        this.createCart();
 
         return rejects;
-
     }
 
 
