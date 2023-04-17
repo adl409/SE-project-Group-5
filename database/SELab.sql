@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 10, 2023 at 03:50 AM
+-- Host: 127.0.0.1
+-- Generation Time: Apr 14, 2023 at 09:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `SELab`
+-- Database: `selab`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Books`
+-- Table structure for table `books`
 --
 
-CREATE TABLE `Books` (
+CREATE TABLE `books` (
   `isbn` int(11) NOT NULL,
   `title` varchar(75) NOT NULL,
   `category` varchar(75) NOT NULL,
@@ -35,10 +35,10 @@ CREATE TABLE `Books` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `Books`
+-- Dumping data for table `books`
 --
 
-INSERT INTO `Books` (`isbn`, `title`, `category`, `author`) VALUES
+INSERT INTO `books` (`isbn`, `title`, `category`, `author`) VALUES
 (316015849, 'Twilight', 'Romance', 'Stephenie Meyer'),
 (375826688, 'Eragon', 'Fantasy', 'Christopher Paolini'),
 (439023521, 'The Hunger Games', 'Young Adult', 'Suzanne Collings'),
@@ -52,52 +52,36 @@ INSERT INTO `Books` (`isbn`, `title`, `category`, `author`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Carts`
+-- Table structure for table `carts`
 --
 
-CREATE TABLE `Carts` (
+CREATE TABLE `carts` (
   `cart_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `purchased_flag` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `Carts`
---
-
-INSERT INTO `Carts` (`cart_id`, `user_id`, `purchased_flag`) VALUES
-(1, 9, 0),
-(2, 7, 0);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Cart_Items`
+-- Table structure for table `cart_items`
 --
 
-CREATE TABLE `Cart_Items` (
+CREATE TABLE `cart_items` (
   `cart_item_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL
+  `item_id` int(11) NOT NULL,
+  `static_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `Cart_Items`
---
-
-INSERT INTO `Cart_Items` (`cart_item_id`, `quantity`, `cart_id`, `item_id`) VALUES
-(8, 4, 1, 1),
-(9, 4, 1, 2),
-(10, 4, 1, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Inventory`
+-- Table structure for table `inventory`
 --
 
-CREATE TABLE `Inventory` (
+CREATE TABLE `inventory` (
   `item_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `price` float NOT NULL,
@@ -105,72 +89,60 @@ CREATE TABLE `Inventory` (
   `isbn` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `Inventory`
---
-
-INSERT INTO `Inventory` (`item_id`, `user_id`, `price`, `quantity`, `isbn`) VALUES
-(1, 7, 20, 6, 316015849),
-(2, 7, 10, 20, 618260307),
-(3, 7, 23, 40, 756966035);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `Users` (
+CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `type_flag` int(11) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `blocked_flag` int(11) NOT NULL DEFAULT 0,
-  `seller_auth_flag` int(11) NOT NULL DEFAULT 0
+  `blocked_flag` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `Users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `Users` (`user_id`, `username`, `type_flag`, `password`, `email`, `blocked_flag`, `seller_auth_flag`) VALUES
-(7, 'Nathan', 1, 'pass', 'nml@gmail.com', 0, 0),
-(9, 'Bob', 1, 'asdf', 'asdf@asdf', 0, 0),
-(10, 'CoolDude', 1, 'asdf', 'asdf', 0, 0);
+INSERT INTO `users` (`user_id`, `username`, `type_flag`, `password`, `email`, `blocked_flag`) VALUES
+(1, 'Bob', 3, 'asdf', 'asdf@asdf', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Books`
+-- Indexes for table `books`
 --
-ALTER TABLE `Books`
+ALTER TABLE `books`
   ADD PRIMARY KEY (`isbn`);
 
 --
--- Indexes for table `Carts`
+-- Indexes for table `carts`
 --
-ALTER TABLE `Carts`
+ALTER TABLE `carts`
   ADD PRIMARY KEY (`cart_id`);
 
 --
--- Indexes for table `Cart_Items`
+-- Indexes for table `cart_items`
 --
-ALTER TABLE `Cart_Items`
+ALTER TABLE `cart_items`
   ADD PRIMARY KEY (`cart_item_id`);
 
 --
--- Indexes for table `Inventory`
+-- Indexes for table `inventory`
 --
-ALTER TABLE `Inventory`
+ALTER TABLE `inventory`
   ADD PRIMARY KEY (`item_id`);
 
 --
--- Indexes for table `Users`
+-- Indexes for table `users`
 --
-ALTER TABLE `Users`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -178,28 +150,28 @@ ALTER TABLE `Users`
 --
 
 --
--- AUTO_INCREMENT for table `Carts`
+-- AUTO_INCREMENT for table `carts`
 --
-ALTER TABLE `Carts`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `carts`
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `Cart_Items`
+-- AUTO_INCREMENT for table `cart_items`
 --
-ALTER TABLE `Cart_Items`
-  MODIFY `cart_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `cart_items`
+  MODIFY `cart_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT for table `Inventory`
+-- AUTO_INCREMENT for table `inventory`
 --
-ALTER TABLE `Inventory`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `inventory`
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `Users`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `Users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
