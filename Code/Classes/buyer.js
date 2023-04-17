@@ -173,9 +173,12 @@ const Buyer = class{
         
         // check for stock
 
-        let query = mysql.format(`SELECT quantity, item_id FROM SELab.cart_items WHERE cart_id = ?`,
-            [cartID]);
-        let items = await con.promise(query, cartID);
+        // let query = mysql.format(`SELECT quantity, item_id FROM SELab.cart_items WHERE cart_id = ?`,
+        //     [cartID]);
+        // let items = await con.promise(query, cartID);
+
+        let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
+        let results = await con.promise(query, this.userID);
         
         // update quantities
         for(let i = 0; i < items.length; i++){
