@@ -173,9 +173,7 @@ const Buyer = class{
             password:"root",
             database:"SELab"
         });
-        
-        con.connect();
-        
+
         con.promise = (sql, params) => {
             return new Promise((resolve, reject) => {
 
