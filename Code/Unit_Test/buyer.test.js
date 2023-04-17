@@ -52,10 +52,10 @@ test('Adding item to cart after checkout', async () => {
    expect(result).toBe(true);
     });
 
-// test('Viewing cart', async () => {
-//     const result = await lib.viewCart();
-//     expect(result.length).toBeGreaterThan(0);
-//      });
+test('Viewing cart', async () => {
+    const result = await lib.viewCart();
+    expect(result.length).toBeGreaterThan(0);
+     });
 
 test('Viewing books', async () => {
    const result = await lib.viewBooks();
