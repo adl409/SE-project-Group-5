@@ -6,7 +6,7 @@ test('User information enter does not exist and should create the account', asyn
 })
 
 test('User information does exist cannot create account', async() =>{
-    const username = await createAccount.createAccount('bob6', 'pass','bob5@gmail.com', 0, 0)
+    const username = await createAccount.createAccount('Bob', 'asdf','asdf@asdf', 0, 0)
     expect(username).toBe(false);
 })
 
@@ -24,8 +24,8 @@ test('Should throw an error when the database connection fails', async () => {
     }
   });
 
-test('User cannot create account cause user is blocked', async() =>{
-    const username = await createAccount.createAccount('bob6', 'pass','bob5@gmail.com', 1, 0)
+test('User can create account cause user doesn\'t exist', async() =>{
+    const username = await createAccount.createAccount('user4', 'pass','user4@gmail.com', 1, 0)
     expect(username).toBe(true);
 })
 
@@ -33,5 +33,4 @@ test('User cannot create account cause user exist', async() =>{
     const username = await createAccount.createAccount('bob6', 'pass','bob5@gmail.com', 1, 0)
     expect(username).toBe(false);
 })
-
 
