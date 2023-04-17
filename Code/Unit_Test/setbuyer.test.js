@@ -1,3 +1,4 @@
+var Owner = require('../Classes/owner')
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
