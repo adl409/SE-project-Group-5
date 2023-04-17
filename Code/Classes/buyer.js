@@ -65,15 +65,6 @@ const Buyer = class{
 
     async getCartID(){
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.connect();
-
         let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
         let results = await con.promise(query, this.userID);
         if(results.length == 0){
@@ -81,9 +72,7 @@ const Buyer = class{
             let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
             results = await con.promise(query, this.userID);
         }
-
-        con.end();
-
+        console.log(results[0].cart_id);
         return results[0].cart_id;
     }
 
