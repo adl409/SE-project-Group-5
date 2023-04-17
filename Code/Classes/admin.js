@@ -111,7 +111,6 @@ const Admin = class{
             var query = mysql.format("UPDATE SELab.users SET type_flag = 1 WHERE user_id = ?", [user_id]);
 
             con.query(query, function(err, result) {
-                console.log(result);
                 if (err) reject(err);
 
                 if(result.affectedRows == 0)
@@ -144,7 +143,6 @@ const Admin = class{
 
             var query = mysql.format("UPDATE users SET type_flag = 0 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
-                console.log(result);
                 if (err) reject(err);
                 if(result.affectedRows == 0)
                 {

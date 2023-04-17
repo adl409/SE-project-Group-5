@@ -72,8 +72,9 @@ const Seller = class{
             [quantity, this.userID, price, isbn]);
 
             con.query(query, function (err, result) {
-                if (err) throw err;
+                if (err) reject(err);
                 console.log("Listing Created");
+                resolve(true);
                 });
 
             con.end();
