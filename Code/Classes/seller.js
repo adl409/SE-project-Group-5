@@ -123,6 +123,16 @@ const Seller = class{
     async bookExists(isbn)
     {
         return new Promise((resolve, reject) => {
+
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
+
+            con.connect();
+
             var query = mysql.format(`SELECT * FROM SELab.inventory WHERE user_id = ? AND isbn = ?`, [this.userID, isbn]);
             con.query(query, function(err, result) {
                 if(err) reject(err);
@@ -135,6 +145,9 @@ const Seller = class{
                     resolve(false);
                 }
             })
+
+            con.end();
+
         });
     }
 

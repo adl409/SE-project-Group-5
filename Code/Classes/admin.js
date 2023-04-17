@@ -36,6 +36,15 @@ const Admin = class{
     {
         return new Promise((resolve, reject) => {
 
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
+
+            con.connect();
+
             var query = mysql.format("UPDATE users SET blocked_flag = 1 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
                 if (err) reject(err);
@@ -49,12 +58,24 @@ const Admin = class{
                 }
             
             });
+
+            con.end();
+
         });
     }
 
     async unblock(user_id)
     { 
         return new Promise((resolve, reject) => {
+
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
+
+            con.connect();
             
             var query = mysql.format("UPDATE users SET blocked_flag = 0 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
@@ -69,12 +90,23 @@ const Admin = class{
                 }
             });
         
+            con.end();
+
         });
     }
 
     async SetSeller(user_id)
     {
         return new Promise((resolve, reject) => {
+
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
+
+            con.connect();
         
             var query = mysql.format("UPDATE users SET type_flag = 1 WHERE user_id = ?", [user_id]);
 
@@ -92,12 +124,23 @@ const Admin = class{
                 }
             });
 
+            con.end();
+
         });
     }
 
     async SetBuyer(user_id)
     {
         return new Promise((resolve, reject) => {
+            
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
+
+            con.connect();
 
             var query = mysql.format("UPDATE users SET type_flag = 0 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
@@ -112,10 +155,11 @@ const Admin = class{
                     resolve(true);
                 }
             });
+
+            con.end();
+
         });
     }
 };
-
-con.end();
 
 module.exports = Admin;
