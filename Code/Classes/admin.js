@@ -45,7 +45,7 @@ const Admin = class{
 
             con.connect();
 
-            var query = mysql.format("UPDATE users SET blocked_flag = 1 WHERE user_id = ?", [user_id]);
+            var query = mysql.format("UPDATE SELab.users SET blocked_flag = 1 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
                 if (err) reject(err);
                 if(result.affectedRows == 0)
