@@ -127,6 +127,7 @@ const Buyer = class{
             con.query(query, function (err, result) {
                 if (err) throw err;
                 console.log("Item added to cart");
+                resolve(true);
             });
 
             con.end();
