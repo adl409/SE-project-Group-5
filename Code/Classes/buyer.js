@@ -72,7 +72,6 @@ const Buyer = class{
             let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
             results = await con.promise(query, this.userID);
         }
-        console.log(results[0].cart_id);
         return results[0].cart_id;
     }
 

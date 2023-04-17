@@ -27,20 +27,20 @@ test('Get Cart ID', async () => {
    expect(result).toBe(37);
     });
          
-//  test('Add item to cart', async () => {
-//     const result = await lib.addItemToCart(1, 1, 10);
-//     expect(result).toBe(true);
-//      });
+ test('Add item to cart', async () => {
+    const result = await lib.addItemToCart(1, 1, 37);
+    expect(result).toBe(true);
+     });
 
-// test('Add second item to cart', async () => {
-//    const result = await lib.addItemToCart(1, 2, 10);
-//    expect(result).toBe(true);
-//     });
+test('Add second item to cart', async () => {
+   const result = await lib.addItemToCart(1, 2, 37);
+   expect(result).toBe(true);
+    });
 
-//  test('Remove item from cart', async () => {
-//     const result = await lib.removeItemFromCart(1);
-//     expect(result).toBe(true);
-//      });
+ test('Remove item from cart', async () => {
+    const result = await lib.removeItemFromCart(1);
+    expect(result).toBe(true);
+     });
 
 //  test('Checkout', async () => {
 //     const result = await lib.checkout();
