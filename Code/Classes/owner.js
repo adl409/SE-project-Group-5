@@ -36,8 +36,7 @@ const Owner = class{
     {
         return new Promise((resolve, reject) => {
         
-            var query = mysql.format("UPDATE SELab.users SET type_flag = 2 WHERE user_id = ?", [user_id]);
-            console.log(query);
+            var query = mysql.format("UPDATE SELab.users SET SELab.users.type_flag = 2 WHERE SELab.users.user_id = ?", [user_id]);
             con.query(query, function(err, result) {
                 if (err) reject(err);
 
