@@ -36,7 +36,7 @@ const Owner = class{
     {
         return new Promise((resolve, reject) => {
         
-            var query = mysql.format("UPDATE users SET type_flag = 2 WHERE user_id = ?", [user_id]);
+            var query = mysql.format("UPDATE SELab.users SET type_flag = 2 WHERE user_id = ?", [user_id]);
             console.log(query);
             con.query(query, function(err, result) {
                 if (err) reject(err);
@@ -58,7 +58,7 @@ const Owner = class{
     {
         return new Promise((resolve, reject) => {
 
-            var query = mysql.format("UPDATE users SET blocked_flag = 1 WHERE user_id = ?", [user_id]);
+            var query = mysql.format("UPDATE SELab.users SET blocked_flag = 1 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
                 if (err) reject(err);
                 if(result.affectedRows == 0)
@@ -78,7 +78,7 @@ const Owner = class{
         return new Promise((resolve, reject) => {
             var mysql = require('mysql');
 
-            var query = mysql.format("UPDATE users SET blocked_flag = 0 WHERE user_id = ?", [user_id]);
+            var query = mysql.format("UPDATE SELab.users SET blocked_flag = 0 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
                 if (err) reject(err);
                 if(result.affectedRows == 0)
@@ -97,7 +97,7 @@ const Owner = class{
     {
         return new Promise((resolve, reject) => {
 
-            var query = mysql.format("UPDATE users SET type_flag = 1 WHERE user_id = ?", [user_id]);
+            var query = mysql.format("UPDATE SELab.users SET type_flag = 1 WHERE user_id = ?", [user_id]);
 
             con.query(query, function(err, result) {
                 if (err) reject(err);
@@ -118,7 +118,7 @@ const Owner = class{
     {
         return new Promise((resolve, reject) => {
 
-            var query = mysql.format("UPDATE users SET type_flag = 0 WHERE user_id = ?", [user_id]);
+            var query = mysql.format("UPDATE SELab.users SET type_flag = 0 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
                 if (err) reject(err);
                 if(result.affectedRows == 0)
