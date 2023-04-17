@@ -7,7 +7,7 @@ var con = mysql.createConnection({
     database:"SELab"
 });
 
-con.promise = (sql, params) => {
+async function promise(sql, params) {
     return new Promise((resolve, reject) => {
 
         var con = mysql.createConnection({
@@ -18,18 +18,18 @@ con.promise = (sql, params) => {
         });
 
         con.connect();
-      
+
         con.query(sql,params, (err, result) => {
         
-        if(err){reject(new Error());}
-        
-        else{resolve(result);}
-        
-    });
+            if(err) reject(err);
+            
+            else{resolve(result);}
+            
+        });
 
         con.end();
 
-       });
+    });
 };
 module.exports = con;
 
@@ -170,13 +170,13 @@ const Seller = class{
 
         let query = mysql.format(`SELECT isbn FROM SELab.inventory WHERE item_id = ?`,
             [itemID]);
-        let isbn = await con.promise(query);
+        let isbn = await promise(query);
         isbn = isbn[0].isbn;
 
 
-        query = mysql.format(`SELECT * FROM SELab.Books WHERE isbn  = ?`,
+        query = mysql.format(`SELECT * FROM SELab.books WHERE isbn  = ?`,
             [isbn]);
-        let bookInfo = await con.promise(query);
+        let bookInfo = await promise(query);
     
         con.end();
 
@@ -199,21 +199,21 @@ const Seller = class{
         
         con.end();
         
-        return await con.promise(query);
+        return await promise(query);
     }
     
     async getTransactions()
     {
-        var query = mysql.format(`SELECT inventory.isbn, Books.title, Books.category, Books.author, cart_items.static_price, cart_items.quantity 
+        var query = mysql.format(`SELECT inventory.isbn, books.title, books.category, books.author, cart_items.static_price, cart_items.quantity 
         FROM SELab.cart_items 
         INNER JOIN inventory ON inventory.item_id = cart_items.item_id
         INNER JOIN carts ON cart_items.cart_id = carts.cart_id
-        INNER JOIN Books ON Books.isbn = inventory.isbn
+        INNER JOIN books ON books.isbn = inventory.isbn
         WHERE carts.purchased_flag = 1 AND inventory.user_id = ?`, [this.userID]);
 
         con.end();
 
-        return await con.promise(query);
+        return await promise(query);
     }
 
     async bookExists(isbn)
