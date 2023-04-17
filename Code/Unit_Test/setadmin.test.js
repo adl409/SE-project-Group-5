@@ -8,6 +8,8 @@ var con = mysql.createConnection({
   database: "SELab"
 });
 
+con.connect();
+
 var user = new Owner(con, 1);
 
 test('Sets Admin properly', async () =>{
@@ -42,3 +44,5 @@ test('Set Admin should return false when no rows are affected', async () => {
     const result = await user.SetAdmin(-1);
     expect(result).toBe(false);
   });
+
+con.end();
