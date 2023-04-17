@@ -166,14 +166,7 @@ const Buyer = class{
 
     async checkout(){
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.connect();
+        
 
         let rejects = [];
 
@@ -209,6 +202,14 @@ const Buyer = class{
             }
         }   
 
+        var con = mysql.createConnection({
+            host:"127.0.0.1",
+            user:"root",
+            password:"root",
+            database:"SELab"
+        });
+
+        con.connect();
         // set purchased flag
         query = mysql.format(`UPDATE SELab.carts SET purchased_flag = 1 WHERE 
         cart_id = ?`,
