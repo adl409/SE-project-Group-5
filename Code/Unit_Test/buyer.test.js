@@ -17,15 +17,15 @@ test('Get Username', async () => {
     expect(result).toBe("Bob");
     });
 
+test('Create Cart', async () => {
+    const result = await lib.createCart();
+    expect(result).toBe(true);
+        });
+
 test('Get Cart ID', async () => {
    const result = await lib.getCartID();
    expect(result).toBe(9);
     });
-
-//  test('Create Cart', async () => {
-//      const result = await lib.createCart();
-//      expect(result).toBe(true);
-//       });
          
 //  test('Add item to cart', async () => {
 //     const result = await lib.addItemToCart(1, 1, 10);
