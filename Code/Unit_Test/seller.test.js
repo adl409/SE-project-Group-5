@@ -28,7 +28,7 @@ test('Update Quantity', async () => {
   });
 
 test('Remove Listing', async () => {
-  const result = await lib.removeListing(7, 375826688);
+  const result = await lib.removeListing(375826688);
   expect(result).toBe(true);
 });
 
@@ -38,7 +38,7 @@ test('List book info', async () => {
 });
 
 test('List all listings', async () => {
-  const result = await lib.getListings(7, 375826688, 6, 20);
+  const result = await lib.getListings();
   expect(result.length).toBeGreaterThan(0);
 });
 
