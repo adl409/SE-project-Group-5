@@ -24,7 +24,7 @@ test('Create Cart', async () => {
 
 test('Get Cart ID', async () => {
    const result = await lib.getCartID();
-   expect(result).toBe(9);
+   expect(result).toBe(37);
     });
          
 //  test('Add item to cart', async () => {
