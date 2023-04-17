@@ -47,19 +47,19 @@ test('Add second item to cart', async () => {
 //     expect(result).toEqual([]);
 //      });
 
-// test('Adding item to cart after checkout', async () => {
-//    const result = await lib.addItemToCart(1, 3, 20);
-//    expect(result).toBe(true);
-//     });
+test('Adding item to cart after checkout', async () => {
+   const result = await lib.addItemToCart(1, 3, 20);
+   expect(result).toBe(true);
+    });
 
-// test('Viewing cart', async () => {
-//     const result = await lib.viewCart();
-//     expect(result.length).toBeGreaterThan(0);
-//      });
+test('Viewing cart', async () => {
+    const result = await lib.viewCart();
+    expect(result.length).toBeGreaterThan(0);
+     });
 
-// test('Viewing books', async () => {
-//    const result = await lib.viewBooks();
-//    expect(result.length).toBeGreaterThan(0);
-//     });
+test('Viewing books', async () => {
+   const result = await lib.viewBooks();
+   expect(result.length).toBeGreaterThan(0);
+    });
     
 con.end();
