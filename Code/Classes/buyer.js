@@ -106,30 +106,31 @@ const Buyer = class{
     // need to check for stocks
 
     async addItemToCart(itemID, quantity, price){
+        return new Promise(async (resolve, reject) => {
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
+            con.connect();
+            
+            let cartID = await this.getCartID();
+            let query = mysql.format(`INSERT INTO SELab.cart_items SET 
+            quantity = ?,
+            cart_id = ?,
+            item_id = ?,
+            static_price = ?`,
+            [quantity, cartID, itemID, price]);
+
+            con.query(query, function (err, result) {
+                if (err) throw err;
+                console.log("Item added to cart");
+            });
+
+            con.end();
         });
-
-        con.connect();
-        
-        let cartID = await this.getCartID();
-        let query = mysql.format(`INSERT INTO cart_items SET 
-        quantity = ?,
-        cart_id = ?,
-        item_id = ?,
-        static_price = ?`,
-        [quantity, cartID, itemID, price]);
-
-        con.query(query, function (err, result) {
-            if (err) throw err;
-            console.log("Item added to cart");
-        });
-
-        con.end();
 
     }
 
