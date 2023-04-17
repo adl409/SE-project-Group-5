@@ -11,13 +11,14 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.x]  
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+            
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -25,7 +26,23 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: subdir/.package-lock.json
     - run: npm ci
-    - run: npm run build --if-present
+    - name: Install MySQL Client
+      run: sudo apt-get install mysql-client
+    - run: sudo service mysql start
+    - run: sudo systemctl stop mysql
+    - run: sudo mysqld_safe --skip-grant-tables &
+    - run: sudo mkdir -p /var/run/mysqld
+    - run: sudo touch /var/run/mysqld/mysqld.sock
+    - run: sudo chown -R mysql:mysql /var/run/mysqld
+    - run: sudo chmod 777 /var/run/mysqld/mysqld.sock
+    - run: sudo systemctl stop mysql
+    - run: sudo systemctl start mysql
+    - name: Connect to MySQL Server
+      run: mysql --user=root --password=root -P 3306
+    - run: mysql --user=root --password=root -e 'CREATE DATABASE SELab;'
+    - run: mysql --user=root --password=root SELab < Database/selab.sql
+    - run: mysql --user=root --password=root -e 'SELECT * FROM SELab.users;'
+    - run: mysql --user=root --password=root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';"
+    - run: npm run build --if-present 
     - run: npm test
