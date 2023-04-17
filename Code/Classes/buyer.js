@@ -246,7 +246,7 @@ const Buyer = class{
         isbn = isbn[0].isbn;
 
 
-        query = mysql.format(`SELECT * FROM SELab.Books WHERE isbn  = ?`,
+        query = mysql.format(`SELECT * FROM SELab.books WHERE isbn  = ?`,
             [isbn]);
         let bookInfo = await promise(query);
     
