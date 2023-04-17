@@ -32,9 +32,9 @@ test('BlockedUser should throw error for database query failure', async () => {
     }
 });
 
-test('BlockedUser should return false for string user ID', async () => {
-    const result = await user.BlockedUser('user123');
-    expect(result).toBe(false);
+test('BlockedUser should return true for valid user ID', async () => {
+    const result = await user.BlockedUser(4);
+    expect(result).toBe(true);
 });
 
 test('BlockedUser should return false for undefined user ID', async () => {
