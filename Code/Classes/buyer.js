@@ -288,7 +288,7 @@ const Buyer = class{
 
     async viewBooks(){
 
-        var query = mysql.format("SELECT * FROM SELab.Books");
+        var query = mysql.format("SELECT * FROM SELab.books");
         var books = await con.promise(query);
 
         return books;
