@@ -33,6 +33,7 @@ con.promise = (sql, params) => {
 
     });
 };
+
 module.exports = con;
 
 // async function login(con, username, password){
@@ -168,6 +169,15 @@ const Buyer = class{
 
         return new Promise(async (resolve, reject) => {
 
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
+
+            con.connect();
+
             let rejects = [];
 
             let cartID = await this.getCartID();
@@ -202,14 +212,7 @@ const Buyer = class{
                 }
             }   
 
-            var con = mysql.createConnection({
-                host:"127.0.0.1",
-                user:"root",
-                password:"root",
-                database:"SELab"
-            });
-
-            con.connect();
+            
             // set purchased flag
             query = mysql.format(`UPDATE SELab.carts SET purchased_flag = 1 WHERE 
             cart_id = ?`,
