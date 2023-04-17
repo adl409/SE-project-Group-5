@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "SELab"
+    host:"127.0.0.1",
+    user:"root",
+    password:"root",
+    database:"SELab"
 });
 
 con.promise = (sql, params) => {
