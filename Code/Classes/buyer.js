@@ -88,7 +88,7 @@ const Buyer = class{
 
         con.connect();
 
-        let query = mysql.format(`INSERT INTO carts SET
+        let query = mysql.format(`INSERT INTO SELab.carts SET
         user_id = ?,
         purchased_flag = ?`,
         [this.userID, '0']);
