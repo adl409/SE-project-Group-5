@@ -13,17 +13,17 @@ con.connect();
 var user = new Admin(con, 1);
 
 test('sets seller properly', async () =>{
-    const result = await user.SetSeller(9);
+    const result = await user.SetSeller(2);
     expect(result).toBe(true)
 })
 
 test('User ID does not exist', async () =>{
-    const result = await user.SetSeller(20);
+    const result = await user.SetSeller(-1);
     expect(result).toBe(false)
 })
 
 test('User is already a seller', async() =>{
-    const result = await user.SetSeller(9);
+    const result = await user.SetSeller(4);
     expect(result).toBe(true);
 })
 
