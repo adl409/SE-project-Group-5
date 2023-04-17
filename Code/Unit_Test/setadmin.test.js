@@ -2,9 +2,9 @@ var Owner = require('../Classes/owner')
 var mysql = require('mysql')
 
 var con = mysql.createConnection({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "root",
-  password: "",
+  password: "root",
   database: "SELab"
 });
 

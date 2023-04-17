@@ -18,7 +18,6 @@ async function Login(username, password)
 
         var query = mysql.format("SELECT * FROM SELab.users WHERE BINARY username = ? AND BINARY password = ?", [username, password]);
         con.query(query, function(err, result) {
-            console.log(result);
             if (err) reject(err);
             if (!result.length)
             {
