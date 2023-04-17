@@ -19,7 +19,6 @@ con.promise = (sql, params) => {
         });
     });
 };
-con.connect();
 
 const Owner = class{
     constructor(connection,user_id)
@@ -35,8 +34,17 @@ const Owner = class{
     async SetAdmin(user_id)
     {
         return new Promise((resolve, reject) => {
-        
-            var query = mysql.format("UPDATE SELab.users SET type_flag = 2 WHERE user_id = ?", [user_id]);
+
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
+            });
+
+            con.connect();
+
+            var query = mysql.format("UPDATE users SET type_flag = 2 WHERE user_id = ?", [user_id]);
             con.query(query, function(err, result) {
                 console.log(result);
                 if (err) reject(err);
@@ -50,7 +58,8 @@ const Owner = class{
                     resolve(true);
                 }
             });
-
+            
+            con.end();
         });
     }
 
@@ -133,5 +142,6 @@ const Owner = class{
         });
     }
 };
+
 
 module.exports = Owner;
