@@ -9,7 +9,7 @@ var con = mysql.createConnection({
 
 con.connect();
 
-con.promise = (sql, params) => {
+function promise = (sql, params) => {
     return new Promise((resolve, reject) => {
 
         var con = mysql.createConnection({
@@ -313,7 +313,6 @@ const Buyer = class{
             book = await this.bookInfoFromListing(items[i].item_id)
             books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity, items[i].cart_item_id]);
         }
-
 
         return books;
     }
