@@ -99,7 +99,7 @@ const Buyer = class{
         });
 
         con.end();
-
+ 
     }
     
 
