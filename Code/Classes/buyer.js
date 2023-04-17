@@ -173,12 +173,9 @@ const Buyer = class{
         
         // check for stock
 
-        // let query = mysql.format(`SELECT quantity, item_id FROM SELab.cart_items WHERE cart_id = ?`,
-        //     [cartID]);
-        // let items = await con.promise(query, cartID);
-
-        let query = mysql.format(`SELECT * FROM SELab.carts WHERE user_id = ? AND purchased_flag = 0`, [this.userID]);
-        let results = await con.promise(query, this.userID);
+        let query = mysql.format(`SELECT quantity, item_id FROM SELab.cart_items WHERE cart_id = ?`,
+            [cartID]);
+        let items = await con.promise(query, cartID);
         
         // update quantities
         for(let i = 0; i < items.length; i++){
@@ -188,15 +185,6 @@ const Buyer = class{
 
             console.log(items[i].quantity);
             console.log(temp[0].quantity);
-
-            var con = mysql.createConnection({
-                host:"127.0.0.1",
-                user:"root",
-                password:"root",
-                database:"SELab"
-            });
-    
-            con.connect();
 
             if(items[i].quantity >  temp[0].quantity){
                 rejects.push(inventory[i].isbn)
@@ -211,17 +199,7 @@ const Buyer = class{
                     if(err) throw err;
                 })
             }
-            con.end();
         }   
-
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.connect();
         
         // set purchased flag
         query = mysql.format(`UPDATE SELab.carts SET purchased_flag = 1 WHERE 
@@ -234,8 +212,6 @@ const Buyer = class{
         
         // create new cart
         await this.createCart();
-
-        con.end();
 
         return rejects;
 
