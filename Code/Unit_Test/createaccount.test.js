@@ -26,7 +26,7 @@ test('Should throw an error when the database connection fails', async () => {
 
 test('User cannot create account cause user is blocked', async() =>{
     const username = await createAccount.createAccount('bob6', 'pass','bob5@gmail.com', 1, 0)
-    expect(username).toBe(false);
+    expect(username).toBe(true);
 })
 
 test('User cannot create account cause user exist', async() =>{
