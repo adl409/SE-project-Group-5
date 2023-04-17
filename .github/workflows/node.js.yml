@@ -42,7 +42,6 @@ jobs:
       run: mysql --user=root --password=root -P 3306
     - run: mysql --user=root --password=root -e 'CREATE DATABASE SELab;'
     - run: mysql --user=root --password=root SELab < database/SELab.sql
-    - run: mysql --user=root --password=root -e 'SELECT * FROM SELab.users;'
     - run: mysql --user=root --password=root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';"
     - run: npm run build --if-present 
     - run: npm test
