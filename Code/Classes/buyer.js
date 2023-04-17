@@ -27,7 +27,7 @@ con.promise = (sql, params) => {
             
             else{resolve(result);}
             
-        });
+        });z
 
         con.end();
 
@@ -57,19 +57,8 @@ const Buyer = class{
 
     async getUsername(){
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.connect();
-
         let query = mysql.format('SELECT * FROM SELab.users WHERE user_id = ?', [this.userID]);
         let results = await con.promise(query, this.userID);
-
-        con.end();
 
         return results[0].username;
     }
