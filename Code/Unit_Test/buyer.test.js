@@ -2,9 +2,9 @@ var mysql = require('mysql');
 const Buyer = require('../Classes/buyer'); 
 
 var con = mysql.createConnection({
-    host: "localhost",
+    host: "127.0.0.1",
     user: "root",
-    password: "",
+    password: "root",
     database: "SELab"
   });
 
@@ -60,3 +60,4 @@ test('Viewing books', async () => {
    expect(result.length).toBeGreaterThan(0);
     });
     
+con.end();
