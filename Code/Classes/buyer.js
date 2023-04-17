@@ -92,7 +92,7 @@ const Buyer = class{
         user_id = ?,
         purchased_flag = ?`,
         [this.userID, '0']);
-        this.con.query(query, function (err, result) {
+        con.query(query, function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");
         });
