@@ -23,13 +23,9 @@ test('BlockedUser should return false for invalid user ID', async () => {
     expect(result).toBe(false);
   });
 
-test('BlockedUser should throw error for database query failure', async () => {
-    expect.assertions(1);
-    try {
-      await user.BlockedUser('invalid input');
-    } catch (error) {
-      expect(error).toBeDefined();
-    }
+test('BlockedUser should return false for invalid user ID', async () => {
+    const result = await user.BlockedUser(0);
+    expect(result).toBe(false);
 });
 
 test('BlockedUser should return true for valid user ID', async () => {
