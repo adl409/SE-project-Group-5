@@ -175,7 +175,7 @@ const Buyer = class{
 
         let query = mysql.format(`SELECT quantity, item_id FROM SELab.cart_items WHERE cart_id = ?`,
             [cartID]);
-        let items = await con.promise(query);
+        let items = await con.promise(query, cartID);
         
         // update quantities
         for(let i = 0; i < items.length; i++){
