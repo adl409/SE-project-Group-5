@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2023 at 04:45 AM
+-- Generation Time: Apr 17, 2023 at 06:12 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -109,10 +109,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `type_flag`, `password`, `email`, `blocked_flag`) VALUES
-(1, 'Bob', 3, 'asdf', 'asdf@asdf', 0),
-(2, 'user1', 0, 'pass', 'user1@gmail.com', 0),
-(3, 'user2', 0, 'pass', 'user2@gmail.com', 0),
-(4, 'user3', 0, 'pass', 'user3@gmail.com', 0);
+(1, 'Bob', 2, 'asdf', 'asdf@asdf', 0),
+(2, 'user1', 2, 'pass', 'user1@gmail.com', 1),
+(3, 'user2', 2, 'pass', 'user2@gmail.com', 0),
+(4, 'user3', 1, 'pass', 'user3@gmail.com', 0);
 
 --
 -- Indexes for dumped tables
