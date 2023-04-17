@@ -52,29 +52,32 @@ const Seller = class{
 
     async createListing(isbn, quantity, price){
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
+        return new Promise((resolve, reject) => {
 
-        con.connect();
-
-        // FIXME
-        let query = mysql.format(`INSERT INTO inventory SET 
-        quantity = ?,
-        user_id = ?,
-        price = ?,
-        isbn = ?`,
-        [quantity, this.userID, price, isbn]);
-
-        con.query(query, function (err, result) {
-            if (err) throw err;
-            console.log("Listing Created");
+            var con = mysql.createConnection({
+                host:"127.0.0.1",
+                user:"root",
+                password:"root",
+                database:"SELab"
             });
 
-        con.end();
+            con.connect();
+
+            // FIXME
+            let query = mysql.format(`INSERT INTO inventory SET 
+            quantity = ?,
+            user_id = ?,
+            price = ?,
+            isbn = ?`,
+            [quantity, this.userID, price, isbn]);
+
+            con.query(query, function (err, result) {
+                if (err) throw err;
+                console.log("Listing Created");
+                });
+
+            con.end();
+        });
             
     }
 
