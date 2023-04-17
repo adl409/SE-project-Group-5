@@ -162,4 +162,6 @@ const Admin = class{
     }
 };
 
+con.end();
+
 module.exports = Admin;

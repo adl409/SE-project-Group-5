@@ -190,5 +190,4 @@ const Owner = class{
     }
 };
 
-
 module.exports = Owner;
