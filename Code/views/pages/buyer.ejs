@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div id="header"> 
+            <h1>E-Commerce Store</h1>
+            <form id="buyerButton" method="post" action="/logout">
+                <input id="logout-buyer" type="submit" value="Log out">
+            </form>
+            <a id="cart" href="cart"><img src="img/cart.png" height="75px"></a>
+        </div>
+        <div id="content">
+            <h1>Welcome <%= name %></h1>
+            <h2>Browse Books:</h2>
+            <%
+            if (message != null)
+            {
+            %>
+                <h3 class = "message"><%= message %></h3>
+            <%
+            }
+            %>
+            <%
+            if (popup != null)
+            {
+            %>
+                <div class = "popup"><h3><%= popup %></h3></div>
+            <%
+            }
+            %>
+            <div id="table">
+                <table>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Title Of Book</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>View</th>
+                    </tr>
+                    <% books.forEach(function(book){
+                    %>
+                        <tr>
+                            <form method="post" action="/viewAllBooks">
+                                <td><%= book.isbn %></td>
+                                <td><%= book.title %></td>
+                                <td><%= book.author %></td>
+                                <td><%= book.category %></td>
+                                <td class="buttons"><input type="submit" value="View All Books"></td>
+
+                                <input type="hidden" name="isbn" value="<%= book.isbn %>">
+
+                            </form>
+                        </tr>
+                    <%
+                    })
+                    %>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

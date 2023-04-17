@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div id="header"> 
+            <h1>E-Commerce Store</h1>
+            <form id="buyerButton" method="post" action="/logout">
+                <input id="logout-buyer" type="submit" value="Log out">
+            </form>
+            <a id="cart" href="cart"><img src="img/cart.png" height="75px"></a>
+        </div>
+        <div id="content">
+            <h2><%= title %></h2>
+            <h3>Here are all the books that are selling</h3>
+            <a id="back" href="buyer">Go back</a>
+            <div id="table">
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Seller</th>
+                        <th>In Stock</th>
+                        <th>Price</th>
+                        <th>Quanity</th>
+                        <th>Add</th>
+                    </tr>
+                    <% books.forEach(function(book){
+                        if(book[2] > 0)
+                        {
+                            %>
+                            <tr>
+                                <form method="post" action="/addToCart">
+                                    <td><%= book[0] %></td>
+                                    <td><%= book[1] %></td>
+                                    <td><%= book[2] %></td>
+                                    <td>$<%= book[3] %></td>
+                                    <td><select name="quantity">
+                                        <%
+                                        for(i = 1; i <= book[2]; i++)
+                                        {
+                                        %>
+                                            <option value=<%= i %>><%= i %></option>
+                                        <%
+                                        }
+                                        %>
+                                    </select></td>
+                                    <td class="buttons"><input type="submit" value="Add to Cart"></td>
+    
+                                    <input type="hidden" name="item_id" value="<%= book[4] %>">
+                                    <input type="hidden" name="price" value="<%= book[3] %>"> 
+    
+                                </form>
+                         
+                            </tr>
+                    <%
+                        }  
+                    })
+                    %>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

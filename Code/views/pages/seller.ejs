@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div id="header"> 
+            <h1>E-Commerce Store - <%= title %></h1>
+            <a id="transaction" href="transactions">Transactions</a>
+            <form id="sellerButton" method="post" action="/logout">
+                <input id="logout-seller" type="submit" value="Log out">
+            </form>
+        </div>
+        <div id="content">
+            <h1>Welcome Seller</h1>
+            <h2>Here are your listed books</h2>
+            <%
+            if (message != null)
+            {
+            %>
+                <h3 class = "message"><%= message %></h3>
+            <%
+            }
+            %>
+            <form method="post" action="/createListing">
+                <input id="addListing" type="submit" value="Add Listing">
+            <!-- Add a isbn here -->
+            </form>
+            <div id="table">
+                <table>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Author</th>
+                        <th>Price</th>
+                        <th>In Stock</th>
+                        <th>Actions</th>
+                        <th>Amount</th>
+                        <th>Save</th>
+                    </tr>
+                    <tr>
+                        <% books.forEach(function(book){
+                            %>
+                                <tr>
+                                    <form method="post" action="/updateListing">
+                                        <td><%= book.isbn %></td>
+                                        <td><%= book.title %></td>
+                                        <td><%= book.category %></td>
+                                        <td><%= book.author %></td>
+                                        <td>$<%= book.price %></td>
+                                        <td><%= book.quantity %></td>
+                                        <td><select name="action">
+                                            <option value = "delete">Delete Listing</option>
+                                            <option value = "update">Update Pricing</option>
+                                            <option value = "add">Add Stock</option>
+                                        </select></td>
+                                        <td><input type="text" name="amount" size="1"></td>
+                                        <td class="buttons"><input type="submit" value="Save"></td>
+        
+                                        <input type="hidden" name="isbn" value="<%= book.isbn %>">
+                                        <input type="hidden" name="quantity" value="<%= book.quantity %>">
+                                    </form>
+                                </tr>
+                            <%
+                            })
+                            %>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

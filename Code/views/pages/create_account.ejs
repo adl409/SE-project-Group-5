@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="css/login.css">
+    </head>
+
+    <body>
+        <div id="header"> 
+            <h1>E-Commerce Store</h1>
+        </div>
+        <section id="createAccount">
+            <div id="formContent">
+                <h1>Create a new account</h1>
+                <% if (warning != null)
+                {
+                    %>
+                    <h2 class="warning"><%= warning %></h2>
+                    <%
+                }
+                    %>
+                <form method="post" action="/create_account_init">
+
+                    <!-- <p>Enter a Username</p> -->
+                    <input type="text" name="username" placeholder="Username*" required="required"> <br />
+                    <!-- <p>Enter a Password</p> -->
+                    <input type="text" name="password" placeholder="Password*" required="required"> <br />
+                    <!-- <p>Email</p> -->
+                    <input type="text" name="email" placeholder="Email*" required="required"> <br />
+                    <a href="login">Go back</a><br />
+                    <input type="submit" name="submit" value="Create Account">
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
