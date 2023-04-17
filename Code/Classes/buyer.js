@@ -296,15 +296,6 @@ const Buyer = class{
 
     async viewCart(){
 
-        var con = mysql.createConnection({
-            host:"127.0.0.1",
-            user:"root",
-            password:"root",
-            database:"SELab"
-        });
-
-        con.connect();
-
         let cartID = await this.getCartID();
         
         let query = mysql.format(`SELECT item_id, quantity, cart_item_id FROM SELab.cart_items WHERE cart_id = ?`,
@@ -323,7 +314,6 @@ const Buyer = class{
             books.push([book.isbn, book.title, book.category, book.author, price[0].price, items[i].quantity, items[i].cart_item_id]);
         }
 
-        con.end();
 
         return books;
     }
