@@ -27,7 +27,7 @@ con.promise = (sql, params) => {
             
             else{resolve(result);}
             
-        });z
+        });
 
         con.end();
 
