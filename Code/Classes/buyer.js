@@ -181,7 +181,7 @@ const Buyer = class{
         for(let i = 0; i < items.length; i++){
             let query = mysql.format(`SELECT isbn, quantity FROM SELab.inventory WHERE item_id = ?`,
             [items[i].item_id]);
-            let temp = await con.promise(query);
+            let temp = await con.promise(query, items[i].item_id);
 
             console.log(items[i].quantity);
             console.log(temp[0].quantity);
