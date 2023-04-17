@@ -192,12 +192,23 @@ const Buyer = class{
             }
             else
             {
+                var con = mysql.createConnection({
+                    host:"127.0.0.1",
+                    user:"root",
+                    password:"root",
+                    database:"SELab"
+                });
+        
+                con.connect();
+
                 let query = mysql.format(`UPDATE SELab.inventory SET Quantity = ? WHERE 
                 item_id = ?`,
                 [temp[0].quantity-items[i].quantity, items[i].item_id]);
                 con.query(query, function(err, result) {
                     if(err) throw err;
                 })
+
+                con.end();
             }
         }   
 
