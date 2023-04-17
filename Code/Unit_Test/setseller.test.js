@@ -13,17 +13,17 @@ con.connect();
 var user = new Admin(con, 1);
 
 test('sets seller properly', async () =>{
-    const result = await SetSeller.SetSeller(9);
+    const result = await user.SetSeller(9);
     expect(result).toBe(true)
 })
 
 test('User ID does not exist', async () =>{
-    const result = await SetSeller.SetSeller(20);
+    const result = await user.SetSeller(20);
     expect(result).toBe(false)
 })
 
 test('User is already a seller', async() =>{
-    const result = await SetSeller.SetSeller(9);
+    const result = await user.SetSeller(9);
     expect(result).toBe(true);
 })
 
@@ -32,7 +32,7 @@ test('Set Seller should throw an error when the database connection fails', asyn
       query: jest.fn((query, params, callback) => callback(new Error('Connection Error')))
     };
     try{
-    const result = SetSeller.SetSeller(9, con);
+    const result = user.SetSeller(9, con);
     
     await expect(result).rejects.toThrow('Connection Error');
     }
@@ -42,7 +42,7 @@ test('Set Seller should throw an error when the database connection fails', asyn
   });
 
 test('SetSeller should return false when no rows are affected', async () => {
-    const result = await SetSeller.SetSeller(-1);
+    const result = await user.SetSeller(-1);
     expect(result).toBe(false);
   });
 
