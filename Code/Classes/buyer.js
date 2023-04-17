@@ -217,4 +217,6 @@ const Buyer = class{
 
 };
 
+con.end();
+
 module.exports = Buyer;

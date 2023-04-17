@@ -140,4 +140,6 @@ const Seller = class{
 
 }    
 
+con.end();
+
 module.exports = Seller;
