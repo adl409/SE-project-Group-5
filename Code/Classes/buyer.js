@@ -124,7 +124,7 @@ const Buyer = class{
             console.log(temp[0].quantity);
 
             if(items[i].quantity >  temp[0].quantity){
-                rejects.push(inventory[i].isbn)
+                rejects.push(temp[0].isbn)
                 this.removeItemFromCart(items[i].item_id);
             }
             else
