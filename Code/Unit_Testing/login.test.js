@@ -1,7 +1,7 @@
 var Login = require('../Function_requirements/login');
 
 test('Login information that exist in the database should result in true', async () => {
-    expect(await Login.Login("wchen2654", "idk123")).toBe(true);
+    expect(await Login.Login("Bob", "asdf")).toBe(true);
 });
 
 test('Username and password exist but doesn\'t match. Should result in false', async () => {
