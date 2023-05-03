@@ -1,6 +1,24 @@
 <!DOCTYPE html>
     <head>
         <link rel="stylesheet" href="css/login.css">
+        <script type="text/javascript">
+            function CheckColors(val){
+             var element=document.getElementsByClassName('new');
+             if(val=='pick a color'||val=='others')
+                for(var i = 0; i < element.length; i++)
+                {
+                    element[i].style.display='inline-block';
+                }
+             else
+             {
+                for(var i = 0; i < element.length; i++)
+                {
+                    element[i].style.display='none';
+                }
+             }
+            }
+            
+        </script> 
     </head>
 
     <body>
@@ -19,8 +37,9 @@
                     %>
                 <form method="post" action="/createBook">
 
-                    <select name = "isbn">
+                    <select name = "isbn" onchange="CheckColors(this.value);">
                         <option value="0">Select a book to add</option>
+                        <option value="others">New Book</option>
                         <option value="316015849">Twilight</option>
                         <option value="375826688">Eragon</option>
                         <option value="439023521">The Hunger Games</option>
@@ -31,6 +50,8 @@
                         <option value="1420961357">Heidi</option>
                         <option value="1540041840">The Bridges of Madision County</option>
                     </select>
+                    <input type="text" name="new_name" class="new" placeholder="Book Name*" style='display:none;'/>
+                    <input type="text" name="new_isbn" class="new" placeholder="Isbn*" style='display:none;'/>
                     <input type="text" name="price" placeholder="Price" required="required"> <br />
                     <a href="seller">Go back</a><br />
                     <input type="submit" name="submit" value="Add Book">
