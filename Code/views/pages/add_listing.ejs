@@ -42,15 +42,15 @@
                     <select name = "isbn" onchange="CheckColors(this.value);">
                         <option value="0">Select a book to add</option>
                         <option value="-1">New Book</option>
-                        <option value="316015849">Twilight</option>
-                        <option value="375826688">Eragon</option>
-                        <option value="439023521">The Hunger Games</option>
-                        <option value="439708184">Harry Potter and the Sorcerer's Stone</option>
-                        <option value="618260307">The Hobbit</option>
-                        <option value="756966035">The Lightning Thief</option>
-                        <option value="901720313">Watership Down</option>
-                        <option value="1420961357">Heidi</option>
-                        <option value="1540041840">The Bridges of Madision County</option>
+
+                        <%
+                        books.forEach(function(book)
+                        {
+                        %>
+                            <option value="<%= book.isbn %>"><%= book.title %></option>
+                        <%
+                        })
+                        %>
                     </select>
                     <input type="text" name="new_name" class="new" placeholder="Book Name*" style='display:none;'/>
                     <input type="text" name="new_isbn" class="new" placeholder="Isbn*" style='display:none;'/>

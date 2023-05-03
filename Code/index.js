@@ -340,7 +340,9 @@ app.post('/checkout', async function(req, res) {
 
 app.post('/createListing', async function(req,res){
     
-    res.render('pages/add_listing', {warning: null});
+    var books = await GLOBAL.user.getBooks();
+
+    res.render('pages/add_listing', {warning: null, books: books});
 });
 
 app.post('/updateListing', async function(req,res){
@@ -402,11 +404,24 @@ app.post('/createBook', async function(req, res) {
                 var new_category = req.body.new_category;
                 var new_author = req.body.new_author;
 
-                flag = await GLOBAL.user.bookExistsOnBooks(new_isbn);
+                var flag1 = await GLOBAL.user.bookExistsOnBooks(new_isbn);
 
-                if(flag)
+                if(flag1)
                 {
-                    await GLOBAL.user.createListing(new_isbn, 0, price);
+
+                    var flag2 = await GLOBAL.user.bookExists(new_isbn);
+
+                    if(!flag2)
+                    {
+                        await GLOBAL.user.createListing(new_isbn, 0, price);
+                    }
+                    else
+                    {
+                        var books = await GLOBAL.user.getBooks();
+
+                        res.render('pages/add_listing', {warning: "You are already selling this book", books: books});
+                    }
+
                 }
                 else
                 {
@@ -419,13 +434,17 @@ app.post('/createBook', async function(req, res) {
         }
         else
         {
-            res.render('pages/add_listing', {warning: "You are already selling this book"});
+            var books = await GLOBAL.user.getBooks();
+
+            res.render('pages/add_listing', {warning: "You are already selling this book", books: books});
         }
        
     }
     else
     {
-        res.render('pages/add_listing', {warning: "Please select a book"});
+        var books = await GLOBAL.user.getBooks();
+
+        res.render('pages/add_listing', {warning: "Please select a book", books: books});
     }
 
 });

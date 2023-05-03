@@ -184,6 +184,17 @@ const Seller = class{
         });
     }
 
+    async getBooks()
+    {
+        return new Promise((resolve, reject) => {
+            var query = "SELECT * FROM Books";
+            con.query(query, function(err, result) {
+                if(err) reject(err);
+                resolve(result);
+            })
+        })
+    }
+
 }    
 
 module.exports = Seller;
