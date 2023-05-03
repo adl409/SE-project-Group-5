@@ -38,19 +38,48 @@ const Seller = class{
 
     // create listing
 
-    async createListing(isbn, quantity, price){
-        // FIXME
-        let query = mysql.format(`INSERT INTO Inventory SET 
-        quantity = ?,
-        user_id = ?,
-        price = ?,
-        isbn = ?`,
-        [quantity, this.userID, price, isbn]);
+    async createListing(isbn, quantity, price, name = null, category = null, author = null){
+        if(name == null)
+        {
+            let query = mysql.format(`INSERT INTO Inventory SET 
+            quantity = ?,
+            user_id = ?,
+            price = ?,
+            isbn = ?`,
+            [quantity, this.userID, price, isbn]);
 
-        con.query(query, function (err, result) {
-            if (err) throw err;
-            console.log("Listing Created");
+            con.query(query, function (err, result) {
+                if (err) throw err;
+                console.log("Listing Created");
+                });
+        }
+        else
+        {
+            let query = mysql.format(`INSERT INTO Books SET 
+            isbn = ?,
+            title = ?,
+            category = ?,
+            author = ?`,
+            [isbn, name, category, author]);
+
+            con.query(query, function (err, result){
+                if (err) throw err;
+                console.log("Book Inserted");
             });
+
+            query = mysql.format(`INSERT INTO Inventory SET 
+            quantity = ?,
+            user_id = ?,
+            price = ?,
+            isbn = ?`,
+            [quantity, this.userID, price, isbn]);
+
+            con.query(query, function (err, result) {
+                if (err) throw err;
+                console.log("Listing Created");
+                });
+        }
+
     }
 
     async updatePricing(isbn, price){
@@ -126,7 +155,24 @@ const Seller = class{
             var query = mysql.format(`SELECT * FROM Inventory WHERE user_id = ? AND isbn = ?`, [this.userID, isbn]);
             con.query(query, function(err, result) {
                 if(err) reject(err);
-                if(!result.length)
+                if(result.length)
+                {
+                    resolve(true);
+                }
+                else
+                {
+                    resolve(false);
+                }
+            })
+        });
+    }
+    async bookExistsOnBooks(isbn)
+    {
+        return new Promise((resolve, reject) => {
+            var query = mysql.format(`SELECT * FROM Books WHERE isbn = ?`, [isbn]);
+            con.query(query, function(err, result) {
+                if(err) reject(err);
+                if(result.length)
                 {
                     resolve(true);
                 }

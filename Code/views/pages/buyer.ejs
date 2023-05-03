@@ -31,43 +31,38 @@
             }
             %>
             <div id="cards">
-                <form class="card" method="post" action="/viewAllBooks" >
-                    <div class="imgBx">
-                        <img src="img/cart.png">
-                    </div>
-                    <div class="card_content">
-                        <div class="card_details">
-                            <h2>Book Name<br /><span>Author</span></h2>
-                            <div class="data">
-                                <h3>ISBN<br /><span>Series of numbers</span></h3>
-                                <h3>Category<br /><span>Actual Category</span></h3>
-                            </div>
-                            <div class="card_button">
-                                <input type="submit" value="View All Books">
-                            </div>
-                        </div>
-                    </div>
-                </form>
 
-                <form class="card" method="post" action="/viewAllBooks" >
-                    <div class="imgBx">
-                        <img src="img/cart.png">
-                    </div>
-                    <div class="card_content">
-                        <div class="card_details">
-                            <h2>Book Name<br /><span>Author</span></h2>
-                            <div class="data">
-                                <h3>ISBN<br /><span>Series of numbers</span></h3>
-                                <h3>Category<br /><span>Actual Category</span></h3>
-                            </div>
-                            <div class="card_button">
-                                <input type="submit" value="View All Books">
+                
+
+                <%
+
+                books.forEach(function(book)
+                {
+
+                %>
+                    <form class="card" method="post" action="/viewAllBooks" >
+                        <div class="imgBx">
+                            <img src="img/cart.png">
+                        </div>
+                        <div class="card_content">
+                            <div class="card_details">
+                                <h2><%= book.title %><br /><span><%= book.author %></span></h2>
+                                <div class="data">
+                                    <h3>ISBN:<br /><span><%= book.isbn %></span></h3>
+                                    <h3>Category:<br /><span><%= book.category %></span></h3>
+                                </div>
+                                <div class="card_button">
+                                    <input type="submit" value="View All Books">
+
+                                    <input type="hidden" name="isbn" value="<%= book.isbn %>">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-            
-                
+                    </form>
+
+                <%
+                })
+                %>
 
             </div>
             <!-- <div id="table">

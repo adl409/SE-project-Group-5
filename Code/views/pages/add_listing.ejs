@@ -4,16 +4,18 @@
         <script type="text/javascript">
             function CheckColors(val){
              var element=document.getElementsByClassName('new');
-             if(val=='pick a color'||val=='others')
+             if(val=='-1')
                 for(var i = 0; i < element.length; i++)
                 {
                     element[i].style.display='inline-block';
+                    element[i].required = true;
                 }
              else
              {
                 for(var i = 0; i < element.length; i++)
                 {
                     element[i].style.display='none';
+                    element[i].removeAttribute("required");
                 }
              }
             }
@@ -39,7 +41,7 @@
 
                     <select name = "isbn" onchange="CheckColors(this.value);">
                         <option value="0">Select a book to add</option>
-                        <option value="others">New Book</option>
+                        <option value="-1">New Book</option>
                         <option value="316015849">Twilight</option>
                         <option value="375826688">Eragon</option>
                         <option value="439023521">The Hunger Games</option>
@@ -52,6 +54,8 @@
                     </select>
                     <input type="text" name="new_name" class="new" placeholder="Book Name*" style='display:none;'/>
                     <input type="text" name="new_isbn" class="new" placeholder="Isbn*" style='display:none;'/>
+                    <input type="text" name="new_category" class="new" placeholder="Category*" style='display:none;'/>
+                    <input type="text" name="new_author" class="new" placeholder="Author*" style='display:none;'/>
                     <input type="text" name="price" placeholder="Price" required="required"> <br />
                     <a href="seller">Go back</a><br />
                     <input type="submit" name="submit" value="Add Book">

@@ -384,14 +384,35 @@ app.post('/createBook', async function(req, res) {
     var isbn = parseInt(req.body.isbn);
     var price = parseInt(req.body.price);
 
-    if(isbn)
+    if(isbn != 0)
     {
 
         var flag = await GLOBAL.user.bookExists(isbn);
 
-        if(flag)
+        if(!flag)
         {
-            await GLOBAL.user.createListing(isbn, 0, price);
+            if(isbn != -1)
+            {
+                await GLOBAL.user.createListing(isbn, 0, price);
+            }
+            else
+            {
+                var new_isbn = parseInt(req.body.new_isbn);
+                var new_name = req.body.new_name;
+                var new_category = req.body.new_category;
+                var new_author = req.body.new_author;
+
+                flag = await GLOBAL.user.bookExistsOnBooks(new_isbn);
+
+                if(flag)
+                {
+                    await GLOBAL.user.createListing(new_isbn, 0, price);
+                }
+                else
+                {
+                    await GLOBAL.user.createListing(new_isbn, 0, price, new_name, new_category, new_author);
+                }
+            }
 
             var result = await GLOBAL.user.getListings();
             res.render('pages/seller', {message: "Book successfully added", title:'Seller Page' , books: result});
@@ -400,7 +421,7 @@ app.post('/createBook', async function(req, res) {
         {
             res.render('pages/add_listing', {warning: "You are already selling this book"});
         }
-        
+       
     }
     else
     {

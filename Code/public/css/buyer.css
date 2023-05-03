@@ -238,6 +238,8 @@ select
     justify-content: center;
     align-items: center;
     row-gap: 100px;
+    grid-auto-rows: 350px;
+    margin-top: 150px;
 }
 
 .title
@@ -344,5 +346,5 @@ select
     font-size: 1em;
     color: #555;
     line-height: 1.2em;
-    font-weight: 600; 
+    font-weight: 600;
 }
