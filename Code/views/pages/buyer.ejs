@@ -42,7 +42,7 @@
                 %>
                     <form class="card" method="post" action="/viewAllBooks" >
                         <div class="imgBx">
-                            <img src="img/cart.png">
+                            <img src="img/<%= book.isbn %>.png">
                         </div>
                         <div class="card_content">
                             <div class="card_details">
@@ -65,33 +65,6 @@
                 %>
 
             </div>
-            <!-- <div id="table">
-                <table>
-                    <tr>
-                        <th>ISBN</th>
-                        <th>Title Of Book</th>
-                        <th>Author</th>
-                        <th>Category</th>
-                        <th>View</th>
-                    </tr>
-                    <% books.forEach(function(book){
-                    %>
-                        <tr>
-                            <form method="post" action="/viewAllBooks">
-                                <td><%= book.isbn %></td>
-                                <td><%= book.title %></td>
-                                <td><%= book.author %></td>
-                                <td><%= book.category %></td>
-                                <td class="buttons"><input type="submit" value="View All Books"></td>
-
-                                <input type="hidden" name="isbn" value="<%= book.isbn %>">
-
-                            </form>
-                        </tr>
-                    <%
-                    })
-                    %>
-                </table> -->
             </div>
         </div>
     </body>

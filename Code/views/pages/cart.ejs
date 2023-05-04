@@ -65,8 +65,8 @@
             <% if (books.length > 0){
             %>
                 <h2>Total: $<%= total %></h2>
-                <form method="post" action="/checkout">
-                    <input id="checkout" type="submit" value="Checkout">
+                <form method="post" action="/payment">
+                    <input id="checkout" type="submit" value="Proceed to payment">
                 </form>
             <%
             }

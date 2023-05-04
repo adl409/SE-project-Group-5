@@ -188,6 +188,7 @@ select
      
     animation: opacityOn 5s normal forwards;
     animation-delay: 3s;
+    color: white;
 }
 
 .popup

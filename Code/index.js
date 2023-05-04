@@ -4,7 +4,30 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var Login = require('./Function_requirements/login');
 var createAccount = require('./Function_requirements/create_account');
+const path = require("path");
+const fs = require("fs");
+const multer = require("multer");
 var nocache = require('nocache');
+
+const handleError = (err, res) => {
+    res
+      .status(500)
+      .contentType("text/plain")
+      .end("Oops! Something went wrong!");
+  };
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/img')
+    },
+    filename: (req, file, cb) => {
+        console.log(file);
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+});
+  
+const upload = multer({storage: storage});
+
 // Classes
 var Seller = require('./Classes/seller');
 var Buyer = require('./Classes/buyer');
@@ -380,9 +403,8 @@ app.get('/seller', async function(req,res) {
     res.render('pages/seller', {message: null, title:'Seller Page' , books: result});
 });
 
-app.post('/createBook', async function(req, res) {
+app.post('/createBook', upload.single('file'), async(req, res) => {
 
-    
     var isbn = parseInt(req.body.isbn);
     var price = parseInt(req.body.price);
 
@@ -413,6 +435,8 @@ app.post('/createBook', async function(req, res) {
 
                     if(!flag2)
                     {
+                        fs.unlink(req.file.path);
+
                         await GLOBAL.user.createListing(new_isbn, 0, price);
                     }
                     else
@@ -425,6 +449,28 @@ app.post('/createBook', async function(req, res) {
                 }
                 else
                 {
+
+                    var tempPath = req.file.path;
+                    var targetPath = path.join(__dirname, "./uploads/image.png");
+                
+                    if (path.extname(req.file.originalname).toLowerCase() !== ".png"){
+                    fs.unlink(tempPath, err => {
+                        if (err) return handleError(err, res);
+                
+                        var query = "SELECT * FROM Books";
+                        con.query(query, function(err, result) {
+                            if(err) reject(err);
+                            res.render('pages/add_listing', {warning: "Only .png files are allowed!", books: result});
+                            
+                        })
+                        
+                    });
+                    return;
+                    }
+
+                    fs.rename(req.file.path, "public/img/" + new_isbn + ".png", function(err) {
+                        if(err) throw err;
+                    })
                     await GLOBAL.user.createListing(new_isbn, 0, price, new_name, new_category, new_author);
                 }
             }
@@ -457,6 +503,11 @@ app.post('/linkSeller', async function(req, res) {
     var result = await GLOBAL.user.getListings();
     res.render('pages/seller', {message: null, title:'Seller Page' , books: result});
 
+});
+
+app.post('/payment', async function(req,res) {
+
+    res.render('pages/payment', {message: null});
 });
 
 app.get('/transactions', async function(req, res) {
